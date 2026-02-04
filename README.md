@@ -16,7 +16,7 @@ I wanted something beyond a static website — a space that reflects curiosity, 
 ## Bringing AI Into the Experience
 
 <div align="center">
-  <img width="1200" height="475" alt="Google AI Studio Preview" src="/public/google-ai-studio.png" />
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
 To achieve this, I built the portfolio using **Google AI Studio** and **Gemini 3.0** to explore how large language models can be integrated into real-world products — not just as demos, but as meaningful, user-facing experiences.

@@ -16,7 +16,7 @@ I wanted something beyond a static website — a space that reflects curiosity, 
 ## Bringing AI Into the Experience
 
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
 To achieve this, I built the portfolio using **Google AI Studio** and **Gemini 3.0** to explore how large language models can be integrated into real-world products — not just as demos, but as meaningful, user-facing experiences.
@@ -30,11 +30,11 @@ This portfolio is both a personal statement and a technical playground, reflecti
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+### Prerequisites
+- Node.js (v18 or later recommended)
 
+### Setup Instructions
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install

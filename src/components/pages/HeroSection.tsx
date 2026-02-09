@@ -46,7 +46,7 @@ function HeroSection({  }: HeroSectionProps) {
   const { scrollYProgress } = useScroll();
   const heroOpacityTransform = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const heroScaleTransform = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
-  
+
   return (
     <section className="relative h-screen flex flex-col items-center justify-center px-6 mb-10 border-b border-white/10 overflow-hidden">
       <motion.div 
@@ -55,17 +55,17 @@ function HeroSection({  }: HeroSectionProps) {
       >
         <div className="flex flex-col items-center mb-8">
           <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-[12vw] md:text-[12vw] leading-[0.9] font-heading font-bold uppercase tracking-tighter"
           >
             Hello, I'm
           </motion.h1>
           <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-[15vw] md:text-[12vw] leading-[0.9] font-heading font-bold uppercase tracking-normal text-white/40 -mt-[1.8vw]"
           >
             Xavier
@@ -73,8 +73,8 @@ function HeroSection({  }: HeroSectionProps) {
         </div>
         
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
           className="flex flex-col items-center mb-12"
         >
@@ -88,7 +88,7 @@ function HeroSection({  }: HeroSectionProps) {
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
           className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12"
@@ -109,7 +109,7 @@ function HeroSection({  }: HeroSectionProps) {
 
           <div className="flex items-center gap-2">
             <span className="text-[13px] font-mono tracking-[0.2em] uppercase text-white/40">
-              <span className="text-white font-bold"><Counter value={2} />+</span> Years of experience
+              <span className="text-white font-bold"><Counter value={1} />+</span> Years of experience
             </span>
           </div>
         </motion.div>

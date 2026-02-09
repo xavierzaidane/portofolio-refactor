@@ -21,6 +21,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
   lenis,
 }) => {
   const [imageLoaded, setImageLoaded] = React.useState<Record<string, boolean>>({})
+  const [imageError, setImageError] = React.useState<Record<string, boolean>>({})
   const scrollContainerRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
@@ -72,6 +73,13 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
     }))
   }
 
+  const handleImageError = (index: number) => {
+    setImageError(prev => ({
+      ...prev,
+      [index]: true
+    }))
+  }
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal forceMount>
@@ -117,7 +125,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                 "
               >
 
-                <div className=" px-6 py-4 flex-shrink-0 relative">
+                <div className=" px-6 py-4 shrink-0 relative">
                   <Dialog.Title className="text-5xl font-semibold text-white text-center mt-10">
                     {project.title}
                   </Dialog.Title>
@@ -143,17 +151,24 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                     <div className="flex flex-col gap-4">
                       {(project.image || [project.image]).map((img, idx) => (
                         <div key={idx} className="overflow-hidden rounded-lg border border-white/10 w-full relative">
-                          {!imageLoaded[idx] && (
-                            <Skeleton className="w-full h-64" />
+                          {!imageLoaded[idx] && !imageError[idx] && (
+                            <Skeleton className="w-full h-64 animate-pulse" />
                           )}
-                          <img
-                            src={img}
-                            alt={`${project.title} - ${idx + 1}`}
-                            className={`w-full h-auto object-cover transition-opacity duration-300 ${
-                              imageLoaded[idx] ? 'opacity-100' : 'opacity-0'
-                            }`}
-                            onLoad={() => handleImageLoad(idx)}
-                          />
+                          {imageError[idx] ? (
+                            <div className="w-full h-64 flex items-center justify-center bg-white/10 text-white/70">
+                              Image not available
+                            </div>
+                          ) : (
+                            <img
+                              src={img}
+                              alt={`${project.title} - ${idx + 1}`}
+                              className={`w-full h-auto object-cover transition-opacity duration-300 ${
+                                imageLoaded[idx] ? 'opacity-100' : 'opacity-0'
+                              }`}
+                              onLoad={() => handleImageLoad(idx)}
+                              onError={() => handleImageError(idx)}
+                            />
+                          )}
                         </div>
                       ))}
                     </div>

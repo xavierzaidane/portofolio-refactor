@@ -73,5 +73,17 @@ export const PROJECTS: Project[] = [
     fullDescription: 'E-commerce platform built with Java Quarkus for the simple and efficient management of online stores. this is just a prototype.',
     link: '#',
     github: 'https://github.com/xavierzaidane/java-quarkus-web',
-  }
+  },
+   {
+    id: '7',
+    title: 'Florist Store ',
+    category: 'E-commerce Project',
+    image: ['#'],
+    description: 'A conceptual web-based operating system built with React. (ongoing project)',
+    tech: ['Java', 'Quarkus', 'PostgreSQL','HTML','CSS','JavaScript'],
+    workflow: ['Figma','Git','Trello','Postman','CI/CD'],
+    fullDescription: 'E-commerce platform built with Java Quarkus for the simple and efficient management of online stores. (ongoing project)',
+    link: '#',
+    github: '#',
+  },
 ];

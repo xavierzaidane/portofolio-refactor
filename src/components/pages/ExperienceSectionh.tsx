@@ -45,7 +45,7 @@ function Experience() {
               className="flex items-baseline gap-2 mb-4"
             >
               <span className="text-8xl md:text-9xl font-heading font-bold tracking-tighter">
-                <Counter value={2} />
+                <Counter value={1} />
               </span>
               <span className="text-2xl md:text-4xl font-light text-white/40 font-mono">+</span>
             </motion.div>
@@ -67,7 +67,7 @@ function Experience() {
               viewport={{ once: true, margin: "-100px" }}
               className="text-lg md:text-xl text-white/50 leading-relaxed font-light"
             >
-              Collaborating with global brands and agile startups to engineer systems that define the modern web. From stealth-mode MVPs to high-availability enterprise platforms.
+              Over the past year, I've immersed myself in diverse projects spanning web development and AI integration. My journey has equipped me with a robust skill set and enabled me to deliver innovative solutions that drive digital transformation.
             </motion.p>
           </motion.div>
           

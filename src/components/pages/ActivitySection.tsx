@@ -31,9 +31,9 @@ const data = days.map((date) => {
 
 function ActivitySection() {
   return (
-    <section id="activity" className="py-32 bg-transparent border-t border-b border-white/10">
+    <section id="activity" className="py-32 bg-transparent border-t border-b border-border">
         <div className="px-6 md:px-12 flex flex-col md:flex-row justify-between gap-12 mb-20">
-            <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-white/40">Activity</h2>         
+            <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-foreground/40">Activity</h2>         
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,8 +41,8 @@ function ActivitySection() {
             viewport={{ once: true, margin: "-100px" }}
             className="flex-1 max-w-5xl flex flex-col gap-8"
           >
-            <h3 className="text-3xl md:text-4xl font-light leading-snug text-white/60">
-              A visual record of <span className="text-white font-normal">consistency </span>and commitment to <span className="text-white font-normal">engineering </span>exellence.
+            <h3 className="text-3xl md:text-4xl font-light leading-snug text-foreground/60">
+              A visual record of <span className="text-foreground font-normal">consistency </span>and commitment to <span className="text-foreground font-normal">engineering </span>excellence.
             </h3>
             
             <motion.div
@@ -53,17 +53,17 @@ function ActivitySection() {
               className="mt-10"
             >
               <ContributionGraph className="" data={data}>
-                <ContributionGraphCalendar className="font-mono tracking-[0.1em] text-white/80 ">
+                <ContributionGraphCalendar className="font-mono tracking-[0.1em] text-foreground/80 ">
                   {({ activity, dayIndex, weekIndex }) => (
                   
                       <ContributionGraphBlock
                         activity={activity}
                         className={cn(
-                          'data-[level="0"]:fill-[#161b22]',
-                          'data-[level="1"]:fill-[#0e4429]',
-                          'data-[level="2"]:fill-[#006d32]',
-                          'data-[level="3"]:fill-[#26a641]',
-                          'data-[level="4"]:fill-[#39d353]',
+                          'dark:data-[level="0"]:fill-[#161b22] light:data-[level="0"]:fill-[#ebedf0]',
+                          'dark:data-[level="1"]:fill-[#0e4429] light:data-[level="1"]:fill-[#c6e48b]',
+                          'dark:data-[level="2"]:fill-[#006d32] light:data-[level="2"]:fill-[#7ee787]',
+                          'dark:data-[level="3"]:fill-[#26a641] light:data-[level="3"]:fill-[#30a14e]',
+                          'dark:data-[level="4"]:fill-[#39d353] light:data-[level="4"]:fill-[#216e39]',
                           'transition-all duration-300 hover:opacity-80'
                         )}
                         dayIndex={dayIndex}

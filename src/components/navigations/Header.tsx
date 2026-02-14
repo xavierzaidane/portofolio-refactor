@@ -1,5 +1,7 @@
 import { motion } from 'motion/react'
 
+
+
 function Header() {
   return (
     <header className="top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 pointer-events-none">
@@ -19,7 +21,7 @@ function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-xs md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-white/60"
+            className="text-xs md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/60 dark:text-foreground/60"
           >
             Available for work
           </motion.span>
@@ -35,10 +37,11 @@ function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-xs md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-white/60"
+            className="text-xs md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/60 dark:text-foreground/60"
           >
             Based in Indonesia [UTC+7]
-          </motion.div>       
+          </motion.div>
+          
         </motion.div>
       </header>
   )

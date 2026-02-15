@@ -48,7 +48,7 @@ function StackSection() {
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
+                      <Icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11" />
                     </motion.div>
                     <span className="text-[10px] sm:text-[11px] md:text-[13px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/20 dark:text-white/20 group-hover:text-foreground/60 dark:group-hover:text-white/60 mt-4 sm:mt-6 md:mt-8 transition-colors pointer-events-none text-center">
                       {item.name}

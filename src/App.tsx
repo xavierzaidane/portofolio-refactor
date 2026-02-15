@@ -37,7 +37,7 @@ const AppContent: React.FC = () => {
             <Philosophy />
         <Contact />
       <div className="fixed bottom-6 md:bottom-4 right-4 md:right-6 z-50 pointer-events-auto">
-        <ThemeToggleButton className='h-8 w-8 ' variant="circle" start="bottom-right" />
+        <ThemeToggleButton className='h-8 w-8 ' variant="circle" start="bottom-right" blur={true} />
       </div>
       <Footer/>
     </div>

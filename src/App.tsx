@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
 import ReactLenis from 'lenis/react';
 import HeroSection from './components/pages/HeroSection';
@@ -47,6 +47,7 @@ const AppContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <ReactLenis root>
+
       <AppContent />
     </ReactLenis>
   );

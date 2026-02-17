@@ -22,6 +22,7 @@ import {
   SiGithubcopilot,
   SiXampp,
   SiGooglecolab,
+  SiCypress,
 
 } from 'react-icons/si';
 
@@ -71,7 +72,7 @@ const WORKFLOW_DATA: WorkflowData = {
   testing: [
     { name: 'Postman', icon: SiPostman },
     { name: 'Httpie', icon: Globe },
-    { name: 'Biome', icon: SiBiome },
+    { name: 'Cypress', icon: SiCypress },
     { name: 'OpenRouter', icon: Route },
   ],
 };

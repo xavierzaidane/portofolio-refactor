@@ -146,7 +146,7 @@ function Experience() {
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
                           viewport={{ once: true, margin: "-100px" }}
-                          whileHover={{ x: 5 }}
+                   
                           className="text-lg sm:text-xl md:text-xl lg:text-xl font-heading font-bold tracking-tight text-foreground group-hover:text-foreground/40 transition-colors pointer-events-auto cursor-pointer"
                         >
                           {exp.company}

@@ -26,8 +26,20 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: 'https://github.com/xavierzaidane/resume-ai',
   },
-  {
+    {
     id: '3',
+    title: 'Chatbot Plugin',
+    category: 'Chat Plugin',
+    image: ['/chat1.png','/chat2.png'],
+    description: 'A conceptual web-based operating system built with React.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Liquid','PHP',],
+    workflow: ['Shopify','WordPress','WooCommerce','Figma', 'TanStack Query'],
+    fullDescription: 'Chat Plugin that integrates AI capabilities into applications. Built with Next.js and embedded into Shopify, WooCommerce, and WordPress, it offers seamless user interactions and enhanced functionality through AI-driven features.',
+    link: '#',
+    github: 'https://github.com/xavierzaidane/chat-widget-kalibry',
+  },
+  {
+    id: '4',
     title: 'Slack Clone',
     category: 'Messaging App',
     image: ['/Slack.png'],
@@ -38,18 +50,7 @@ export const PROJECTS: Project[] = [
     link: 'https://slack-clone-frontend-lilac.vercel.app/',
     github: 'https://github.com/xavierzaidane/slack-clone-app',
   },
-  {
-    id: '4',
-    title: 'ChatGPT Plugin',
-    category: 'Chat Plugin',
-    image: ['/chat1.png','/chat2.png'],
-    description: 'A conceptual web-based operating system built with React.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Liquid','PHP',],
-    workflow: ['Shopify','WordPress','WooCommerce','Figma', 'TanStack Query'],
-    fullDescription: 'Chat Plugin that integrates AI capabilities into applications. Built with Next.js and TypeScript, it offers seamless user interactions and enhanced functionality through AI-driven features.',
-    link: '#',
-    github: 'https://github.com/xavierzaidane/chat-widget-kalibry',
-  },
+
   {
     id: '5',
     title: 'IRIS',

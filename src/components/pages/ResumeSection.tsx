@@ -31,7 +31,7 @@ function ResumeSection() {
               viewport={{ once: true, margin: "-100px" }}
               className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-heading font-semibold mb-6 md:mb-8 lg:mb-10 tracking-tighter text-left"
             >
-                <span className="text-foreground/60 dark:text-white/60">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60">Full-Stack</span> Development journey.
+                <span className="text-foreground/60 dark:text-white/60">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60">Frontend</span> Development journey.
             </motion.h3>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ function ResumeSection() {
                   onClick={handleDownloadResume}
                   className='flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-56 md:w-60 lg:w-65 h-10 sm:h-11 md:h-12 rounded-full border border-foreground/20 dark:border-white/20 text-foreground dark:text-white text-sm sm:text-base md:text-lg lg:text-[17px] font-light transition-colors cursor-pointer'
                 >
-                  <Download className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-foreground dark:text-white font-light"/>
+                  <Download className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-foreground/60 dark:text-white/50 font-light"/>
                   <span className="text-sm sm:text-base md:text-lg lg:text-[17px] text-foreground dark:text-white font-light">Download my resume 
                   </span>
                 </FlipButtonBack>

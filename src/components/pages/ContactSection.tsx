@@ -26,41 +26,7 @@ function Contact() {
             <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-foreground/40 dark:text-white/40 mb-8">Next Steps</h2>
             <h3 className="text-5xl md:text-9xl font-heading font-bold mb-16 leading-[0.9] tracking-tighter uppercase">
               Let's build <span className="text-foreground/60 dark:text-white/60">something</span> <br/> <span className="text-foreground/60 dark:text-white/60">
-               <TextLoop 
-               className='overflow-y-clip'
-        transition={{
-          type: 'spring',
-          stiffness: 900,
-          damping: 100,
-          mass: 10,
-        }}
-        variants={{
-          initial: {
-            y: 20,
-            rotateX: 90,
-            opacity: 0,
-            filter: 'blur(1px)',
-          },
-          animate: {
-            y: 0,
-            rotateX: 0,
-            opacity: 1,
-            filter: 'blur(0px)',
-          },
-          exit: {
-            y: -20,
-            rotateX: -90,
-            opacity: 0,
-            filter: 'blur(1px)',
-          },
-        }}
-      >
-        <span>meaningful</span>
-        <span>thoughtful</span>
-        <span>expressive</span>
-        <span>impactful</span>
-      </TextLoop>
-               
+               Exquisite
               </span> together.
             </h3>
             

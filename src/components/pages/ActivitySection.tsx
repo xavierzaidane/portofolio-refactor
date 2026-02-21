@@ -59,12 +59,11 @@ function ActivitySection() {
                       <ContributionGraphBlock
                         activity={activity}
                         className={cn(
-                          'dark:data-[level="0"]:fill-[#161b22] light:data-[level="0"]:fill-[#ebedf0]',
-                          'dark:data-[level="1"]:fill-[#0e4429] light:data-[level="1"]:fill-[#c6e48b]',
-                          'dark:data-[level="2"]:fill-[#006d32] light:data-[level="2"]:fill-[#7ee787]',
-                          'dark:data-[level="3"]:fill-[#26a641] light:data-[level="3"]:fill-[#30a14e]',
-                          'dark:data-[level="4"]:fill-[#39d353] light:data-[level="4"]:fill-[#216e39]',
-                          'transition-all duration-300 hover:opacity-80'
+                           'data-[level="0"]:fill-[#c0c1c3] dark:data-[level="0"]:fill-[#161b22]',
+            'data-[level="1"]:fill-[#9be9a8] dark:data-[level="1"]:fill-[#0e4429]',
+            'data-[level="2"]:fill-[#40c463] dark:data-[level="2"]:fill-[#006d32]',
+            'data-[level="3"]:fill-[#30a14e] dark:data-[level="3"]:fill-[#26a641]',
+            'data-[level="4"]:fill-[#216e39] dark:data-[level="4"]:fill-[#39d353]'
                         )}
                         dayIndex={dayIndex}
                         weekIndex={weekIndex}

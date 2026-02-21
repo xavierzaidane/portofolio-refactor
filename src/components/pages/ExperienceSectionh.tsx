@@ -1,175 +1,108 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, useInView } from 'motion/react';
-import { Tooltip } from '../ui/tooltip-card';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { experienceData } from '../../data/experience';
 
 
-const Counter = ({ value, duration = 2 }: { value: number; duration?: number }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
+function Experience() {
+  const [cols, setCols] = useState(() => {
+    if (typeof window === 'undefined') return 3;
+    const w = window.innerWidth;
+    return w >= 1024 ? 4 : w >= 768 ? 3 : 2;
+  });
 
   useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = value;
-      const totalMilliseconds = duration * 1000;
-      const incrementTime = totalMilliseconds / end;
-      const timer = setInterval(() => {
-        start += 1;
-        setCount(start);
-        if (start === end) clearInterval(timer);
-      }, incrementTime);
-      return () => clearInterval(timer);
-    }
-  }, [isInView, value, duration]);
+    const onResize = () => {
+      const w = window.innerWidth;
+      setCols(w >= 1024 ? 4 : w >= 768 ? 3 : 2);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
-  return <span ref={ref}>{count}</span>;
-};
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.06,
+      },
+    },
+  };
 
-function Experience() {
+
   return (
-     <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+    <section id="experience" className="py-12 md:py-20 lg:py-28 bg-transparent">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-8 md:gap-12 mb-10 md:mb-14">
+        <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">
+          Experiences
+        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.08 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="flex-1 max-w-5xl"
+        >
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-white/60">
+            My journey has been <span className="text-foreground dark:text-white font-normal">1+</span> years in Frontend Development
+          </h3>
+        </motion.div>
+      </div>
+
+      <div className="flex justify-between gap-6 md:gap-8 lg:gap-12 px-4 sm:px-5 md:px-8 lg:px-11">
+        <div className="w-8 md:w-10 lg:w-12 shrink-0" />
+        <div className="flex-1 max-w-5xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-120px' }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px"
           >
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="flex items-baseline gap-2 mb-4 flex-wrap"
-            >
-              <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-heading font-bold tracking-tighter text-foreground">
-                <Counter value={1} />
-              </span>
-              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-foreground/40 font-mono">+</span>
-            </motion.div>
-            
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 uppercase text-foreground"
-            >
-              Years of Digital Innovation
-            </motion.h3>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="text-base sm:text-lg md:text-xl text-foreground/60 leading-relaxed font-light"
-            >
-              Over the past year, I've immersed myself in diverse projects spanning web development and AI integration. My journey has equipped me with a robust skill set and enabled me to deliver innovative solutions that drive digital transformation.
-            </motion.p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col gap-6 md:gap-8 lg:gap-12 w-full"
-          >
-            <div className="relative pt-8 md:pt-12 lg:pt-16">
-        
-              <motion.div 
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true, margin: "-100px" }}
-                className="absolute top-0 left-0 w-full mt-8 md:mt-12 lg:mt-16 h-px bg-foreground/10 origin-left" 
-              />
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-                {experienceData.map((exp, i) => (
-                  <motion.div 
-                    key={exp.company}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      delay: 0.3 + i * 0.12, 
-                      duration: 0.7,
-                      ease: [0.16, 1, 0.3, 1]
-                    }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="relative pt-6 group"
-                  >
-                    <motion.div 
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      transition={{ 
-                        delay: 0.3 + i * 0.12, 
-                        duration: 0.5,
-                        ease: "easeOut"
-                      }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      className="absolute top-[-5px] left-0 w-2.5 h-2.5 rounded-full bg-foreground/80" 
+            {experienceData.map((item, idx) => {
+              const totalRows = Math.ceil(experienceData.length / cols);
+              const rowIndex = Math.floor(idx / cols);
+              const isLastRow = rowIndex === totalRows - 1;
+              const isLastInRow = (idx % cols) === cols - 1;
+
+              return (
+                <motion.div
+                  key={item.company}
+                  className="relative group flex flex-col items-center justify-center py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 transition-colors hover:bg-foreground/5 dark:hover:bg-white/5"
+                >
+                  {!isLastInRow && (
+                    <div
+                      aria-hidden="true"
+                      className="absolute right-0 w-px bg-foreground/10 dark:bg-white/10"
+                      style={{ top: '0%', bottom: '0%' }} 
                     />
-                    
-                    <div className="space-y-2">
-                      <motion.span 
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="text-[9px] sm:text-[10px] font-mono tracking-wide sm:tracking-widest text-foreground/30 uppercase block"
-                      >
-                        {exp.year}
-                      </motion.span>
-                      
-                      <Tooltip
-                        containerClassName="text-foreground"
-                        content={
-                          <div className="w-64">
-                            <span>
-                              <img src={exp.Image} alt={exp.company} className="w-14 h-14 mb-2 object-contain rounded-full"/>
-                            </span>
-                            <p className="text-lg font-bold text-foreground mb-2">{exp.company} 
-                              <span className='ml-2 text-foreground/50 font-light text-xs'>{exp.location}</span>
-                              </p>
-                            <p className="text-xs text-foreground/60">
-                              {exp.Description ? exp.Description : 'No additional description available.'}
-                            </p>
-                          </div>
-                        }
-                      >
-                        <motion.h4 
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
-                          viewport={{ once: true, margin: "-100px" }}
-                   
-                          className="text-lg sm:text-xl md:text-xl lg:text-xl font-heading font-bold tracking-tight text-foreground group-hover:text-foreground/40 transition-colors pointer-events-auto cursor-pointer"
-                        >
-                          {exp.company}
-                        </motion.h4>
-                      </Tooltip>
-                      
-                      <motion.p 
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.45 + i * 0.12, duration: 0.6 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="text-[9px] sm:text-[10px] font-mono tracking-wide sm:tracking-widest text-foreground/40 uppercase"
-                      >
-                        {exp.role}
-                      </motion.p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                  )}
+
+                  {!isLastRow && (
+                    <div
+                      aria-hidden="true"
+                      className="absolute h-[1px] bg-foreground/10 dark:bg-white/10"
+                      style={{ left: '8%', right: '8%', bottom: 0 }} // adjust to change length
+                    />
+                  )}
+
+                  <span className="text-[12px] leading-snug tracking-wide text-foreground/35 dark:text-foreground/25 group-hover:text-foreground/70 dark:group-hover:text-white mt-1 sm:mt-2 md:mt-1 mb-1 md:mb-1 transition-colors pointer-events-none text-center">
+                    {item.year}
+                  </span>
+
+                  <span className="text-[20px] sm:text-[22px] leading-snug tracking-wide text-foreground/60 dark:text-foreground/60 group-hover:text-foreground/70 dark:group-hover:text-white mt-1 sm:mt-2 md:mt-1 transition-colors pointer-events-none text-center">
+                    {item.company}
+                  </span>
+
+                  <span className="text-[14px] leading-snug tracking-wide text-foreground/40 dark:text-foreground/30 group-hover:text-foreground/70 dark:group-hover:text-white mt-3 sm:mt-4 md:mt-3 transition-colors pointer-events-none text-center">
+                    {item.role}
+                  </span>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 }
 

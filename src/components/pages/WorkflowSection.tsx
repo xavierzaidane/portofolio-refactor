@@ -29,7 +29,7 @@ function WorkflowSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="flex-1 max-w-5xl"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-px bg-foreground/10 dark:bg-white/10 border border-foreground/10 dark:border-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-px bg-foreground/10 dark:bg-white/10 border border-foreground/10 dark:border-white/5">
               {/* Development Group */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ function WorkflowSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="col-span-1 md:col-span-2 lg:col-span-4 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6 md:border-l border-foreground/10 dark:border-white/10"
+                className="col-span-1 md:col-span-2 lg:col-span-4 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6  border-foreground/10 dark:border-white/10"
               >
                 <motion.h4 
                   initial={{ opacity: 0, y: 10 }}
@@ -110,7 +110,7 @@ function WorkflowSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="col-span-1 md:col-span-2 lg:col-span-5 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6 md:border-t border-foreground/10 dark:border-white/10"
+                className="col-span-1 md:col-span-2 lg:col-span-5 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6  border-foreground/10 dark:border-white/10"
               >
                 <motion.h4 
                   initial={{ opacity: 0, y: 10 }}
@@ -147,7 +147,7 @@ function WorkflowSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="col-span-1 md:col-span-2 lg:col-span-4 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6 md:border-t md:border-l border-foreground/10 dark:border-white/10"
+                className="col-span-1 md:col-span-2 lg:col-span-4 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6 border-foreground/10 dark:border-white/10"
               >
                 <motion.h4 
                   initial={{ opacity: 0, y: 10 }}
@@ -184,7 +184,7 @@ function WorkflowSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="col-span-1 md:col-span-2 lg:col-span-3 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6 md:border-t border-foreground/10 dark:border-white/10 hidden lg:flex items-center justify-center"
+                className="col-span-1 md:col-span-2 lg:col-span-3 bg-background dark:bg-[#050505] p-3 sm:p-4 md:p-6  border-foreground/10 dark:border-white/10 hidden lg:flex items-center justify-center"
               >
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center">
                   <PlusCircle className="w-5 h-5 md:w-6 md:h-6 text-foreground/20 dark:text-white/20" />

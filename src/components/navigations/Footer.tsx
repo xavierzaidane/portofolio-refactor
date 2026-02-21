@@ -1,10 +1,9 @@
-import React from 'react'
 
 function Footer() {
-  return (  
+  return ( 
   
-  <footer className="py-12 px-6 text-center border-t border-white/5 text-[15px] tracking-[0.3em] font-mono uppercase opacity-20">
-        Engineered with Precision ©2026 Xavier.
+  <footer className="py-12 px-6  text-foreground/60 dark:text-foreground/60 text-center border-t border border-white/10 text-[15px] font-mono uppercase">
+      ©2026 Xavier. All rights reserved.
       </footer>
   )
 }

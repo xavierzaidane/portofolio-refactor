@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowDown, } from 'lucide-react';
 import { motion, useInView, useScroll, useTransform } from 'motion/react';
-import { FlipWords } from '../ui/flip-words';
+
 import { FlipButton, FlipButtonBack, FlipButtonFront } from '../animate-ui/primitives/buttons/flip';
 import { SiWhatsapp } from 'react-icons/si';
+import { FlipWords } from '../ui/flip-words';
 
 interface HeroSectionProps {
   heroOpacity: ReturnType<typeof useTransform>;
@@ -48,7 +49,7 @@ function HeroSection({  }: HeroSectionProps) {
   const heroScaleTransform = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center px-6 mb-10 border-b border-border overflow-hidden">
+    <section className="relative h-screen flex flex-col items-center justify-center px-6 mb-10 border-b border-foreground/10 overflow-hidden">
       <motion.div 
         style={{ opacity: heroOpacityTransform, scale: heroScaleTransform }} 
         className="text-center z-10 w-full max-w-[90vw] -mt-20"
@@ -57,7 +58,7 @@ function HeroSection({  }: HeroSectionProps) {
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
             className="text-[12vw] md:text-[12vw] leading-[0.9] font-heading font-bold uppercase tracking-tighter text-foreground"
           >
             Hello, I'm
@@ -65,14 +66,14 @@ function HeroSection({  }: HeroSectionProps) {
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 3, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-[15vw] md:text-[12vw] leading-[0.9] font-heading font-bold uppercase tracking-normal text-foreground/40 -mt-[1.8vw]"
           >
             Xavier
           </motion.h1>
         </div>
         
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}

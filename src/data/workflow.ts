@@ -15,7 +15,6 @@ import {
   SiOpenai,
   SiClaude,
   SiPostman,
-  SiBiome,
   SiLaragon,
   SiGooglegemini,
   SiClickup,
@@ -23,6 +22,8 @@ import {
   SiXampp,
   SiGooglecolab,
   SiCypress,
+  SiJira,
+  SiGit,
 
 } from 'react-icons/si';
 
@@ -44,11 +45,13 @@ const WORKFLOW_DATA: WorkflowData = {
     { name: 'VSCode', icon: VscVscode },
     { name: 'Google Analytics', icon: SiGoogleanalytics },
     { name: 'GitHub', icon: SiGithub },
+    { name: 'Git', icon: SiGit },
     { name: 'JetBrains', icon: SiJetbrains },
     { name: 'Docker', icon: SiDocker },
     { name: 'Cloudflare', icon: SiCloudflare },
     { name: 'Vercel', icon: SiVercel },
     { name: 'Supabase', icon: SiSupabase },
+
     { name: 'Google Cloud Platform', icon: SiGooglecloud },
     { name: 'Firebase', icon: SiFirebase },
     { name: 'Resend', icon: Mail },
@@ -66,7 +69,9 @@ const WORKFLOW_DATA: WorkflowData = {
     { name: 'GeminiAI', icon: SiGooglegemini },
     { name: 'OpenAI', icon: SiOpenai },
     { name: 'Claude', icon: SiClaude },
+    { name: 'Claude Code', icon: SiClaude },
     { name: 'ClickUp', icon: SiClickup },
+       { name: 'JIRA', icon: SiJira },
     { name: 'Google Collab', icon: SiGooglecolab },
   ],
   testing: [

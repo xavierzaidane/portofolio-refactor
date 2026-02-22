@@ -4,10 +4,11 @@ import {
   SiReact, 
   SiExpress, 
   SiTailwindcss, 
-  SiNodedotjs, 
-  SiMongodb,
   SiTypescript,
   SiJavascript,
+  SiLaravel,
+  SiFigma,
+
 } from 'react-icons/si';
 
 interface StackItem {
@@ -18,10 +19,10 @@ interface StackItem {
 export const STACK_DATA: StackItem[] = [
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'React.js', icon: SiReact },
-  { name: 'Express.js', icon: SiExpress },
+  { name: 'Figma', icon: SiFigma },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
-  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'Express.js', icon: SiExpress },
   { name: 'Typescript', icon: SiTypescript },
   { name: 'Javascript', icon: SiJavascript },
-  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'Laravel', icon: SiLaravel },
 ];

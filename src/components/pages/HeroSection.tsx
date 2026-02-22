@@ -80,7 +80,7 @@ function HeroSection({  }: HeroSectionProps) {
           className="flex flex-col items-center mb-12"
         >
           <h2 className="text-xl md:text-3xl font-light tracking-tight max-w-3xl text-foreground">
-            <span className="font-medium">Full-stack engineer.</span>{" "}
+            <span className="font-medium">Frontend engineer.</span>{" "}
             <span className="text-foreground/60">
               Building and delivering meaningful digital experiences with the tools that
              <FlipWords words={words} /> <br />

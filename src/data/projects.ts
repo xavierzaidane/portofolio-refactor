@@ -39,6 +39,18 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/xavierzaidane/chat-widget-kalibry',
   },
   {
+    id: '7',
+    title: 'Florist Store ',
+    category: 'E-commerce Project',
+    image: ['/anastasya1.png','/anastasya2.png','/anastasya3.png', '/anastasya4.png', '/anastasya5.png'],
+    description: 'A conceptual web-based operating system built with React. (ongoing project)',
+    tech: ['Next.js', 'PrismaORM', 'PostgreSQL','Zod','JWT','TailwindCSS', 'ShadcnUI'],
+    workflow: ['Git','Postman','CI/CD','TestSprite', 'JetBrains'],
+    fullDescription: 'Full Stack Web that i built personally for 100+ Customer in Malang (ongoing project)',
+    link: '#',
+    github: '#',
+  },
+  {
     id: '4',
     title: 'Slack Clone',
     category: 'Messaging App',
@@ -75,16 +87,5 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: 'https://github.com/xavierzaidane/java-quarkus-web',
   },
-   {
-    id: '7',
-    title: 'Florist Store ',
-    category: 'E-commerce Project',
-    image: ['#'],
-    description: 'A conceptual web-based operating system built with React. (ongoing project)',
-    tech: ['Java', 'Quarkus', 'PostgreSQL','HTML','CSS','JavaScript'],
-    workflow: ['Figma','Git','Trello','Postman','CI/CD'],
-    fullDescription: 'E-commerce platform built with Java Quarkus for the simple and efficient management of online stores. (ongoing project)',
-    link: '#',
-    github: '#',
-  },
+
 ];

@@ -24,7 +24,7 @@ function Contact() {
             viewport={{ once: true }}
           >
             <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-foreground/40 dark:text-white/40 mb-8">Next Steps</h2>
-            <h3 className="text-5xl md:text-9xl font-heading font-bold mb-16 leading-[0.9] tracking-tighter uppercase">
+            <h3 className="text-5xl md:text-9xl font-heading font-bold font-mono mb-16 leading-[0.9] tracking-tighter uppercase">
               Let's build <span className="text-foreground/60 dark:text-white/60">something</span> <br/> <span className="text-foreground/60 dark:text-white/60">
                Exquisite
               </span> together.

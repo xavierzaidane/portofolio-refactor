@@ -59,15 +59,15 @@ function HeroSection({  }: HeroSectionProps) {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[12vw] md:text-[12vw] leading-[0.9] font-heading font-bold uppercase tracking-tighter text-foreground"
+            className="text-[12vw] md:text-[12vw] leading-[0.9] font-mono font-bold uppercase tracking-tighter text-foreground"
           >
-            Hello, I'm
+            Hello,I'm
           </motion.h1>
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 3, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[15vw] md:text-[12vw] leading-[0.9] font-heading font-bold uppercase tracking-normal text-foreground/40 -mt-[1.8vw]"
+            className="text-[15vw] md:text-[12vw] leading-[0.9] font-mono font-bold uppercase tracking-normal text-foreground/40 -mt-[1.8vw]"
           >
             Xavier
           </motion.h1>

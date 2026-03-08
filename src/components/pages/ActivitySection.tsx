@@ -31,7 +31,7 @@ const data = days.map((date) => {
 
 function ActivitySection() {
   return (
-    <section id="activity" className="py-32 bg-transparent border-t border-b border-border">
+    <section id="activity" className="py-32 bg-transparent border-t border-foreground/10 dark:border-foreground/10">
         <div className="px-6 md:px-12 flex flex-col md:flex-row justify-between gap-12 mb-20">
             <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-foreground/40">Activity</h2>         
           <motion.div 

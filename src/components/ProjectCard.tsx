@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         onClick={() => setIsDialogOpen(true)}
         animate={{ scale: isHovered ? 0.98 : 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="group relative w-full border-b border-border py-8 sm:py-12 md:py-16 lg:py-20 cursor-pointer"
+        className="group relative w-full border-b border-foreground/10 dark:border-foreground/10 py-8 sm:py-12 md:py-16 lg:py-20 cursor-pointer"
       >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 md:gap-8 px-4 sm:px-5 md:px-0">
           {/* Left Side: Number and Title */}

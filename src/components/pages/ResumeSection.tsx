@@ -14,7 +14,7 @@ const handleDownloadResume = () => {
 
 function ResumeSection() {
   return (
-    <section id="resume" className="py-16 md:py-24 lg:py-32 bg-transparent border-t border-foreground/10 dark:border-white/10">
+    <section id="resume" className="py-16 md:py-24 lg:py-32 bg-transparent border-t border-foreground/10 dark:border-foreground/10">
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-8 md:gap-12">
              <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">Resume</h2>
           <motion.div 
@@ -51,9 +51,9 @@ function ResumeSection() {
             >
               <FlipButton>
                 <FlipButtonFront
-                  className='flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-56 md:w-60 lg:w-65 h-10 sm:h-11 md:h-12 rounded-full border border-foreground/20 dark:border-white/20 text-foreground dark:text-white text-sm sm:text-base md:text-lg lg:text-[17px] font-light transition-colors'
+                  className='flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-56 md:w-60 lg:w-60 h-10 sm:h-11 md:h-12 rounded-full border border-foreground/20 dark:border-white/20 text-foreground dark:text-white text-sm sm:text-base md:text-lg lg:text-[17px] font-light transition-colors'
                 >
-                  Interested in learning more ?
+                  Interested in more ?
                 </FlipButtonFront>
                 <FlipButtonBack 
                   onClick={handleDownloadResume}

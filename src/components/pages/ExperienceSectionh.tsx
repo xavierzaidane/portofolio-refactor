@@ -30,8 +30,8 @@ function Experience() {
 
 
   return (
-    <section id="experience" className="py-12 md:py-20 lg:py-28 bg-transparent">
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-8 md:gap-12 mb-10 md:mb-14">
+    <section id="experience" className="py-12 md:py-20 lg:py-28 bg-transparent ">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-8 md:gap-12 mb-10 md:mb-14 ">
         <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">
           Experiences
         </h2>

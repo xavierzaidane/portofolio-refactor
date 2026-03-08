@@ -10,12 +10,12 @@ function Philosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="px-6 md:px-12 flex justify-between border-t border-foreground/10 dark:border-white/10 pt-8 mb-20"
+            className="px-6 md:px-12 flex justify-between border-t border-foreground/10 dark:border-foreground/10 pt-8 mb-20"
           >
             <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-foreground/40 dark:text-white/40">Core Philosophy</h2>
             <h2 className="text-[15px] font-mono tracking-[0.2em] uppercase text-foreground/40 dark:text-white/40">03 — Attributes</h2>
           </motion.div>
-          <div className="flex flex-col border-foreground/10 dark:border-white/10">
+          <div className="flex flex-col border-foreground/10 dark:border-foreground/10">
             {PHILOSOPHY.map((item, idx) => (
               <motion.div 
                 key={item.title}
@@ -26,7 +26,7 @@ function Philosophy() {
                   duration: 0.8,
                   delay: idx * 0.1
                 }}
-                className="grid grid-cols-1 lg:grid-cols-12 py-16 md:py-24 px-6 md:px-10 border-b border-foreground/10 dark:border-white/10 gap-8 lg:gap-0 items-start"
+                className="grid grid-cols-1 lg:grid-cols-12 py-16 md:py-24 px-6 md:px-10 border-b border-foreground/10 dark:border-foreground/10 gap-8 lg:gap-0 items-start"
               >
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}

@@ -25,7 +25,7 @@ const AppContent: React.FC = () => {
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
   return (
-    <div className="relative min-h-screen font-sans overflow-x-hidden bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+    <div className="relative min-h-screen antialiased font-sans overflow-x-hidden bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
       <Header />
         <HeroSection heroOpacity={heroOpacity} heroScale={heroScale} />
           <Experience />
@@ -47,7 +47,6 @@ const AppContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <ReactLenis root>
-
       <AppContent />
     </ReactLenis>
   );

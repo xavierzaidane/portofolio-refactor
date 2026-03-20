@@ -228,26 +228,22 @@ function HeroSection({  }: HeroSectionProps) {
       ref={sectionRef}
       className="relative h-screen flex flex-col items-center justify-center px-6 mb-10 border-b border-foreground/10 overflow-hidden"
     >
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-foreground/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-foreground/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      </div>
+   
 
       <div 
         ref={contentRef}
-        className="text-center z-10 w-full max-w-[45vw] -mt-20"
+        className="text-center z-10 w-full max-w-[50vw] -mt-20"
       >
         <div className="flex flex-col items-center mb-8 overflow-hidden">
           <h1 
             ref={titleRef}
-            className="text-[12vw] md:text-[9vw] leading-[0.9] font-bold uppercase tracking-tighter text-foreground will-change-transform"
+            className="text-[12vw] md:text-[10vw] leading-[0.9] font-bold uppercase tracking-tighter text-foreground will-change-transform"
           >
             <SplitText delay={0.3}>Hello, I'm</SplitText>
           </h1>
           <h1 
             ref={subtitleRef}
-            className="text-[15vw] md:text-[9vw] leading-[0.9]  font-bold uppercase tracking-normal text-foreground/40 -mt-[1.8vw] will-change-transform"
+            className="text-[15vw] md:text-[10vw] leading-[0.9]  font-bold uppercase tracking-normal text-foreground/40 -mt-[1.8vw] will-change-transform"
           >
             <SplitText delay={0.6}>Xavier</SplitText>
           </h1>

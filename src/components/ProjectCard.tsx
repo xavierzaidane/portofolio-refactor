@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <span className="text-[10px] sm:text-xs md:text-sm lg:text-lg font-mono text-foreground/20 mt-1 md:mt-0 px-3 sm:px-4 md:px-5 pointer-events-none">
               {formattedIndex}
             </span>
-            <h3 className="text-3xl sm:text-4xl md:text-6xl lg:text-9xl font-heading font-bold tracking-tighter text-foreground/70 group-hover:text-foreground transition-colors duration-500 pointer-events-none">
+            <h3 className="text-3xl sm:text-4xl md:text-9xl lg:text-9xl  font-semibold tracking-tighter text-foreground/70 group-hover:text-foreground transition-colors duration-500 pointer-events-none">
               {project.title}
             </h3>
           </div>

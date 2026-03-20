@@ -20,8 +20,9 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
   onOpenChange,
   lenis,
 }) => {
-  const [imageLoaded, setImageLoaded] = React.useState<Record<string, boolean>>({})
-  const [imageError, setImageError] = React.useState<Record<string, boolean>>({})
+  const [imageLoaded, setImageLoaded] = React.useState<Record<number, boolean>>({})
+  const [imageError, setImageError] = React.useState<Record<number, boolean>>({})
+  const [activeImageIndex, setActiveImageIndex] = React.useState(0)
   const scrollContainerRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
@@ -38,6 +39,10 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
       document.body.style.overflow = "auto"
     }
   }, [open, lenis])
+
+  React.useEffect(() => {
+    setActiveImageIndex(0)
+  }, [project.id, open])
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     if (scrollContainerRef.current) {
@@ -80,6 +85,23 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
     }))
   }
 
+  const keyFeatures = project.workflow ?? []
+  const galleryImages = project.image?.length ? project.image : []
+  const currentImage = galleryImages[activeImageIndex]
+  const hasLiveLink = Boolean(project.link && project.link !== "#")
+  const hasGithubLink = Boolean(project.github && project.github !== "#")
+  const fallbackUrl = "https://github.com/xavierzaidane"
+  const liveProjectHref = hasLiveLink
+    ? project.link!
+    : hasGithubLink
+      ? project.github!
+      : fallbackUrl
+  const sourceCodeHref = hasGithubLink
+    ? project.github!
+    : hasLiveLink
+      ? project.link!
+      : fallbackUrl
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal forceMount>
@@ -103,134 +125,171 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
           item ? (
             <Dialog.Content forceMount asChild>
               <animated.div
+                data-lenis-prevent="true"
                 style={{
                   opacity: contentStyles.opacity,
                   transform: contentStyles.scale.to(
-                    (s) => `scale(${s})`
+                    (s) => `translate3d(-50%, -50%, 0) scale(${s})`
                   ),
                   position: "fixed",
                   left: "50%",
                   top: "50%",
-                  x: "-50%",
-                  y: "-50%",
                   zIndex: 50,
                 }}
                 className="
-                  w-[95vw] sm:w-[90vw] md:w-[85vw] max-w-2xl
-                  rounded-xl sm:rounded-2xl bg-card text-foreground
-                  border border-border
-                  shadow-2xl
+                  relative z-50 flex max-h-[95vh] min-h-[30vh] w-full flex-1 flex-col overflow-hidden
+                   border border-border bg-background/95 text-foreground
+                  backdrop-blur-xl shadow-2xl
+                  max-w-[95%] sm:w-[90%] sm:max-w-[90%] md:min-h-[40vh] md:w-[80%] md:max-w-[80%] lg:max-w-[80%] xl:max-w-[70%]
                   focus:outline-none
-                  max-h-[90vh] sm:max-h-[95vh] overflow-hidden flex flex-col
                 "
               >
+                <Dialog.Close className="group absolute right-3 top-3 z-20 flex items-center justify-center rounded-full bg-transparent p-1 transition-colors hover:bg-muted sm:right-4 sm:top-4 sm:p-2">
+                  <X className="size-5 text-foreground transition-all duration-200" />
+                </Dialog.Close>
 
-                <div className="px-4 sm:px-6 py-3 sm:py-4 shrink-0 relative">
-                  <Dialog.Title className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground text-center mt-6 sm:mt-8 md:mt-10">
-                    {project.title}
-                  </Dialog.Title>
+                <div className="flex flex-1 flex-col p-0 sm:p-6 md:p-8 lg:p-10">
+                  <div
+                    ref={scrollContainerRef}
+                    onWheel={handleWheel}
+                    data-lenis-prevent="true"
+                    className="grid max-h-[75vh] min-h-[50vh] grid-cols-1 gap-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid-cols-2"
+                  >
+                    <div
+                      data-lenis-prevent="true"
+                      className="flex flex-col overflow-y-auto border-b border-border/40 bg-muted/5 p-6 [scrollbar-width:none] [-ms-overflow-style:none] md:border-b-0 md:border-r md:p-10 [&::-webkit-scrollbar]:hidden"
+                    >
+                      <div className="mb-8">
+                        <Dialog.Title className="mb-3 text-3xl font-medium uppercase leading-tight tracking-widest text-foreground md:text-4xl">
+                          {project.title}
+                        </Dialog.Title>
+                        <span className="inline-block border border-border/40 bg-background/50 px-3 py-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                          {project.category}
+                        </span>
+                      </div>
 
-                  <Dialog.Close className="absolute right-3 sm:right-4 top-3 sm:top-4 rounded-md p-1 text-foreground/60 ">
-                    <X className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
-                  </Dialog.Close>    
-                  <div>
-                    <p className="px-4 sm:px-8 md:px-10 py-2 space-y-4 sm:space-y-6 flex-1 mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-center leading-relaxed text-foreground/70">
-                      {project.fullDescription || project.description}
-                    </p>
-                  </div>
-                </div>
+                      <div className="relative mb-auto aspect-[18/12] w-full border border-border/40 bg-background/40">
+                        {!imageLoaded[activeImageIndex] && !imageError[activeImageIndex] && (
+                          <Skeleton className="absolute inset-0 h-full w-full animate-pulse" />
+                        )}
+                        {imageError[activeImageIndex] ? (
+                          <div className="flex h-full w-full items-center justify-center bg-muted text-sm text-foreground/70">
+                            Image not available
+                          </div>
+                        ) : (
+                          <img
+                            src={currentImage}
+                            alt={`${project.title} screenshot ${activeImageIndex + 1}`}
+                            className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${
+                              imageLoaded[activeImageIndex] ? "opacity-100" : "opacity-0"
+                            }`}
+                            onLoad={() => handleImageLoad(activeImageIndex)}
+                            onError={() => handleImageError(activeImageIndex)}
+                          />
+                        )}
+                      </div>
 
-                {/* Scrollable content */}
-                <div 
-                  ref={scrollContainerRef}
-                  onWheel={handleWheel}
-                  className="overflow-y-auto hide-scrollbar px-4 sm:px-6 md:px-10 py-2 space-y-4 sm:space-y-6 flex-1 max-h-[calc(90vh-200px)] sm:max-h-[calc(95vh-250px)]"
-                >        
-                  
-                  <div>
-                    <div className="flex flex-col gap-3 sm:gap-4">
-                      {(project.image || [project.image]).map((img, idx) => (
-                        <div key={idx} className="overflow-hidden rounded-lg border border-border w-full relative">
-                          {!imageLoaded[idx] && !imageError[idx] && (
-                            <Skeleton className="w-full h-40 sm:h-52 md:h-64 animate-pulse" />
-                          )}
-                          {imageError[idx] ? (
-                            <div className="w-full h-40 sm:h-52 md:h-64 flex items-center justify-center bg-muted text-foreground/70 text-sm">
-                              Image not available
-                            </div>
-                          ) : (
-                            <img
-                              src={img}
-                              alt={`${project.title} - ${idx + 1}`}
-                              className={`w-full h-auto object-cover transition-opacity duration-300 ${
-                                imageLoaded[idx] ? 'opacity-100' : 'opacity-0'
+                      {galleryImages.length > 1 && (
+                        <div className="mt-4 grid grid-cols-3 gap-2">
+                          {galleryImages.map((img, idx) => (
+                            <button
+                              key={`${project.id}-thumb-${idx}`}
+                              type="button"
+                              onClick={() => setActiveImageIndex(idx)}
+                              className={`relative aspect-[16/10] overflow-hidden border transition-colors ${
+                                activeImageIndex === idx
+                                  ? "border-foreground"
+                                  : "border-border/40 hover:border-foreground/60"
                               }`}
-                              onLoad={() => handleImageLoad(idx)}
-                              onError={() => handleImageError(idx)}
-                            />
-                          )}
+                              aria-label={`Show image ${idx + 1}`}
+                            >
+                              <img
+                                src={img}
+                                alt={`${project.title} thumbnail ${idx + 1}`}
+                                className="h-full w-full object-cover"
+                              />
+                            </button>
+                          ))}
                         </div>
-                      ))}
+                      )}
                     </div>
-                  </div>
 
-                  <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground/50 mb-2 sm:mb-3">
-                      Stack
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="rounded-md border border-border bg-muted px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-mono text-foreground/70 hover:bg-muted/80 hover:border-border transition-all duration-200"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground/50 mb-2 sm:mb-3">
-                      Workflow
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.workflow?.map((workflow, idx) => (
-                        <span
-                          key={idx}
-                          className="rounded-md border border-border bg-muted px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-mono text-foreground/70 hover:bg-muted/80 hover:border-border transition-all duration-200"
-                        >
-                          {workflow}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="mb-2 sm:mb-4">
-                    <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground/50 mb-2 sm:mb-3">
-                      Source
-                    </h3>
-                    <div className="flex gap-2 sm:gap-3">
-                      <a 
-                        href={project.github || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-md border border-border bg-muted text-foreground/70 hover:bg-muted/80 hover:border-border hover:text-foreground transition-all duration-200"
-                      >
-                        <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </a>
-                      <a 
-                        href={project.link || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-md border border-border bg-muted text-foreground/70 hover:bg-muted/80 hover:border-border hover:text-foreground transition-all duration-200"
-                      >
-                        <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </a>
+                    <div
+                      data-lenis-prevent="true"
+                      className="flex flex-col overflow-y-auto p-6 [scrollbar-width:none] [-ms-overflow-style:none] md:p-10 [&::-webkit-scrollbar]:hidden"
+                    >
+                      <div className="space-y-10">
+                        <section>
+                          <h3 className="mb-4 flex items-center gap-2 border-b border-border/40 pb-2 font-mono text-xs uppercase tracking-widest text-foreground">
+                            <span className="h-1.5 w-1.5 rounded-none bg-foreground" />
+                            Overview
+                          </h3>
+                          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                            {project.fullDescription || project.description}
+                          </p>
+                        </section>
+
+                        {keyFeatures.length > 0 && (
+                          <section>
+                            <h3 className="mb-4 flex items-center gap-2 border-b border-border/40 pb-2 font-mono text-xs uppercase tracking-widest text-foreground">
+                              <span className="h-1.5 w-1.5 rounded-none bg-foreground" />
+                              Key Features
+                            </h3>
+                            <ul className="space-y-3">
+                              {keyFeatures.map((feature, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground">
+                                  <span className="mt-0.5 font-mono text-xs text-foreground/40">
+                                    {String(idx + 1).padStart(2, "0")}
+                                  </span>
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        )}
+
+                        <section>
+                          <h3 className="mb-4 flex items-center gap-2 border-b border-border/40 pb-2 font-mono text-xs uppercase tracking-widest text-foreground">
+                            <span className="h-1.5 w-1.5 rounded-none bg-foreground" />
+                            Technologies
+                          </h3>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tech.map((tech, idx) => (
+                              <span
+                                key={idx}
+                                className="border border-border/40 bg-background px-3 py-1.5 font-mono text-xs uppercase tracking-wider text-muted-foreground"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </section>
+
+                        <div className="mt-auto flex flex-wrap gap-4 pt-6">
+                          <a
+                            href={liveProjectHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex min-w-[200px] items-center justify-between gap-4 border border-foreground bg-foreground px-6 py-4 font-mono text-xs uppercase tracking-widest text-background transition-all hover:bg-foreground/90"
+                          >
+                            Visit Live Project
+                            <Globe className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </a>
+
+                          <a
+                            href={sourceCodeHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex min-w-[200px] items-center justify-between gap-4 border border-border/60 bg-transparent px-6 py-4 font-mono text-xs uppercase tracking-widest text-foreground transition-all hover:border-foreground"
+                          >
+                            View Source Code
+                            <Github className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </animated.div>
             </Dialog.Content>
           ) : null,

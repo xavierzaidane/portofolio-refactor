@@ -138,7 +138,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                 }}
                 className="
                   relative z-50 flex max-h-[95vh] min-h-[30vh] w-full flex-1 flex-col overflow-hidden
-                   border border-border bg-background/95 text-foreground
+                   border border-border bg-black text-foreground
                   backdrop-blur-xl shadow-2xl
                   max-w-[95%] sm:w-[90%] sm:max-w-[90%] md:min-h-[40vh] md:w-[80%] md:max-w-[80%] lg:max-w-[80%] xl:max-w-[70%]
                   focus:outline-none
@@ -160,7 +160,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                       className="flex flex-col overflow-y-auto border-b border-border/40 bg-muted/5 p-6 [scrollbar-width:none] [-ms-overflow-style:none] md:border-b-0 md:border-r md:p-10 [&::-webkit-scrollbar]:hidden"
                     >
                       <div className="mb-8">
-                        <Dialog.Title className="mb-3 text-3xl font-medium uppercase leading-tight tracking-widest text-foreground md:text-4xl">
+                        <Dialog.Title className="mb-3 text-3xl font-medium uppercase leading-tight tracking-normal text-foreground md:text-[40px]">
                           {project.title}
                         </Dialog.Title>
                         <span className="inline-block border border-border/40 bg-background/50 px-3 py-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -168,7 +168,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                         </span>
                       </div>
 
-                      <div className="relative mb-auto aspect-[18/12] w-full border border-border/40 bg-background/40">
+                      <div className="relative mb-auto aspect-[16/9] w-full md:w-[520px] lg:w-[600px] xl:w-[700px] max-w-full border border-border/40 bg-background/70 mx-auto">
                         {!imageLoaded[activeImageIndex] && !imageError[activeImageIndex] && (
                           <Skeleton className="absolute inset-0 h-full w-full animate-pulse" />
                         )}
@@ -189,29 +189,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                         )}
                       </div>
 
-                      {galleryImages.length > 1 && (
-                        <div className="mt-4 grid grid-cols-3 gap-2">
-                          {galleryImages.map((img, idx) => (
-                            <button
-                              key={`${project.id}-thumb-${idx}`}
-                              type="button"
-                              onClick={() => setActiveImageIndex(idx)}
-                              className={`relative aspect-[16/10] overflow-hidden border transition-colors ${
-                                activeImageIndex === idx
-                                  ? "border-foreground"
-                                  : "border-border/40 hover:border-foreground/60"
-                              }`}
-                              aria-label={`Show image ${idx + 1}`}
-                            >
-                              <img
-                                src={img}
-                                alt={`${project.title} thumbnail ${idx + 1}`}
-                                className="h-full w-full object-cover"
-                              />
-                            </button>
-                          ))}
-                        </div>
-                      )}
+
                     </div>
 
                     <div

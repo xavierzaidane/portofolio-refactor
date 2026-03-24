@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <span className="text-[10px] sm:text-xs md:text-sm lg:text-lg font-mono text-foreground/20 mt-1 md:mt-0 px-3 sm:px-4 md:px-5 pointer-events-none">
               {formattedIndex}
             </span>
-            <h3 className="text-3xl sm:text-4xl md:text-9xl lg:text-9xl  font-semibold tracking-tighter text-foreground/70 group-hover:text-foreground transition-colors duration-500 pointer-events-none">
+            <h3 className="text-3xl sm:text-4xl md:text-9xl lg:text-9xl  font-semibold tracking-normal text-foreground/70 group-hover:text-foreground transition-colors duration-500 pointer-events-none">
               {project.title}
             </h3>
           </div>
@@ -48,7 +48,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               {project.category}
             </span>
             
-            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full border border-border flex items-center justify-center group-hover:bg-foreground group-hover:border-foreground transition-all duration-500">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full border border-border flex items-center justify-center group-hover:bg-foreground group-hover:border-foreground transition-all duration-500 mr-10">
               <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-foreground group-hover:text-background transition-colors duration-500" />
             </div>
           </div>

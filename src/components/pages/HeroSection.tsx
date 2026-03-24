@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { FlipButton, FlipButtonBack, FlipButtonFront } from '../animate-ui/primitives/buttons/flip';
 import { SiWhatsapp } from 'react-icons/si';
-import { FlipWords } from '../ui/flip-words';
+import { Typewriter } from '../ui/typewriter';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -57,7 +57,6 @@ const handleWhatsAppClick = () => {
   window.open(whatsappUrl, '_blank');
 };
 
-// Split text into spans for character animation
 const SplitText = ({ children, className, delay = 0 }: { children: string; className?: string; delay?: number }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
 
@@ -225,77 +224,80 @@ function HeroSection({  }: HeroSectionProps) {
 
   return (
     <section 
-      ref={sectionRef}
-      className="relative h-screen flex flex-col items-center justify-center px-6 mb-10 border-b border-foreground/10 overflow-hidden"
-    >
-   
+  ref={sectionRef}
+  className="relative min-h-screen flex items-center justify-center px-6 border-b border-foreground/10 overflow-hidden"
+>
+  <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 
-      <div 
-        ref={contentRef}
-        className="text-center z-10 w-full max-w-[50vw] -mt-20"
+    {/* TITLE */}
+    <div className="flex flex-col items-center leading-none">
+      <h1 
+        ref={titleRef}
+        className="text-[12vw] md:text-[9vw] leading-[0.8] font-bold uppercase tracking-tight"
       >
-        <div className="flex flex-col items-center mb-8 overflow-hidden">
-          <h1 
-            ref={titleRef}
-            className="text-[12vw] md:text-[10vw] leading-[0.9] font-bold uppercase tracking-tighter text-foreground will-change-transform"
-          >
-            <SplitText delay={0.3}>Hello, I'm</SplitText>
-          </h1>
-          <h1 
-            ref={subtitleRef}
-            className="text-[15vw] md:text-[10vw] leading-[0.9]  font-bold uppercase tracking-normal text-foreground/40 -mt-[1.8vw] will-change-transform"
-          >
-            <SplitText delay={0.6}>Xavier</SplitText>
-          </h1>
-        </div>
-        
-        <div
-          ref={descriptionRef}
-          className="flex flex-col items-center mb-12"
-        >
-          <h2 className="text-xl md:text-3xl font-light tracking-tight max-w-3xl text-foreground">
-            <span className="font-medium">Frontend engineer.</span>{" "}
-            <span className="text-foreground/60">
-              Building and delivering meaningful digital experiences with the tools that
-              <FlipWords words={words} /> <br />
-            </span>
-          </h2>
-        </div>
-        
-        <div
-          ref={ctaRef}
-          className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12"
-        >
-          <div className="magnetic-btn">
-            <FlipButton>
-              <FlipButtonFront className='rounded-full border border-border w-45 h-13 flex items-center justify-center'>
-                <span className="text-[17px] font-medium font-mono uppercase text-foreground">Work with me</span>
-              </FlipButtonFront>
-              <FlipButtonBack 
-                onClick={handleWhatsAppClick}
-                className='rounded-full border border-border w-45 h-13 flex items-center justify-center cursor-pointer'
-              >
-                <SiWhatsapp className='text-[#25D366] mr-2 text-[17px]'/>
-                <span className="text-[17px] font-medium text-foreground">WhatsApp</span>
-              </FlipButtonBack>
-            </FlipButton>
-          </div>
+        <SplitText delay={0.3}>Hello, I'm</SplitText>
+      </h1>
 
-          <div className="flex items-center gap-2">
-            <span className="text-[13px] font-mono tracking-[0.2em] uppercase text-foreground/60">
-              <span className="text-foreground font-bold"><Counter value={1} />+</span> Years of experience
+      <h1 
+        ref={subtitleRef}
+        className="text-[14vw] md:text-[9vw] leading-[0.9] font-bold uppercase text-foreground/60 -mt-4"
+      >
+        <SplitText delay={0.6}>Xavier</SplitText>
+      </h1>
+    </div>
+
+    {/* DESCRIPTION */}
+    <div ref={descriptionRef} className="max-w-2xl">
+      <h2 className="text-lg md:text-3xl font-light tracking-tight">
+        <span className="font-medium">Frontend Developer. </span>
+        <span className="text-foreground/60">
+          Delivering meaningful experiences with tools that{" "}
+        </span>
+
+        <Typewriter
+          text={["Impactful", "Efficient", "Innovative", "Responsive", "Optimized"]}
+          speed={90}
+          waitTime={1500}
+          deleteSpeed={70}
+          cursorChar="_"
+          className="text-black dark:text-white"
+        />
+      </h2>
+    </div>
+
+    {/* CTA */}
+    <div
+      ref={ctaRef}
+      className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12"
+    >
+      <div className="magnetic-btn">
+        <FlipButton>
+          <FlipButtonFront className="rounded-full border w-43 h-13 flex items-center justify-center">
+            <span className="text-md font-medium font-mono uppercase">
+              Work with me
             </span>
-          </div>
-        </div>
+          </FlipButtonFront>
+
+          <FlipButtonBack 
+            onClick={handleWhatsAppClick}
+            className="rounded-full border w-43 h-13 flex items-center justify-center cursor-pointer"
+          >
+            <SiWhatsapp className="text-[#25D366] mr-2 text-base"/>
+            <span className="text-md font-medium">WhatsApp</span>
+          </FlipButtonBack>
+        </FlipButton>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-foreground/20 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-3 bg-foreground/40 rounded-full animate-pulse" />
-        </div>
-      </div>
-    </section>
+      <span className="text-sm font-mono uppercase text-foreground/60">
+        <span className="text-foreground/60 text-md ">
+          1+
+        </span>{" "}
+        Years of experience
+      </span>
+    </div>
+
+  </div>
+</section>
   );
 }
 

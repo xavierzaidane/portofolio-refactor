@@ -83,11 +83,7 @@ function Header() {
       ref={headerRef}
       className="relative top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 pointer-events-none"
     >
-      {/* Animated border */}
-      <div 
-        ref={borderRef}
-        className="absolute bottom-0 left-0 w-full h-px bg-foreground/10"
-      />
+
       
       <div className="flex items-center gap-2 md:gap-3 pointer-events-auto">
         <div 

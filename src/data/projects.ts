@@ -2,10 +2,61 @@ import { Project } from "./types";
 
 
 export const PROJECTS: Project[] = [
-  {
+   {
     id: '1',
-    title: 'Neurofit AI',
-    category: 'Fitness Platform',
+    title: 'Neurofit2.0',
+    category: 'AI Fitness Planner',
+    image: ['/neurofit2.0.png'],
+    description: 'Generate personalized fitness programs with a modern React/Next.js app. Features structured intake, AI-powered plans (Ollama), authentication (Clerk), and a smooth UI (Tailwind CSS, shadcn/ui). ',
+    tech: [
+      'Next.js (App Router)',
+      'TypeScript',
+      'React 19',
+      'Tailwind CSS',
+      'shadcn/ui',
+      'Radix UI',
+      'lucide-react',
+      'motion',
+      'TanStack Form',
+      'Zod',
+      'Convex',
+      'Convex HTTP actions',
+      'Clerk',
+      'Ollama'
+    ],
+    workflow: [
+      'Form-based intake for personalized program generation',
+      'Personalized fitness program generation',
+      'User authentication with Clerk',
+      'Smooth UI with Tailwind CSS'
+    ],
+    fullDescription: 'Originally a voice-based AI fitness assistant, the project was reimagined due to billing limitations and evolved into NeuroFit 2.0 a more structured and practical full-stack AI planner. It now delivers detailed workouts, region-specific diet plans and grocery lists, clearer user goal breakdowns, and outputs that are easier to understand and follow.',
+    link: 'https://neurofit-ai.vercel.app/',
+    github: 'https://github.com/xavierzaidane/neurofit-ai',
+  },
+    {
+    id: '2',
+    title: 'Florist Store ',
+    category: 'E-commerce Project',
+    image: ['/anastasya1.png','/anastasya2.png','/anastasya3.png', '/anastasya4.png', '/anastasya5.png'],
+    description: 'A conceptual web-based operating system built with React. (ongoing project)',
+    tech: ['Next.js', 'PrismaORM', 'PostgreSQL','Zod','JWT','TailwindCSS', 'ShadcnUI','Tanstack Forms', 'Tanstack Table', 'Vercel AI SDK'],
+    workflow: ['Editorial Blog System',
+    'Advanced Product Filtering & Discovery',
+    'Admin Dashboard (CRUD Products, Categories, Blog)',
+    'WhatsApp Checkout Integration',
+    'Responsive Storefront Design',
+    'Secure JWT Authentication'],
+    fullDescription: 'Full-stack florist e-commerce platform serving 100+ customers in Malang, featuring a modern storefront, editorial blog, and admin dashboard for seamless product and content management. Integrated with WhatsApp for streamlined checkout and built with Next.js, Prisma, PostgreSQL, TailwindCSS, and Vercel AI SDK for an engaging shopping experience.',
+    link: 'https://anastasya-store.vercel.app/',
+    github: 'https://github.com/xavierzaidane/anastasya-store',
+    },
+
+  // Neurofit (legacy)
+  {
+    id: '3',
+    title: 'Neurofit',
+    category: 'Voice Agent',
     image: ['/neurofit.png','/neurofit2.png','/neurofit3.png'],
     description: 'A cloud-based workspace reimagining the desktop experience.',
     tech: ['Next.js', 'Vapi', 'Convex', 'TypeScript', 'Tailwind CSS', 'Python', 'TensorFlow',],
@@ -14,9 +65,10 @@ export const PROJECTS: Project[] = [
     link: 'https://neurofit-ai.vercel.app/',
     github: 'https://github.com/xavierzaidane/neurofit-ai',
   },
+  // Resumy
   {
-    id: '2',
-    title: 'Resumy AI',
+    id: '4',
+    title: 'Resumy',
     category: 'Resume Analysis',
     image: ['/Resumy.png','/resumy2.png','/resumy3.png'],
     description: 'High-throughput data ingestion platform for real-time market insights.',
@@ -26,20 +78,10 @@ export const PROJECTS: Project[] = [
     link: '#',
     github: 'https://github.com/xavierzaidane/resume-ai',
   },
-   {
-    id: '7',
-    title: 'Florist Store ',
-    category: 'E-commerce Project',
-    image: ['/anastasya1.png','/anastasya2.png','/anastasya3.png', '/anastasya4.png', '/anastasya5.png'],
-    description: 'A conceptual web-based operating system built with React. (ongoing project)',
-    tech: ['Next.js', 'PrismaORM', 'PostgreSQL','Zod','JWT','TailwindCSS', 'ShadcnUI','Tanstack Forms', 'Tanstack Table', 'Vercel AI SDK'],
-    workflow: ['Git','Postman','CI/CD','TestSprite', 'JetBrains'],
-    fullDescription: 'Full Stack Web that i built personally for 100+ Customer in Malang (ongoing project)',
-    link: 'https://anastasya-store.vercel.app/',
-    github: 'https://github.com/xavierzaidane/anastasya-store',
-  },
+  // Florist Store
+
     {
-    id: '3',
+    id: '5',
     title: 'Chatbot Plugin',
     category: 'Chat Plugin',
     image: ['/chat1.png','/chat2.png'],
@@ -52,7 +94,7 @@ export const PROJECTS: Project[] = [
   },
  
   {
-    id: '4',
+    id: '6',
     title: 'Slack Clone',
     category: 'Messaging App',
     image: ['/Slack.png'],
@@ -65,7 +107,7 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    id: '5',
+    id: '7',
     title: 'IRIS',
     category: 'Facility Management',
     image: ['/iris1.png','/iris2.png','/iris3.png'],
@@ -77,7 +119,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/Valtern/web-sarana-perbaikan',
   },
   {
-    id: '6',
+    id: '8',
     title: 'Store Test',
     category: 'E-commerce Project',
     image: ['/store1.png','/store2.png','/store3.png'],

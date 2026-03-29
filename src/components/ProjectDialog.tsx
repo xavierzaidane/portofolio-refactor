@@ -115,7 +115,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                   inset: 0,
                   zIndex: 50,
                 }}
-                className="bg-black/60 dark:bg-black/80 backdrop-blur-sm"
+                className="bg-background/80 dark:bg-background/90 backdrop-blur-sm"
               />
             </Dialog.Overlay>
           ) : null,
@@ -138,7 +138,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                 }}
                 className="
                   relative z-50 flex max-h-[95vh] min-h-[30vh] w-full flex-1 flex-col overflow-hidden
-                   border border-border bg-black text-foreground
+                  border border-border bg-background text-foreground
                   backdrop-blur-xl shadow-2xl
                   max-w-[95%] sm:w-[90%] sm:max-w-[90%] md:min-h-[40vh] md:w-[80%] md:max-w-[80%] lg:max-w-[80%] xl:max-w-[70%]
                   focus:outline-none
@@ -148,7 +148,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                   <X className="size-5 text-foreground transition-all duration-200" />
                 </Dialog.Close>
 
-                <div className="flex flex-1 flex-col p-0 sm:p-6 md:p-8 lg:p-10">
+                <div className="flex flex-1 flex-col p-0 sm:p-6 md:p-8 lg:p-10 bg-background">
                   <div
                     ref={scrollContainerRef}
                     onWheel={handleWheel}
@@ -173,7 +173,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                           <Skeleton className="absolute inset-0 h-full w-full animate-pulse" />
                         )}
                         {imageError[activeImageIndex] ? (
-                          <div className="flex h-full w-full items-center justify-center bg-muted text-sm text-foreground/70">
+                          <div className="flex h-full w-full items-center justify-center bg-muted text-sm text-muted-foreground">
                             Image not available
                           </div>
                         ) : (
@@ -194,7 +194,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
 
                     <div
                       data-lenis-prevent="true"
-                      className="flex flex-col overflow-y-auto p-6 [scrollbar-width:none] [-ms-overflow-style:none] md:p-10 [&::-webkit-scrollbar]:hidden"
+                      className="flex flex-col overflow-y-auto p-6 [scrollbar-width:none] [-ms-overflow-style:none] md:p-10 [&::-webkit-scrollbar]:hidden bg-background"
                     >
                       <div className="space-y-10">
                         <section>

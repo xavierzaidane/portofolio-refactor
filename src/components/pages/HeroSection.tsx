@@ -115,7 +115,7 @@ function HeroSection({  }: HeroSectionProps) {
   return (
     <section 
   ref={sectionRef}
-  className="relative min-h-screen flex items-center justify-center px-6 border-b border-foreground/10 overflow-hidden"
+  className="relative min-h-screen flex items-center justify-center px-6 border-b border-foreground/10 overflow-hidden "
 >
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 

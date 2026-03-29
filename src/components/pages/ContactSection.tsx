@@ -122,7 +122,7 @@ function Contact() {
                 </FlipButtonFront>
                 <FlipButtonBack 
                   onClick={handleEmailClick}
-                  className='flex items-center justify-center gap-3 w-76 h-14 rounded-full border border-foreground/20 dark:border-white/20 text-foreground dark:text-white text-[19px] font-light transition-colors cursor-pointer bg-background dark:bg-background hover:bg-foreground/10 dark:hover:bg-white/10'
+                  className='flex items-center justify-center gap-3 w-76 h-14 rounded-full text-foreground dark:text-white text-[19px] font-light transition-colors cursor-pointer bg-background dark:bg-background hover:bg-foreground/10 dark:hover:bg-white/10'
                 >
                   <img src="/gmail.png" alt="Gmail" className=" w-8 h-8" />
                   <span className="text-[19px] text-foreground dark:text-white font-light">xavierzaidane@gmail.com</span>

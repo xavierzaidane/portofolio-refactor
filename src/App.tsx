@@ -11,7 +11,6 @@ import Experience from './components/pages/ExperienceSectionh';
 import WorkSections from './components/pages/WorkSection';
 import Philosophy from './components/pages/PhilosophySection';
 import Contact from './components/pages/ContactSection';
-import Header from './components/navigations/Header';
 import StackSection from './components/pages/StackSection';
 import WorkflowSection from './components/pages/WorkflowSection';
 import ActivitySection from './components/pages/ActivitySection';
@@ -26,7 +25,6 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="relative min-h-screen antialiased font-sans overflow-x-hidden bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
-
         <HeroSection heroOpacity={heroOpacity} heroScale={heroScale} />
           <Experience />
             <WorkSections />

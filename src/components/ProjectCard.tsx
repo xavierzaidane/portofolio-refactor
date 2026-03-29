@@ -31,10 +31,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="group relative w-full border-b border-foreground/10 dark:border-foreground/10 py-8 sm:py-12 md:py-16 lg:py-20 cursor-pointer"
       >
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 md:gap-8 px-4 sm:px-5 md:px-0">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-10 px-4 sm:px-5 md:px-0">
           {/* Left Side: Number and Title */}
-          <div className="flex items-start md:items-baseline gap-3 sm:gap-6 md:gap-12 flex-1">
-            <span className="text-[10px] sm:text-xs md:text-sm lg:text-lg font-mono text-foreground/20 mt-1 md:mt-0 px-3 sm:px-4 md:px-5 pointer-events-none">
+          <div className="flex items-start md:items-baseline gap-10 flex-1">
+            <span className="text-xl font-mono text-foreground/20 mt-1 md:mt-0 px-3 sm:px-4 md:px-5 pointer-events-none ml-10">
               {formattedIndex}
             </span>
             <h3 className="text-3xl sm:text-4xl md:text-9xl lg:text-9xl  font-semibold tracking-normal text-foreground/70 group-hover:text-foreground transition-colors duration-500 pointer-events-none">

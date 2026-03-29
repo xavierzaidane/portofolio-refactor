@@ -3,10 +3,10 @@ import { FlipButton, FlipButtonBack, FlipButtonFront } from "../animate-ui/primi
 import { motion } from 'motion/react';
 
 const handleDownloadResume = () => {
-  const resumeUrl = '/document/Xavier_Zaidane_Athaya_Resume.pdf';
+  const resumeUrl = '/document/Xavier_Zaidane_Athaya_CV.pdf';
   const link = document.createElement('a');
   link.href = resumeUrl;
-  link.download = 'Xavier_Zaidane_Athaya_Resume.pdf';
+  link.download = 'Xavier_Zaidane_Athaya_CV.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

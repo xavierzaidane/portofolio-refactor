@@ -43,7 +43,7 @@ function Experience() {
           className="flex-1 max-w-5xl"
         >
           <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-white/60">
-            My journey has been <span className="text-foreground dark:text-white font-normal">1+</span> years in Frontend Development
+            My journey has been <span className="text-foreground dark:text-white font-normal">1+</span> years in Software Development
           </h3>
         </motion.div>
       </div>

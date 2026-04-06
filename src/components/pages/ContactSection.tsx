@@ -1,6 +1,7 @@
 import { useRef, useLayoutEffect } from 'react';
 import { motion } from 'motion/react'
-import { SiGithub, SiLinkedin } from 'react-icons/si'
+import { SiGithub } from 'react-icons/si'
+import { FaLinkedin } from 'react-icons/fa6'
 import { FlipButton, FlipButtonFront } from '../animate-ui/components/buttons/flip'
 import { FlipButtonBack } from '../animate-ui/primitives/buttons/flip'
 import { TextLoop } from '@/components/ui/text-loop';
@@ -144,7 +145,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center text-foreground/60 dark:text-white/60 hover:text-foreground/80 dark:hover:text-white/80 transition-colors"
                 >
-                  <SiLinkedin className="w-8 h-8" />
+                  <FaLinkedin className="w-8 h-8" />
                 </a>
               </div>
             </div>

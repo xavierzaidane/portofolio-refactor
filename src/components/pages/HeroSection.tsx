@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTransform } from 'motion/react';
+import { gsap } from 'gsap';
 
 import { FlipButton, FlipButtonBack, FlipButtonFront } from '../animate-ui/primitives/buttons/flip';
 import { SiWhatsapp } from 'react-icons/si';
@@ -120,21 +121,21 @@ function HeroSection({  }: HeroSectionProps) {
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 
     {/* TITLE */}
-    <div className="flex flex-col items-center leading-none">
+    <div className="flex flex-col items-center leading-none text-center px-4">
       <motion.h1
-        className="text-[12vw] md:text-[9vw] leading-[0.8] font-bold uppercase tracking-tight"
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
+          className="text-[clamp(2.5rem,12vw,6rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.85] font-bold uppercase tracking-tight"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
       >
         <SplitText>Hello, I'm</SplitText>
       </motion.h1>
 
       <motion.h1
-        className="text-[14vw] md:text-[9vw] leading-[0.9] font-bold uppercase text-foreground/60 -mt-4"
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
+          className="text-[clamp(3rem,14vw,7rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.9] font-bold uppercase text-foreground/60 mt-[-0.5rem] md:-mt-4"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
       >
         <SplitText>Xavier</SplitText>
       </motion.h1>

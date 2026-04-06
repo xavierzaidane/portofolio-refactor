@@ -2,14 +2,15 @@
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SiGithub, SiLinkedin, SiInstagram, SiDribbble } from 'react-icons/si';
+import { SiGithub, SiInstagram, SiDribbble } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa6';
 import { HiArrowUp } from 'react-icons/hi2';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const socialLinks = [
   { name: 'GitHub', icon: SiGithub, href: 'https://github.com/xavier' },
-  { name: 'LinkedIn', icon: SiLinkedin, href: 'https://linkedin.com/in/xavier' },
+  { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com/in/xavier' },
   { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/xavier' },
   { name: 'Dribbble', icon: SiDribbble, href: 'https://dribbble.com/xavier' },
 ];

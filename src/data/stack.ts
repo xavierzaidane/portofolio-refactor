@@ -8,6 +8,9 @@ import {
   SiJavascript,
   SiLaravel,
   SiFigma,
+  SiVite,
+  SiPostgresql,
+  SiPrisma,
 
 } from 'react-icons/si';
 
@@ -19,10 +22,10 @@ interface StackItem {
 export const STACK_DATA: StackItem[] = [
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'React.js', icon: SiReact },
-  { name: 'Figma', icon: SiFigma },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
+  { name: 'PostgreSQL', icon: SiPostgresql },
   { name: 'Express.js', icon: SiExpress },
   { name: 'Typescript', icon: SiTypescript },
-  { name: 'Javascript', icon: SiJavascript },
-  { name: 'Laravel', icon: SiLaravel },
+  { name: 'Prisma', icon: SiPrisma },
+  { name: 'Vite', icon: SiVite },
 ];

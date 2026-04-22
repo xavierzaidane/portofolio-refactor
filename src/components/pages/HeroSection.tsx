@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 
 import { FlipButton, FlipButtonBack, FlipButtonFront } from '../animate-ui/primitives/buttons/flip';
 import { SiWhatsapp } from 'react-icons/si';
-import { Typewriter } from '../ui/typewriter';
+import AnimatedTextCycle from '../ui/animated-text-cycle';
 
 
 
@@ -150,18 +150,22 @@ function HeroSection({  }: HeroSectionProps) {
       transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
     >
       <h2 className="text-lg md:text-3xl font-light tracking-tight">
-        <span className="font-medium">Software Developer. </span>
-        <span className="text-foreground/60">
-          Delivering meaningful experiences with tools that{" "}
-        </span>
-        <Typewriter
-          text={["Impactful", "Efficient", "Innovative", "Responsive", "Optimized"]}
-          speed={90}
-          waitTime={1500}
-          deleteSpeed={70}
-          cursorChar="_"
-          className="text-black dark:text-white"
+        <span className="font-semibold">Software Developer. </span>
+        <span className="text-foreground/60">Delivering meaningful experiences with tools that </span>
+        <AnimatedTextCycle 
+          words={[
+            "Responsive",
+            "Impactful",
+            "Utilized",
+            "Efficient",
+            "Optimized",
+            "Intuitive"
+
+          ]}
+          interval={3000}
+          className="text-foreground font-normal" 
         />
+
       </h2>
     </motion.div>
 

@@ -151,7 +151,7 @@ function HeroSection({  }: HeroSectionProps) {
     >
       <h2 className="text-[1.90rem] font-light tracking-tight">
         <span className="font-normal">Software Developer. </span>
-        <span className="text-foreground/60">Delivering meaningful experiences with tools that </span>
+        <span className="text-foreground/60">Delivering meaningful experiences with tools that </span>{""}
         <AnimatedTextCycle 
           words={[
             "Responsive",

@@ -123,7 +123,7 @@ function HeroSection({  }: HeroSectionProps) {
     {/* TITLE */}
     <div className="flex flex-col items-center leading-none text-center px-4">
       <motion.h1
-          className="text-[clamp(2.5rem,12vw,6rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.85] font-bold uppercase tracking-tight"
+          className="text-[clamp(2.5rem,12vw,6rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.85] font-bold uppercase tracking-tighter"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -132,7 +132,7 @@ function HeroSection({  }: HeroSectionProps) {
       </motion.h1>
 
       <motion.h1
-          className="text-[clamp(3rem,14vw,7rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.9] font-bold uppercase text-foreground/60 mt-[-0.5rem] md:-mt-4"
+          className="text-[clamp(3rem,14vw,7rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.9] font-bold uppercase text-foreground/60 mt-[-0.5rem] md:-mt-4 tracking-tighter"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -149,8 +149,8 @@ function HeroSection({  }: HeroSectionProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
     >
-      <h2 className="text-lg md:text-3xl font-light tracking-tight">
-        <span className="font-semibold">Software Developer. </span>
+      <h2 className="text-[1.90rem] font-light tracking-tight">
+        <span className="font-normal">Software Developer. </span>
         <span className="text-foreground/60">Delivering meaningful experiences with tools that </span>
         <AnimatedTextCycle 
           words={[

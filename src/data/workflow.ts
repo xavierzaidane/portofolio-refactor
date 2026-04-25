@@ -51,7 +51,7 @@ const WORKFLOW_DATA: WorkflowData = {
     { name: 'Cloudflare', icon: SiCloudflare },
     { name: 'Vercel', icon: SiVercel },
     { name: 'Supabase', icon: SiSupabase },
-
+    { name: 'Jetbrains', icon: SiJetbrains },
     { name: 'Google Cloud Platform', icon: SiGooglecloud },
     { name: 'Firebase', icon: SiFirebase },
     { name: 'Resend', icon: Mail },

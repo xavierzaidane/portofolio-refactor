@@ -179,15 +179,15 @@ function HeroSection({  }: HeroSectionProps) {
     >
       <div className="magnetic-btn">
         <FlipButton>
-          <FlipButtonFront className="rounded-full border w-43 h-13 flex items-center justify-center">
-            <span className="text-md font-medium font-mono uppercase">
-              Work with me
+          <FlipButtonFront className="rounded-full border w-40 h-13 flex items-center justify-center">
+            <span className="text-md font-medium uppercase">
+              Contact me
             </span>
           </FlipButtonFront>
 
           <FlipButtonBack 
             onClick={handleWhatsAppClick}
-            className="rounded-full border w-43 h-13 flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10"
+            className="rounded-full border w-40 h-13 flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10"
           >
             <SiWhatsapp className="text-[#25D366] mr-2 text-base"/>
             <span className="text-md font-medium">WhatsApp</span>

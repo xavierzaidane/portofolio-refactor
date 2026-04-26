@@ -4,7 +4,7 @@ import { Project } from "./types";
 export const PROJECTS: Project[] = [
    {
     id: '1',
-    title: 'Neurofit 2.0',
+    title: 'Neurofit2.0',
     category: 'AI Fitness Planner',
     image: ['/neurofit2.0.png'],
     description: 'Generate personalized fitness programs with a modern React/Next.js app. Features structured intake, AI-powered plans (Ollama), authentication (Clerk), and a smooth UI (Tailwind CSS, shadcn/ui). ',

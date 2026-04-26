@@ -57,9 +57,9 @@ function WorkflowSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.25 + idx * 0.05 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors text-[11px] sm:text-[13px] md:text-[13px]"
+                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-2 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors text-[11px] sm:text-[13px] md:text-[13px]"
                       >
-                        <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
+                        <Icon className="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
                         <span className="font-mono tracking-wide uppercase text-foreground/60 dark:text-white/60 pointer-events-none">{item.name}</span>
                       </motion.div>
                     );
@@ -94,9 +94,9 @@ function WorkflowSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 + idx * 0.05 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors duration-300 text-[11px] sm:text-[13px] md:text-[13px]"
+                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-2 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors duration-300 text-[11px] sm:text-[13px] md:text-[13px]"
                       >
-                        <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
+                        <Icon className="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
                         <span className="font-mono tracking-wide uppercase text-foreground/60 dark:text-white/60 pointer-events-none">{item.name}</span>
                       </motion.div>
                     );
@@ -131,9 +131,9 @@ function WorkflowSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.35 + idx * 0.05 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors duration-300 text-[11px] sm:text-[13px] md:text-[13px]"
+                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-2 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors duration-300 text-[11px] sm:text-[13px] md:text-[13px]"
                       >
-                        <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
+                        <Icon className="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
                         <span className="font-mono tracking-wide uppercase text-foreground/60 dark:text-white/60 pointer-events-none">{item.name}</span>
                       </motion.div>
                     );
@@ -168,9 +168,9 @@ function WorkflowSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 + idx * 0.05 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors duration-300 text-[11px] sm:text-[13px] md:text-[13px]"
+                        className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-2 py-1.5 sm:py-2 border border-foreground/10 dark:border-white/10 hover:bg-foreground/5 dark:hover:bg-white/5 transition-colors duration-300 text-[11px] sm:text-[13px] md:text-[13px]"
                       >
-                        <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
+                        <Icon className="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 text-foreground/40 dark:text-white/40 shrink-0" />
                         <span className="font-mono tracking-wide uppercase text-foreground/60 dark:text-white/60 pointer-events-none">{item.name}</span>
                       </motion.div>
                     );
@@ -184,11 +184,9 @@ function WorkflowSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="col-span-1 md:col-span-2 lg:col-span-3 bg-background dark:bg-background p-3 sm:p-4 md:p-6  border-foreground/10 dark:border-white/10 hidden lg:flex items-center justify-center"
+                className="col-span-1 md:col-span-2 lg:col-span-3 bg-background dark:bg-background/80 p-3 sm:p-4 md:p-6 border-foreground/10 dark:border-white/10 hidden lg:flex items-center justify-center"
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center">
-                  <PlusCircle className="w-5 h-5 md:w-6 md:h-6 text-foreground/20 dark:text-white/20" />
-                </div>
+              
               </motion.div>
             </div>
           </motion.div>

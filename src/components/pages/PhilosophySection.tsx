@@ -3,7 +3,7 @@ import { motion } from 'motion/react'
 
 function Philosophy() {
   return (
-      <section id="philosophy" className="py-32 bg-transparent">
+      <section id="philosophy" className="container mx-auto px-4 py-20  bg-transparent">
         <div className="max-w-full mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

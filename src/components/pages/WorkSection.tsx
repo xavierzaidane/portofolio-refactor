@@ -48,9 +48,9 @@ function WorkSections() {
   }));
 
   return (
-    <section id="work" className="py-16 md:py-24 lg:py-32 bg-transparent">
-      <div className="max-w-full mx-auto border-t  dark:border-foreground/10">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 mb-8 md:mb-10 lg:mb-12 pt-6 md:pt-8 flex flex-col md:flex-row justify-between gap-8 md:gap-12 pb-10">
+    <section id="work" className="container mx-auto px-4 py-20 bg-transparent">
+      <div className="max-w-full mx-auto border-t mb-10 dark:border-foreground/10">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 mb-8 md:mb-10 lg:mb-12 pt-10 md:pt-20 flex flex-col md:flex-row justify-between gap-8 md:gap-12 pb-10">
           <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">
             Selected Works
           </h2>
@@ -117,7 +117,7 @@ function Project({
 }) {
   return (
     <div
-      className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10 px-6 md:px-20 py-8 md:py-12 transition-all duration-200 last:border-b hover:opacity-50"
+      className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10 px-6 md:px-20 py-8 md:py-12 transition-all duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
@@ -125,7 +125,7 @@ function Project({
       <h2 className="m-0 text-3xl md:text-6xl font-normal transition-all duration-300 group-hover:translate-x-2.5">
         {title}
       </h2>
-      <p className="hidden md:block font-light transition-all duration-300 group-hover:translate-x-2.5">
+      <p className="hidden md:block font-light text-foreground/50 transition-all duration-300 group-hover:translate-x-2.5">
         {project.category}
       </p>
     </div>

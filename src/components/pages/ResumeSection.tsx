@@ -14,7 +14,7 @@ const handleDownloadResume = () => {
 
 function ResumeSection() {
   return (
-    <section id="resume" className="py-16 md:py-24 lg:py-32 bg-transparent border-t border-foreground/10 dark:border-foreground/10">
+    <section id="resume" className="container mx-auto px-4 py-20  bg-transparent border-t border-foreground/10 dark:border-foreground/10">
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-8 md:gap-12">
              <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">Resume</h2>
           <motion.div 

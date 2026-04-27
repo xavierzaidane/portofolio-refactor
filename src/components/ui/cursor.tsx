@@ -1,134 +1,163 @@
 'use client';
-import React, { useEffect, useState, useRef } from 'react';
-import {
-  motion,
-  SpringOptions,
-  useMotionValue,
-  useSpring,
-  AnimatePresence,
-  Transition,
-  Variant,
-} from 'motion/react';
-import { cn } from '@/lib/utils';
 
-export type CursorProps = {
-  children: React.ReactNode;
-  className?: string;
-  springConfig?: SpringOptions;
-  attachToParent?: boolean;
-  transition?: Transition;
-  variants?: {
-    initial: Variant;
-    animate: Variant;
-    exit: Variant;
-  };
-  onPositionChange?: (x: number, y: number) => void;
+import React, { useEffect } from 'react';
+
+interface FollowCursorProps {
+  color?: string;
+  lightColor?: string;
+  darkColor?: string;
+  size?: number;
+  zIndex?: number;
+}
+
+const FollowCursor: React.FC<FollowCursorProps> = ({
+  color,
+  lightColor = '#0b0b0b',
+  darkColor = '#e7e9ea',
+  size = 10,
+  zIndex,
+}) => {
+  useEffect(() => {
+    let canvas: HTMLCanvasElement | null = null;
+    let context: CanvasRenderingContext2D | null = null;
+    let animationFrame = 0;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let cursor = { x: width / 2, y: height / 2 };
+    let activeColor = lightColor;
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const resolveColor = () => {
+      if (color) {
+        return color;
+      }
+      const isDark = document.documentElement.classList.contains('dark');
+      return isDark ? darkColor : lightColor;
+    };
+
+    const updateThemeColor = () => {
+      activeColor = resolveColor();
+    };
+
+    class Dot {
+      position: { x: number; y: number };
+      width: number;
+      lag: number;
+
+      constructor(x: number, y: number, width: number, lag: number) {
+        this.position = { x, y };
+        this.width = width;
+        this.lag = lag;
+      }
+
+      moveTowards(x: number, y: number, ctx: CanvasRenderingContext2D) {
+        this.position.x += (x - this.position.x) / this.lag;
+        this.position.y += (y - this.position.y) / this.lag;
+        ctx.fillStyle = activeColor;
+        ctx.beginPath();
+        ctx.arc(this.position.x, this.position.y, this.width, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+
+    const dot = new Dot(width / 2, height / 2, size, 10);
+
+    const onMouseMove = (e: MouseEvent) => {
+      cursor.x = e.clientX;
+      cursor.y = e.clientY;
+    };
+
+    const onWindowResize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      if (canvas) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+    };
+
+    const updateDot = () => {
+      if (context) {
+        context.clearRect(0, 0, width, height);
+        dot.moveTowards(cursor.x, cursor.y, context);
+      }
+    };
+
+    const loop = () => {
+      updateDot();
+      animationFrame = requestAnimationFrame(loop);
+    };
+
+    const init = () => {
+      if (prefersReducedMotion.matches || canvas) {
+        return;
+      }
+
+      canvas = document.createElement('canvas');
+      context = canvas.getContext('2d');
+      canvas.style.position = 'fixed';
+      canvas.style.top = '0';
+      canvas.style.left = '0';
+      canvas.style.pointerEvents = 'none';
+      canvas.width = width;
+      canvas.height = height;
+      canvas.style.zIndex = zIndex ? zIndex.toString() : '';
+      document.body.appendChild(canvas);
+
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('resize', onWindowResize);
+      loop();
+    };
+
+    const destroy = () => {
+      if (canvas) {
+        canvas.remove();
+      }
+      canvas = null;
+      context = null;
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('resize', onWindowResize);
+    };
+
+    const onReducedMotionChange = () => {
+      if (prefersReducedMotion.matches) {
+        destroy();
+      } else {
+        init();
+      }
+    };
+
+    const onThemeChange = () => {
+      updateThemeColor();
+    };
+
+    const observer = new MutationObserver(onThemeChange);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    prefersReducedMotion.addEventListener('change', onReducedMotionChange);
+    prefersDarkScheme.addEventListener('change', onThemeChange);
+
+    updateThemeColor();
+
+    init();
+
+    return () => {
+      observer.disconnect();
+      prefersReducedMotion.removeEventListener('change', onReducedMotionChange);
+      prefersDarkScheme.removeEventListener('change', onThemeChange);
+      destroy();
+    };
+  }, [color, lightColor, darkColor, size, zIndex]);
+
+  return null;
 };
 
-export function Cursor({
-  children,
-  className,
-  springConfig,
-  attachToParent,
-  variants,
-  transition,
-  onPositionChange,
-}: CursorProps) {
-  const cursorX = useMotionValue(0);
-  const cursorY = useMotionValue(0);
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(!attachToParent);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      cursorX.set(window.innerWidth / 2);
-      cursorY.set(window.innerHeight / 2);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!attachToParent) {
-      document.body.style.cursor = 'none';
-    } else {
-      document.body.style.cursor = 'auto';
-    }
-
-    const updatePosition = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-      onPositionChange?.(e.clientX, e.clientY);
-    };
-
-    document.addEventListener('mousemove', updatePosition);
-
-    return () => {
-      document.removeEventListener('mousemove', updatePosition);
-    };
-  }, [cursorX, cursorY, onPositionChange]);
-
-  const cursorXSpring = useSpring(cursorX, springConfig || { duration: 0 });
-  const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 });
-
-  useEffect(() => {
-    const handleVisibilityChange = (visible: boolean) => {
-      setIsVisible(visible);
-    };
-
-    if (attachToParent && cursorRef.current) {
-      const parent = cursorRef.current.parentElement;
-      if (parent) {
-        parent.addEventListener('mouseenter', () => {
-          parent.style.cursor = 'none';
-          handleVisibilityChange(true);
-        });
-        parent.addEventListener('mouseleave', () => {
-          parent.style.cursor = 'auto';
-          handleVisibilityChange(false);
-        });
-      }
-    }
-
-    return () => {
-      if (attachToParent && cursorRef.current) {
-        const parent = cursorRef.current.parentElement;
-        if (parent) {
-          parent.removeEventListener('mouseenter', () => {
-            parent.style.cursor = 'none';
-            handleVisibilityChange(true);
-          });
-          parent.removeEventListener('mouseleave', () => {
-            parent.style.cursor = 'auto';
-            handleVisibilityChange(false);
-          });
-        }
-      }
-    };
-  }, [attachToParent]);
-
-  return (
-    <motion.div
-      ref={cursorRef}
-      className={cn('pointer-events-none fixed left-0 top-0 z-50', className)}
-      style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
-        translateX: '-50%',
-        translateY: '-50%',
-      }}
-    >
-      <AnimatePresence>
-        {isVisible && (
-          <motion.div
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            variants={variants}
-            transition={transition}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
+export default FollowCursor;

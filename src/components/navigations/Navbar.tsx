@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import gsap from 'gsap';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const underlineRefs = useRef<Record<string, HTMLSpanElement | null>>({});
 
   const navLinks = [
     { label: 'Home', href: '#/' },
@@ -22,6 +24,18 @@ function Navbar() {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setIsMenuOpen(false);
     }
+  };
+
+  const handleLinkHover = (href: string, isEntering: boolean) => {
+    const underline = underlineRefs.current[href];
+    if (!underline) return;
+
+    gsap.to(underline, {
+      scaleX: isEntering ? 1 : 0,
+      duration: 0.90,
+      ease: 'power3.out',
+      transformOrigin: 'left center',
+    });
   };
 
   return (
@@ -65,9 +79,17 @@ function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleSmoothScroll(e, link.href)}
-              className="text-xs md:text-sm cursor-pointer text-background/80 dark:text-white/60 hover:text-background/50 dark:hover:text-white transition-colors"
+              onMouseEnter={() => handleLinkHover(link.href, true)}
+              onMouseLeave={() => handleLinkHover(link.href, false)}
+              className="relative text-xs md:text-sm cursor-pointer text-background/80 dark:text-white/60 hover:text-background/50 dark:hover:text-white transition-colors"
             >
               {link.label}
+              <span
+                ref={(el) => {
+                  underlineRefs.current[link.href] = el;
+                }}
+                className="absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-background/80 dark:bg-white/70"
+              />
             </a>
           ))}
         </div>

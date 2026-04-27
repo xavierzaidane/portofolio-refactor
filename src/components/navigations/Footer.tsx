@@ -1,8 +1,8 @@
 
 import { useRef, useLayoutEffect } from 'react';
-import { SiGithub } from 'react-icons/si'
-import { FaLinkedin } from 'react-icons/fa6'
-import { Download } from 'lucide-react'
+import { SiGithub, SiGmail, SiResend } from 'react-icons/si'
+import { FaInstagram, FaLinkedin } from 'react-icons/fa6'
+import { Download, Mail } from 'lucide-react'
 import { HiArrowUp } from 'react-icons/hi2';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -189,6 +189,11 @@ function Footer() {
             <div ref={ctaRef} className="flex gap-4 flex-col md:flex-row">
               <ButtonWithIconDemo />
             </div>
+            <p className="mt-15 text-sm leading-relaxed text-foreground/60 dark:text-white/60">
+              &copy; 2026 portfolio by Xavier Zaidane Athaya
+              <br />
+              Made with React &mdash; escape from the matrix
+            </p>
           </div>
         </div>
 
@@ -196,7 +201,7 @@ function Footer() {
         <div ref={rightRef} className="md:w-[45%] w-full flex gap-16 md:justify-end justify-start my-10 md:mt-0">
           {/* Navigation Links */}
           <div ref={navRef} className="flex flex-col w-fit">
-            <p className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-2xl mb-5">
+            <p className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-xl mb-5">
               Navigation
             </p>
             <nav className="flex flex-col gap-2">
@@ -219,7 +224,7 @@ function Footer() {
 
           {/* Social Links */}
           <div ref={socialRef} className="flex flex-col w-fit">
-            <p className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-2xl mb-5">
+            <p className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-xl mb-5">
               Socials
             </p>
             <div className="flex flex-col gap-3">
@@ -227,9 +232,9 @@ function Footer() {
                 href="https://github.com/xavierzaidane"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-lg"
+                className="flex items-center gap-2 text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300 md:text-base text-sm font-light"
               >
-                <SiGithub className="w-5 h-5" />
+                <SiGithub className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
               <a
@@ -238,8 +243,26 @@ function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300 md:text-base text-sm font-light"
               >
-                <FaLinkedin className="w-5 h-5" />
+                <FaLinkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://www.instagram.com/xavierzdn?igsh=ZXlqYzEzaGxpZWpn&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300 md:text-base text-sm font-light"
+              >
+                <FaInstagram className="w-4 h-4" />
+                <span>Instagram</span>
+              </a>
+              <a
+                href="mailto:xavierzaidane@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300 md:text-base text-sm font-light"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Email</span>
               </a>
             </div>
           </div>

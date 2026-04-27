@@ -4,7 +4,7 @@ import { PlusCircle } from "lucide-react";
 
 function WorkflowSection() {
   return (
-    <section id="workflow" className="container mx-auto px-4 py-20 border-t border-foreground/10 dark:border-white/10">
+    <section id="workflow" className="container mx-auto px-4 py-20 border-t border-foreground/10 dark:border-foreground/10">
       <div className="-mt-7 mb-25">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
@@ -23,7 +23,7 @@ function WorkflowSection() {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-white/60">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-foreground/60">
                 The essential software and ecosystem that powers my <span className="text-foreground dark:text-white font-normal">development</span> environment.
               </h3>
             </motion.div>

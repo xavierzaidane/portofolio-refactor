@@ -28,6 +28,7 @@ import {
   SiFastapi,
   SiLangchain,
   SiSentry,
+  SiResend,
 
 } from 'react-icons/si';
 
@@ -58,7 +59,7 @@ const WORKFLOW_DATA: WorkflowData = {
     { name: 'Google Cloud Platform', icon: SiGooglecloud },
     { name: 'Claude Code', icon: SiClaude },
     { name: 'Firebase', icon: SiFirebase },
-    { name: 'Resend', icon: Mail },
+    { name: 'Resend', icon: SiResend },
     { name: 'FastAPI', icon: SiFastapi  },
     { name: 'LangChain', icon: SiLangchain },
     { name: 'Laragon', icon: SiLaragon },

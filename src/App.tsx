@@ -18,6 +18,7 @@ import ActivitySection from './components/pages/ActivitySection';
 import Footer from './components/navigations/Footer';
 import ResumeSection from './components/pages/ResumeSection';
 import { ThemeToggleButton } from './components/ui/skiper26';
+import FollowCursor from './components/ui/cursor';
 
 const AppContent: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -25,6 +26,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="relative min-h-screen antialiased font-sans overflow-x-hidden bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+        <FollowCursor zIndex={10} size={5} lightColor="#72767a" darkColor="#e7e9ea" />
         <Navbar />
         <HeroSection/>
           <Experience />

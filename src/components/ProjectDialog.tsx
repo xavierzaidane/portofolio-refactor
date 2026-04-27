@@ -160,7 +160,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
                       className="flex flex-col overflow-y-auto border-b border-border/40 bg-muted/5 p-6 [scrollbar-width:none] [-ms-overflow-style:none] md:border-b-0 md:border-r md:p-10 [&::-webkit-scrollbar]:hidden"
                     >
                       <div className="mb-8">
-                        <Dialog.Title className="mb-3 text-3xl font-medium uppercase leading-tight tracking-normal text-foreground md:text-[40px]">
+                        <Dialog.Title className="mb-3 font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-5xl text-foreground ">
                           {project.title}
                         </Dialog.Title>
                         <span className="inline-block border border-border/40 bg-background/50 px-3 py-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">

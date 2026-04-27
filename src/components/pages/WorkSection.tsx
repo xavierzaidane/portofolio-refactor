@@ -122,7 +122,7 @@ function Project({
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
     >
-      <h2 className="m-0 text-3xl md:text-6xl font-display transition-all duration-300 group-hover:translate-x-2.5">
+      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl transition-all duration-300 group-hover:translate-x-2.5">
         {title}
       </h2>
       <p className="hidden md:block font-light text-foreground/50 transition-all duration-300 group-hover:translate-x-2.5">

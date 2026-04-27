@@ -43,11 +43,18 @@ function Navbar() {
       </div>
 
       {/* Logo/Brand */}
+        <a href="#/"
+          onClick={(e) => handleSmoothScroll(e, '#/')}
+          className="flex items-center gap-2"
+        >
       <div className="logo-nav cursor-pointer z-10">
+      
         <p className="text-lg md:text-sm font-medium text-background/80 dark:text-white">
           希文
         </p>
+        
       </div>
+      </a>
 
       {/* Right Section: Nav Links + Hamburger */}
       <div className="navbar-right z-10 relative flex items-center gap-6 top-7">

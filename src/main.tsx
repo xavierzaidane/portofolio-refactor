@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from './components/theme-provider';
 import App from './App';
-import './index.css';
+import '@/index.css';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

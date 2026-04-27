@@ -9,11 +9,6 @@ import AnimatedTextCycle from '../ui/animated-text-cycle';
 
 
 
-interface HeroSectionProps {
-  heroOpacity: ReturnType<typeof useTransform>;
-  heroScale: ReturnType<typeof useTransform>;
-}
-
 const words = ["feel intuitive", "are scalable", "stay responsive", "drive results"];
 
 const Counter = ({ value, duration = 2 }: { value: number; duration?: number }) => {
@@ -64,7 +59,7 @@ const SplitText = ({ children, className }: { children: string; className?: stri
   );
 };
 
-function HeroSection({  }: HeroSectionProps) {
+function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -116,14 +111,15 @@ function HeroSection({  }: HeroSectionProps) {
   return (
     <section 
   ref={sectionRef}
-  className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden "
+  id="/"
+  className="relative min-h-screen flex items-center  container mx-auto px-4 py-20  justify-center  overflow-hidden "
 >
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 
     {/* TITLE */}
     <div className="flex flex-col items-center leading-none text-center px-4">
       <motion.h1
-          className="text-[clamp(2.5rem,12vw,6rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.85] font-bold uppercase tracking-tighter"
+          className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -132,7 +128,7 @@ function HeroSection({  }: HeroSectionProps) {
       </motion.h1>
 
       <motion.h1
-          className="text-[clamp(3rem,14vw,7rem)] md:text-[clamp(4rem,9vw,8rem)] leading-[0.9] font-bold uppercase text-foreground/60 mt-[-0.5rem] md:-mt-4 tracking-tighter"
+          className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2  lg:text-9xl"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -179,18 +175,18 @@ function HeroSection({  }: HeroSectionProps) {
     >
       <div className="magnetic-btn">
         <FlipButton>
-          <FlipButtonFront className="rounded-full border w-40 h-13 flex items-center justify-center">
-            <span className="text-md font-medium uppercase">
+          <FlipButtonFront className="rounded-full border h-12 px-6 flex items-center justify-center">
+            <span className="text-sm font-medium uppercase">
               Contact me
             </span>
           </FlipButtonFront>
 
           <FlipButtonBack 
             onClick={handleWhatsAppClick}
-            className="rounded-full border w-40 h-13 flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10"
+            className="rounded-full border h-12 px-6 flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10"
           >
             <SiWhatsapp className="text-[#25D366] mr-2 text-base"/>
-            <span className="text-md font-medium">WhatsApp</span>
+            <span className="text-sm font-medium">WhatsApp</span>
           </FlipButtonBack>
         </FlipButton>
       </div>

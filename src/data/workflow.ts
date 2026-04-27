@@ -66,7 +66,6 @@ const WORKFLOW_DATA: WorkflowData = {
     { name: 'Github Copilot', icon: SiGithubcopilot },
     { name: 'n8n', icon: SiN8N },
     { name: 'Sentry', icon: SiSentry},
-      { name: 'cloudflare', icon: SiCloudflare},
   ],
   design: [
     { name: 'Figma', icon: SiFigma },

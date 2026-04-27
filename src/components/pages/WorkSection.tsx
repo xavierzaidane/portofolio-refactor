@@ -48,56 +48,56 @@ function WorkSections() {
   }));
 
   return (
-    <section id="work" className="container mx-auto px-4 py-20 bg-transparent">
-      <div className="max-w-full mx-auto border-t mb-10 dark:border-foreground/10">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 mb-8 md:mb-10 lg:mb-12 pt-10 md:pt-20 flex flex-col md:flex-row justify-between gap-8 md:gap-12 pb-10">
-          <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">
-            Selected Works
-          </h2>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex-1 max-w-5xl"
-          >
+    <section id="work" className="container mx-auto px-4 py-20 border-t border-foreground/10 dark:border-white/10">
+      <div className="-mt-7 ">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          {/* Left Label */}
+          <div className="lg:col-span-3">
+            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+              Work
+            </span>
+          </div>
 
+          {/* Right Content */}
+          <div className="flex flex-col gap-12 lg:col-span-9">
+            {/* Description */}
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-white/60"
             >
               Here's a overview of my recent <span className="text-foreground dark:text-white font-normal">projects.</span> Each project represents my <span className="text-foreground dark:text-white font-normal">dedications.</span>
             </motion.p>
-          </motion.div>
-        </div>
-
-        <div className="flex min-h-screen items-center justify-center">
-          <div className="flex w-full flex-col items-center justify-center">
-            {projectsWithMeta.map((projectMeta, index) => (
-              <Project
-                key={projectMeta.id}
-                index={index}
-                setModal={setModal}
-                title={projectMeta.title}
-                project={projectMeta.project}
-                onProjectClick={handleProjectClick}
-              />
-            ))}
           </div>
-          <Modal modal={modal} projects={projectsWithMeta} />
         </div>
-
-        {selectedProject && (
-          <ProjectDialog
-            project={selectedProject}
-            open={isDialogOpen}
-            onOpenChange={handleDialogClose}
-          />
-        )}
       </div>
+
+      {/* Projects Section - Full Width */}
+      <div className="flex min-h-screen items-center justify-center pt-12">
+        <div className="flex w-full flex-col items-center justify-center">
+          {projectsWithMeta.map((projectMeta, index) => (
+            <Project
+              key={projectMeta.id}
+              index={index}
+              setModal={setModal}
+              title={projectMeta.title}
+              project={projectMeta.project}
+              onProjectClick={handleProjectClick}
+            />
+          ))}
+        </div>
+        <Modal modal={modal} projects={projectsWithMeta} />
+      </div>
+
+      {selectedProject && (
+        <ProjectDialog
+          project={selectedProject}
+          open={isDialogOpen}
+          onOpenChange={handleDialogClose}
+        />
+      )}
     </section>
   );
 }
@@ -122,7 +122,7 @@ function Project({
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
     >
-      <h2 className="m-0 text-3xl md:text-6xl font-normal transition-all duration-300 group-hover:translate-x-2.5">
+      <h2 className="m-0 text-3xl md:text-6xl font-display transition-all duration-300 group-hover:translate-x-2.5">
         {title}
       </h2>
       <p className="hidden md:block font-light text-foreground/50 transition-all duration-300 group-hover:translate-x-2.5">
@@ -187,7 +187,7 @@ function Modal({
     <>
       <motion.div
         animate={active ? "enter" : "closed"}
-        className="pointer-events-none absolute flex h-[400px] w-[480px] items-center justify-center overflow-hidden  shadow-2xl"
+        className="pointer-events-none absolute flex h-100 w-120 items-center justify-center overflow-hidden shadow-2xl"
         initial="initial"
         ref={modalContainer}
         variants={scaleAnimation}

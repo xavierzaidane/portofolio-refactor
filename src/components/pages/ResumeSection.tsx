@@ -1,4 +1,4 @@
-import { Download } from "lucide-react"
+import { Download, FileText } from "lucide-react"
 import { FlipButton, FlipButtonBack, FlipButtonFront } from "../animate-ui/primitives/buttons/flip"
 import { motion } from 'motion/react';
 
@@ -14,59 +14,65 @@ const handleDownloadResume = () => {
 
 function ResumeSection() {
   return (
-    <section id="resume" className="container mx-auto px-4 py-20  bg-transparent border-t border-foreground/10 dark:border-foreground/10">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between gap-8 md:gap-12">
-             <h2 className="text-xs sm:text-[13px] md:text-[15px] font-mono tracking-wide md:tracking-widest uppercase text-foreground/40 dark:text-white/40">Resume</h2>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex-1 max-w-4xl lg:mr-35"
-          >
+    <section id="resume" className="container mx-auto px-4 py-20 border-t border-foreground/10 dark:border-white/10">
+      <div className="-mt-7 mb-15">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          {/* Left Label */}
+          <div className="lg:col-span-3">
+            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+              Resume
+            </span>
+          </div>
+
+          {/* Right Content */}
+          <div className="flex flex-col gap-8 lg:col-span-9">
+            {/* Heading */}
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-heading font-semibold mb-6 md:mb-8 lg:mb-10 tracking-tight text-left"
+              className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl text-left"
             >
-                <span className="text-foreground/60 dark:text-white/60">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60">Software</span> Development journey.
+              <span className="text-foreground/60 dark:text-white/60">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60">Software</span> Development journey.
             </motion.h3>
+
+            {/* Description */}
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-sm sm:text-base md:text-lg lg:text-2xl max-w-2xl text-foreground/50 dark:text-white/50 leading-relaxed font-light mb-8 md:mb-10 lg:mb-12"
+              className="text-sm sm:text-base md:text-lg lg:text-2xl max-w-2xl text-foreground/50 dark:text-white/50 leading-relaxed font-light"
             >
               Here's a comprehensive overview of my experience, skills, and achievements. Download my resume to learn more about what I've accomplished.
             </motion.p>
-            
+            {/* Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25 }}
               viewport={{ once: true, margin: "-100px" }}
+              className="w-fit"
             >
               <FlipButton>
-                <FlipButtonFront
-                  className='flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-54 md:w-60 lg:w-60 h-10 sm:h-11 md:h-13 rounded-full border border-foreground/20 dark:border-white/20 text-foreground dark:text-white text-sm sm:text-base md:text-lg lg:text-[19px] font-light transition-colors'
-                >
-                  Interested in more ?
+                <FlipButtonFront className="rounded-full border h-12 px-6 flex items-center justify-center gap-2">
+                  <Download className="w-4 h-4"/>
+                  <span className="text-sm font-medium uppercase">
+                    Download Resume
+                  </span>
                 </FlipButtonFront>
                 <FlipButtonBack 
                   onClick={handleDownloadResume}
-                  className='flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-56 md:w-60 lg:w-65 h-10 sm:h-11 md:h-13 rounded-full  text-foreground dark:text-white text-sm sm:text-base md:text-lg lg:text-[19px] font-light transition-colors cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10'
+                  className='rounded-full border h-12 px-6 flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10'
                 >
-                  <Download className="w-5 h-5 text-foreground/60 dark:text-white/50 font-light"/>
-                  <span className="text-sm sm:text-base md:text-lg lg:text-[19px] text-foreground dark:text-white font-light">Download my resume 
-                  </span>
+                  <span className="text-sm font-medium uppercase">Click to Download</span>
                 </FlipButtonBack>
               </FlipButton>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
+      </div>
     </section>
   )
 }

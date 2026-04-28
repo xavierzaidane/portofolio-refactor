@@ -7,7 +7,21 @@ import { FlipButton, FlipButtonBack, FlipButtonFront } from '../animate-ui/primi
 import { SiWhatsapp } from 'react-icons/si';
 import AnimatedTextCycle from '../ui/animated-text-cycle';
 
-
+const scaleAnimation = {
+  closed: {
+    scale: 0,
+    transition: { duration: 0.4, ease: "easeIn" },
+    x: "-50%",
+    y: "-50%",
+  },
+  enter: {
+    scale: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+    x: "-50%",
+    y: "-50%",
+  },
+  initial: { scale: 0, x: "-50%", y: "-50%" },
+} as const;
 
 const words = ["feel intuitive", "are scalable", "stay responsive", "drive results"];
 
@@ -66,6 +80,10 @@ function HeroSection() {
   const subtitleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const helloCursor = useRef<HTMLDivElement>(null);
+  const helloCursorLabel = useRef<HTMLDivElement>(null);
+  const titleWrapperRef = useRef<HTMLDivElement>(null);
+  const [titleHovered, setTitleHovered] = useState(false);
 
 
 
@@ -108,6 +126,49 @@ function HeroSection() {
     };
   }, []);
 
+  // Hello cursor effect for title
+  useEffect(() => {
+    const xMoveCursor = gsap.quickTo(helloCursor.current, "left", {
+      duration: 0.5,
+      ease: "power3",
+    });
+    const yMoveCursor = gsap.quickTo(helloCursor.current, "top", {
+      duration: 0.5,
+      ease: "power3",
+    });
+    const xMoveCursorLabel = gsap.quickTo(helloCursorLabel.current, "left", {
+      duration: 0.45,
+      ease: "power3",
+    });
+    const yMoveCursorLabel = gsap.quickTo(helloCursorLabel.current, "top", {
+      duration: 0.45,
+      ease: "power3",
+    });
+
+    const handleMouseMove = (e: MouseEvent) => {
+  const { clientX, clientY } = e;
+  xMoveCursor(clientX);
+  yMoveCursor(clientY);
+  xMoveCursorLabel(clientX);
+  yMoveCursorLabel(clientY);
+};
+
+    const titleWrapper = titleWrapperRef.current;
+    if (titleWrapper) {
+      titleWrapper.addEventListener("mousemove", handleMouseMove);
+      titleWrapper.addEventListener("mouseenter", () => setTitleHovered(true));
+      titleWrapper.addEventListener("mouseleave", () => setTitleHovered(false));
+    }
+
+    return () => {
+      if (titleWrapper) {
+        titleWrapper.removeEventListener("mousemove", handleMouseMove);
+        titleWrapper.removeEventListener("mouseenter", () => setTitleHovered(true));
+        titleWrapper.removeEventListener("mouseleave", () => setTitleHovered(false));
+      }
+    };
+  }, []);
+
   return (
     <section 
   ref={sectionRef}
@@ -117,9 +178,9 @@ function HeroSection() {
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 
     {/* TITLE */}
-    <div className="flex flex-col items-center leading-none text-center px-4">
+    <div ref={titleWrapperRef} className="flex flex-col items-center leading-none text-center px-4">
       <motion.h1
-          className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl"
+          className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl pointer-events-none"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -128,7 +189,7 @@ function HeroSection() {
       </motion.h1>
 
       <motion.h1
-          className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2  lg:text-9xl"
+          className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2  lg:text-9xl pointer-events-none"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -147,15 +208,14 @@ function HeroSection() {
     >
       <h2 className="text-[1.90rem] font-light tracking-tight">
         <span className="font-normal">Software Developer. </span>
-        <span className="text-foreground/60">Delivering meaningful experiences with tools that </span>{""}
+        <span className="text-foreground/60">Delivering professional experiences that </span>{""}
         <AnimatedTextCycle 
           words={[
-            "Responsive",
-            "Impactful",
-            "Utilized",
-            "Efficient",
-            "Optimized",
-            "Intuitive"
+            "solve real problems",
+            "deliver results",
+            "drive real impact",
+            "make a difference",
+            "optimize outcomes"
 
           ]}
           interval={3000}
@@ -200,6 +260,19 @@ function HeroSection() {
     </motion.div>
 
   </div>
+
+  {/* Hello Cursor Circle */}
+<motion.div
+  animate={titleHovered ? "enter" : "closed"}
+  className="pointer-events-none fixed z-50 flex h-20 w-20 items-center justify-center rounded-full bg-foreground opacity-93"
+  initial="initial"
+  ref={helloCursor}
+  variants={scaleAnimation}
+>
+  <span className="text-sm text-center font-mono uppercase text-background">
+    你好(Hello)
+  </span>
+</motion.div>
 </section>
   );
 }

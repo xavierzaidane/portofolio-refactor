@@ -212,14 +212,14 @@ function Modal({
       </motion.div>
       <motion.div
         animate={active ? "enter" : "closed"}
-        className="pointer-events-none absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white text-white dark:bg-white dark:text-black"
+        className="pointer-events-none absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-foreground opacity-93"
         initial="initial"
         ref={cursor}
         variants={scaleAnimation}
       />
       <motion.div
         animate={active ? "enter" : "closed"}
-        className="pointer-events-none absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-transparent font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-xl text-black dark:text-black uppercase"
+        className="pointer-events-none absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-transparent font-mono text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-lg text-white dark:text-black uppercase"
         initial="initial"
         ref={cursorLabel}
         variants={scaleAnimation}

@@ -11,10 +11,23 @@ export interface Project {
   image: string[];
   description: string;
   tech: string[];
-  workflow: string[];
+
   fullDescription?: string;
   link?: string;
   github?: string;
+  youtube?: string;
+  deployment?: string;
+  year?: string;
+  role?: string;
+  problem?: string;
+  solution?: string;
+  scope?: string;
+  development?: string;
+  developmentDuration?: string;
+  galleryImages?: Array<{
+    src: string;
+    alt: string;
+  }>;
 }
 
 export interface Experience {

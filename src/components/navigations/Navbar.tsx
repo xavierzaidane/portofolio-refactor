@@ -1,28 +1,54 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import gsap from 'gsap';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const underlineRefs = useRef<Record<string, HTMLSpanElement | null>>({});
 
   const navLinks = [
-    { label: 'Home', href: '#/' },
-    { label: 'Work', href: '#work' },
-    { label: 'Resume', href: '#resume' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'Work', href: 'work' },
+    { label: 'Resume', href: 'resume' },
+    { label: 'Contact', href: 'contact' },
   ];
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMenuOpen(false);
+    setIsMenuOpen(false);
+
+    // If it's a route (Home), navigate to it
+    if (href === '/') {
+      navigate('/');
+      return;
+    }
+
+    // For section scrolling
+    const isOnHomePage = location.pathname === '/';
+    
+    const scrollToSection = () => {
+      const element = document.getElementById(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    if (isOnHomePage) {
+      // Already on home page, just scroll to section
+      scrollToSection();
+    } else {
+      // On project page, navigate to home first, then scroll to section
+      navigate('/');
+      // Scroll after navigation completes
+      setTimeout(() => {
+        scrollToSection();
+      }, 100);
     }
   };
 
@@ -57,8 +83,8 @@ function Navbar() {
       </div>
 
       {/* Logo/Brand */}
-        <a href="#/"
-          onClick={(e) => handleSmoothScroll(e, '#/')}
+        <a href="/"
+          onClick={(e) => handleSmoothScroll(e, '/')}
           className="flex items-center gap-2"
         >
       <div className="logo-nav cursor-pointer z-10">

@@ -2,8 +2,8 @@
 import gsap from "gsap";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PROJECTS } from "@/data/projects";
-import ProjectDialog from "../ProjectDialog";
 import type { Project } from "@/data/types";
 
 const scaleAnimation = {
@@ -24,19 +24,10 @@ const scaleAnimation = {
 
 function WorkSections() {
   const [modal, setModal] = useState({ active: false, index: 0 });
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleProjectClick = (project: Project) => {
-    setSelectedProject(project);
-    setIsDialogOpen(true);
-  };
-
-  const handleDialogClose = () => {
-    setIsDialogOpen(false);
-    setTimeout(() => {
-      setSelectedProject(null);
-    }, 300);
+    navigate(`/project/${project.id}`);
   };
 
   // Transform PROJECTS data to match component structure
@@ -90,14 +81,6 @@ function WorkSections() {
         </div>
         <Modal modal={modal} projects={projectsWithMeta} />
       </div>
-
-      {selectedProject && (
-        <ProjectDialog
-          project={selectedProject}
-          open={isDialogOpen}
-          onOpenChange={handleDialogClose}
-        />
-      )}
     </section>
   );
 }
@@ -224,7 +207,7 @@ function Modal({
         ref={cursorLabel}
         variants={scaleAnimation}
       >
-        View
+        Visit
       </motion.div>
     </>
   );

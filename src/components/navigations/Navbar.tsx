@@ -78,8 +78,8 @@ function Navbar() {
           <div className="w-12 h-px bg-background/80 dark:bg-white/40" />
         </div>
         <p className="font-mono text-xs md:text-xs hidden md:block text-background/80 dark:text-white/60">
-          crafting <span className="italic">solutions</span> &amp; driving <span className="italic">conversions</span>
-        </p>
+  打造 (crafting) &amp; 提升 (driving conversions)
+</p>
       </div>
 
       {/* Logo/Brand */}

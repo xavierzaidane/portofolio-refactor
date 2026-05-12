@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   {
   id: '3',
   title: 'LearnIndo',
-  category: 'Education Platform',
+  category: 'SaaS Education Platform',
   year: '2025',
   role: 'Frontend Developer',
   image: ['/learnindo.png'],

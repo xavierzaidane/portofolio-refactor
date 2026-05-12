@@ -1,13 +1,29 @@
-import React from "react";
-import { Github, Globe } from "lucide-react";
+import React, { useRef, useState } from "react";
+import { Github, Globe, Globe2 } from "lucide-react";
 import { motion } from "motion/react";
 import type { Project } from "@/data/types";
+import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 interface ProjectHeaderProps {
   project: Project;
 }
 
 const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
+    const [pos, setPos] = useState({ x: 0, y: 0 });
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setPos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
+
+
   return (
     <div className="w-full md:h-[85vh] flex flex-col pt-60 justify-between py-10 gap-10">
       <div className="w-full h-full flex md:flex-row flex-col justify-between md:gap-3 gap-12">
@@ -61,36 +77,59 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
       </div>
 
       {/* Link Buttons */}
-      <motion.div
+        <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         className="flex gap-3 md:gap-4 md:justify-start justify-end flex-wrap"
       >
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-2 px-5 h-12 border border-foreground/20 hover:border-foreground/20 rounded-full font-mono text-xs uppercase tracking-wider transition-all hover:bg-foreground/10"
-          >
-            <Github className="w-4 h-4" />
-            <span className="hidden md:inline">GitHub</span>
-          </a>
+         <Button
+      ref={buttonRef}
+      onMouseEnter={handleMouseEnter}
+      onClick={() => window.open(project.github, '_blank')}
+      variant="outline"
+      className="relative overflow-hidden group flex items-center cursor-pointer justify-center gap-2 px-5 w-43 h-13 border border-foreground/60 dark:border-white/30 hover:border-foreground/20 rounded-full font-mono text-sm uppercase tracking-wider transition-all hover:bg-foreground/10"
+    >
+      <span
+        className={cn(
+          "absolute w-10 h-10 rounded-full scale-0 transition-transform duration-700 ease-in-out group-hover:scale-[15] pointer-events-none",
+          "bg-foreground/80 dark:bg-white"
         )}
+        style={{
+          left: pos.x - 20,
+          top: pos.y - 20,
+        }}
+      />
+      <Github className="w-4 h-4 relative z-10  transition-colors duration-500 pointer-events-none group-hover:text-white dark:group-hover:text-black" />
+      <span className="relative z-10 transition-colors duration-500 pointer-events-none group-hover:text-white dark:group-hover:text-black">
+        view code
+      </span>
+    </Button>
 
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-2 px-5 h-12 border border-foreground rounded-full bg-foreground text-background font-mono text-xs uppercase tracking-wider transition-all hover:opacity-90"
-          >
-            <Globe className="w-4 h-4" />
-            <span className="hidden md:inline">Visit Live</span>
-          </a>
+    <Button
+      ref={buttonRef}
+      onMouseEnter={handleMouseEnter}
+      onClick={() => window.open(project.link, '_blank')}
+      variant="outline"
+      className="relative overflow-hidden group flex items-center cursor-pointer justify-center gap-2 px-5 w-43 h-13 border border-foreground/60 dark:border-foreground/20 hover:border-foreground/20 rounded-full font-mono text-sm uppercase tracking-wider transition-all hover:bg-foreground/10"
+    >
+      <span
+        className={cn(
+          "absolute w-10 h-10 rounded-full scale-0 transition-transform duration-700 ease-in-out group-hover:scale-[15] pointer-events-none",
+          "bg-foreground/20 dark:bg-foreground/20"
         )}
+        style={{
+          left: pos.x - 20,
+          top: pos.y - 20,
+        }}
+      />
+      <Globe2 className="w-4 h-4 relative z-10  transition-colors duration-500 pointer-events-none group-hover:text-white dark:group-hover:text-foreground/20" />
+      <span className="relative z-10 transition-colors duration-500 pointer-events-none group-hover:text-white dark:group-hover:text-foreground/20">
+        Visit Live
+      </span>
+    </Button>
       </motion.div>
+     
     </div>
   );
 };

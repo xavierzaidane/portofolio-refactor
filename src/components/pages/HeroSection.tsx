@@ -178,7 +178,7 @@ function HeroSection() {
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 
     {/* TITLE */}
-    <div ref={titleWrapperRef} className="flex flex-col items-center leading-none text-center px-4">
+    <div ref={titleWrapperRef} className="flex flex-col items-center cursor-pointer leading-none text-center px-4">
       <motion.h1
           className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl pointer-events-none"
           initial={{ opacity: 0, y: 60 }}

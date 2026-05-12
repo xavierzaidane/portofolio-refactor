@@ -53,9 +53,26 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/xavierzaidane/anastasya-store',
     },
 
-  // Neurofit (legacy)
+  // LearnIndo (legacy)
   {
-    id: '3',
+  id: '3',
+  title: 'LearnIndo',
+  category: 'Education Platform',
+  year: '2025',
+  role: 'Frontend Developer',
+  image: ['/learnindo.png'],
+  description: 'A modern language learning platform redesign for Learn Indonesia.',
+  tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'Framer Motion'],
+  fullDescription: 'A modern redesign and frontend implementation for the Learn Indonesia platform. The project focuses on improving the user experience, visual presentation, responsiveness, and overall usability of the website while maintaining a clean and engaging learning environment.',
+  problem: 'The existing platform required a more modern and engaging homepage experience to improve usability, visual appeal, and responsiveness for users.',
+  solution: 'Redesigned and rebuilt the frontend homepage using Next.js and Tailwind CSS with a modern UI approach, responsive layouts, reusable components, and smoother user interactions.',
+  scope: 'Homepage redesign, responsive UI development, component architecture, animations, course showcase sections, testimonials, navigation improvements, and overall frontend enhancement.',
+  development: 'Developed using Next.js and TypeScript with Tailwind CSS for styling. Implemented reusable UI components, responsive layouts, smooth animations using Framer Motion, and modern design patterns to create a cleaner and more interactive learning platform experience.',
+  link: 'https://learnindonesia-bamboo.vercel.app/',
+  github: 'https://github.com/xavierzaidane/learnindonesia-bamboo',
+  },
+  {
+    id: '4',
     title: 'Neurofit',
     category: 'Voice Agent',
     year: '2025',
@@ -73,7 +90,7 @@ export const PROJECTS: Project[] = [
   },
   // Resumy
   {
-    id: '4',
+    id: '5',
     title: 'Resumy',
     category: 'Resume Analysis',
     year: '2025',
@@ -91,7 +108,7 @@ export const PROJECTS: Project[] = [
   },
   // Chatbot Plugin
     {
-    id: '5',
+    id: '6',
     title: 'Chatbot Plugin',
     category: 'Chat Plugin',
     year: '2025',
@@ -109,7 +126,7 @@ export const PROJECTS: Project[] = [
   },
  
   {
-    id: '6',
+    id: '7',
     title: 'Slack Clone',
     category: 'Messaging App',
     year: '2024',
@@ -127,7 +144,7 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    id: '7',
+    id: '8',
     title: 'IRIS',
     category: 'Facility Management',
     year: '2023',
@@ -144,7 +161,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/Valtern/web-sarana-perbaikan',
   },
   {
-    id: '8',
+    id: '9',
     title: 'Store Test',
     category: 'E-commerce Project',
     year: '2025',

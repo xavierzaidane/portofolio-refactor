@@ -1,9 +1,10 @@
 import { useRef, useLayoutEffect } from 'react';
-import { Mail, Loader } from 'lucide-react'
+import { Mail, Loader, QuoteIcon } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
 import { FaLinkedin } from 'react-icons/fa6'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TbQuotes } from 'react-icons/tb';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,25 +171,7 @@ function Contact() {
         {/* Left Icon - Hidden on mobile */}
         <div ref={iconRef} className="relative hidden lg:col-span-2 lg:flex lg:items-start lg:justify-center">
           <div className="sticky top-32">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="128"
-              height="128"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="size-32 -rotate-12 text-foreground/10 dark:text-white/10"
-            >
-              <path
-                d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path d="M3 7H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              <path d="M8 11H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              <path d="M8 15H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
+            <QuoteIcon className="size-42 -rotate-12 -scale-x-100 text-foreground/10 dark:text-white/10 opacity-50" />
           </div>
         </div>
 

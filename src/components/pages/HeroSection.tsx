@@ -88,44 +88,7 @@ function HeroSection() {
 
 
 
-  // Magnetic effect for buttons
-  useEffect(() => {
-    const buttons = document.querySelectorAll('.magnetic-btn');
-    
-    const handleMouseMove = (e: MouseEvent, btn: Element) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      gsap.to(btn, {
-        x: x * 0.3,
-        y: y * 0.3,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    };
 
-    const handleMouseLeave = (btn: Element) => {
-      gsap.to(btn, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: 'elastic.out(1, 0.3)'
-      });
-    };
-
-    buttons.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => handleMouseMove(e as MouseEvent, btn));
-      btn.addEventListener('mouseleave', () => handleMouseLeave(btn));
-    });
-
-    return () => {
-      buttons.forEach(btn => {
-        btn.removeEventListener('mousemove', (e) => handleMouseMove(e as MouseEvent, btn));
-        btn.removeEventListener('mouseleave', () => handleMouseLeave(btn));
-      });
-    };
-  }, []);
 
   // Hello cursor effect for title
   useEffect(() => {
@@ -247,10 +210,10 @@ function HeroSection() {
 
           <FlipButtonBack 
             onClick={handleWhatsAppClick}
-            className="rounded-full border h-12 px-6 flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10"
+            className="rounded-full border h-12 px-6  flex items-center justify-center cursor-pointer hover:bg-foreground/10 dark:hover:bg-white/10"
           >
-            <SiWhatsapp className="text-[#25D366] mr-2 text-base"/>
-            <span className="text-sm font-medium">WhatsApp</span>
+            <SiWhatsapp className="text-[#25D366] w-4 h-4  mr-2 text-base"/>
+            <span className="text-md font-medium">WhatsApp</span>
           </FlipButtonBack>
         </FlipButton>
       </div>

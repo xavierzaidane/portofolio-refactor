@@ -75,7 +75,7 @@ function ResumeSection() {
           <Button
                 ref={buttonRef}
                 onMouseEnter={handleMouseEnter}
-
+                onClick={handleDownloadResume}
                 variant="outline"
                 className="relative overflow-hidden group flex items-center cursor-pointer justify-center gap-2 px-5 w-57 h-13 border border-foreground/20 dark:border-foreground/10 hover:border-foreground/20 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:bg-foreground/10"
               >

@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { FlipButton, FlipButtonBack, FlipButtonFront } from '../animate-ui/primitives/buttons/flip';
 import { SiWhatsapp } from 'react-icons/si';
 import AnimatedTextCycle from '../ui/animated-text-cycle';
+import { ArrowUpRight } from 'lucide-react';
 
 const scaleAnimation = {
   closed: {
@@ -235,10 +236,13 @@ function HeroSection() {
     >
       <div className="magnetic-btn">
         <FlipButton>
-          <FlipButtonFront className="rounded-full border h-12 px-6 flex items-center justify-center">
-            <span className="text-sm font-medium uppercase">
+          <FlipButtonFront className="rounded-full border h-12 px-6 ps-6 pe-13 flex items-center justify-center">
+            <span className="text-sm font-medium uppercase ">
               Contact me
             </span>
+            <div className="absolute right-1 w-10 h-10 bg-foreground/70 dark:bg-white dark:text-black text-white rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45">
+        <ArrowUpRight size={16} />
+      </div>
           </FlipButtonFront>
 
           <FlipButtonBack 

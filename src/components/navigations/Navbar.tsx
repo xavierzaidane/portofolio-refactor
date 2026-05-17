@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -8,6 +8,7 @@ import gsap from 'gsap';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const underlineRefs = useRef<Record<string, HTMLSpanElement | null>>({});
@@ -18,6 +19,20 @@ function Navbar() {
     { label: 'Resume', href: 'resume' },
     { label: 'Contact', href: 'contact' },
   ];
+
+  // Handle scroll target after navigation completes
+  useEffect(() => {
+    if (scrollTarget && location.pathname === '/') {
+      const timer = requestAnimationFrame(() => {
+        const element = document.getElementById(scrollTarget);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      setScrollTarget(null);
+      return () => cancelAnimationFrame(timer);
+    }
+  }, [scrollTarget, location.pathname]);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -32,23 +47,16 @@ function Navbar() {
     // For section scrolling
     const isOnHomePage = location.pathname === '/';
     
-    const scrollToSection = () => {
+    if (isOnHomePage) {
+      // Already on home page, scroll to section
       const element = document.getElementById(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    };
-
-    if (isOnHomePage) {
-      // Already on home page, just scroll to section
-      scrollToSection();
     } else {
-      // On project page, navigate to home first, then scroll to section
+      // On project page, navigate to home first, then scroll
+      setScrollTarget(href);
       navigate('/');
-      // Scroll after navigation completes
-      setTimeout(() => {
-        scrollToSection();
-      }, 100);
     }
   };
 

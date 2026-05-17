@@ -64,16 +64,18 @@ const ProjectPage: React.FC = () => {
   };
 
   return (
-    <main className="container mx-auto px-20 py-20 bg-background text-foreground">
-      <ProjectHeader project={project} />
-      <ProjectMainImage project={project} />
-      <CaseStudySection project={project} />
-      <ProjectNavigation
-        previousProject={previousProject}
-        nextProject={nextProject}
-        onPreviousClick={handlePreviousClick}
-        onNextClick={handleNextClick}
-      />
+    <main className="container mx-auto px-4 py-20 bg-background text-foreground">
+      <div className="px-4 md:px-16 lg:px-20">
+        <ProjectHeader project={project} />
+        <ProjectMainImage project={project} />
+        <CaseStudySection project={project} />
+        <ProjectNavigation
+          previousProject={previousProject}
+          nextProject={nextProject}
+          onPreviousClick={handlePreviousClick}
+          onNextClick={handleNextClick}
+        />
+      </div>
     </main>
   );
 };

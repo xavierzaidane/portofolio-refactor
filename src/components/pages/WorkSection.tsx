@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/data/types";
+import { ArrowUpRight } from "lucide-react";
 
 const scaleAnimation = {
   closed: {
@@ -84,16 +85,19 @@ function Project({
 }) {
   return (
     <div
-      className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10 px-6 md:px-20 py-8 md:py-12 transition-all duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
+      className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10  py-8 md:py-12 transition-all duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
     >
-      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl transition-all duration-300 group-hover:translate-x-2.5">
-        {title}
+      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl transition-all duration-300  group-hover:translate-x-2.5">
+        <span className="text-[0.775rem] mr-6 font-mono tracking-wide text-foreground/60">{String(index + 1).padStart(2, "0")}.</span> {title}
       </h2>
-      <p className="hidden md:block text-[0.775rem]  font-mono uppercase text-foreground/60 transition-all duration-300 group-hover:translate-x-2.5">
+      <p className="hidden md:flex items-center gap-6 text-[0.775rem]  font-mono uppercase text-foreground/60 transition-all duration-300 group-hover:translate-x-2.5">
         {project.category}
+        <div className="w-13 h-13 bg-background dark:bg-background border dark:text-black text-white rounded-full flex items-center justify-center transition-all duration-500 group-hover:rotate-45">
+          <ArrowUpRight className="text-foreground/70" size={20} />
+        </div>
       </p>
     </div>
   );

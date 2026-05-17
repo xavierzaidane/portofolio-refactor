@@ -114,7 +114,7 @@ function Philosophy() {
                   <h4 className={`mb-4 font-mono text-sm uppercase tracking-wider ${item.color}`}>
                     {item.category}
                   </h4>
-                  <p className="font-light text-foreground/60 dark:text-white/60 text-lg md:text-xl leading-relaxed">
+                  <p className="font-light text-foreground/60 dark:text-white/60 text-sm md:text-xl leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

@@ -64,7 +64,7 @@ const ProjectPage: React.FC = () => {
   };
 
   return (
-    <main className="container mx-auto px-4 py-20 bg-background text-foreground">
+    <main className="container mx-auto px-20 py-20 bg-background text-foreground">
       <ProjectHeader project={project} />
       <ProjectMainImage project={project} />
       <CaseStudySection project={project} />

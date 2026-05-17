@@ -90,7 +90,7 @@ function Project({
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
     >
-      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl transition-all duration-300  group-hover:translate-x-2.5">
+      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tight text-6xl transition-all duration-300  group-hover:translate-x-2.5">
         <span className="text-[0.775rem] mr-6 font-mono tracking-wide text-foreground/60">{String(index + 1).padStart(2, "0")}.</span> {title}
       </h2>
       <p className="hidden md:flex items-center gap-6 text-[0.775rem]  font-mono uppercase text-foreground/60 transition-all duration-300 group-hover:translate-x-2.5">

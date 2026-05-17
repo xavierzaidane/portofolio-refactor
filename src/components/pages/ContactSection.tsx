@@ -159,10 +159,10 @@ function Contact() {
     <section ref={sectionRef} id="contact" className="container mx-auto px-4 py-24 relative overflow-hidden">
       {/* Header */}
       <div ref={headerRef} className="mb-16 flex items-center justify-between border-b border-foreground/10 dark:border-white/10 pb-6">
-        <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+        <span className="text-sm font-mono uppercase text-foreground/60">
           Get in Touch
         </span>
-        <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+        <span className="text-sm font-mono uppercase text-foreground/60">
           05 — Let's Connect
         </span>
       </div>

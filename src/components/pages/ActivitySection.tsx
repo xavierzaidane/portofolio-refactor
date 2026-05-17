@@ -36,7 +36,7 @@ function ActivitySection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
-            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+            <span className="text-sm font-mono uppercase text-foreground/60">
               Activity
             </span>
           </div>
@@ -49,7 +49,7 @@ function ActivitySection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-3xl md:text-4xl font-light leading-snug text-foreground/60"
+              className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
             >
               A visual record of <span className="text-foreground font-normal">consistency </span>and commitment to <span className="text-foreground font-normal">engineering </span>excellence.
             </motion.h3>

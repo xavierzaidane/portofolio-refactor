@@ -79,7 +79,7 @@ function StackSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
-            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+            <span className="text-sm font-mono uppercase text-foreground/60">
               Stack
             </span>
           </div>
@@ -88,7 +88,7 @@ function StackSection() {
           <div className="flex flex-col gap-12 lg:col-span-9">
             {/* Description */}
             <div ref={headerRef}>
-              <p className="max-w-3xl font-light text-foreground/60 dark:text-white/60 text-xl md:text-3xl leading-relaxed">
+              <p className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
                 The tools and technologies I use to build{' '}
                 <span className="font-normal text-foreground dark:text-white">scalable</span>, modern web applications.
               </p>

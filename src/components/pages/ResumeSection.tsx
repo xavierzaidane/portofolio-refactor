@@ -36,7 +36,7 @@ function ResumeSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
-            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+            <span className="text-sm font-mono uppercase text-foreground/60">
               Resume
             </span>
           </div>

@@ -39,34 +39,17 @@ function WorkSections() {
   }));
 
   return (
-    <section id="work" className="container mx-auto px-4 py-20 border-t border-foreground/10 dark:border-white/10">
-      <div className="-mt-7 ">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          {/* Left Label */}
-          <div className="lg:col-span-3">
-            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
-              Work
-            </span>
-          </div>
-
-          {/* Right Content */}
-          <div className="flex flex-col gap-12 lg:col-span-9">
-            {/* Description */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-white/60"
-            >
-              Here's a overview of my recent <span className="text-foreground dark:text-white font-normal">projects.</span> Each project represents my <span className="text-foreground dark:text-white font-normal">dedications.</span>
-            </motion.p>
-          </div>
-        </div>
+    <section id="work" className="container mx-auto px-4">
+      {/* Left Label */}
+      <div className="py-12 -mb-5">
+        <span className="text-sm font-mono uppercase text-foreground/60">
+            Selected Work
+        </span>
       </div>
 
       {/* Projects Section - Full Width */}
-      <div className="flex min-h-screen items-center justify-center pt-12">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-20">
+      <div className="flex min-h-screen items-center justify-center -mt-5">
         <div className="flex w-full flex-col items-center justify-center">
           {projectsWithMeta.map((projectMeta, index) => (
             <Project
@@ -80,6 +63,7 @@ function WorkSections() {
           ))}
         </div>
         <Modal modal={modal} projects={projectsWithMeta} />
+      </div>
       </div>
     </section>
   );
@@ -108,7 +92,7 @@ function Project({
       <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl transition-all duration-300 group-hover:translate-x-2.5">
         {title}
       </h2>
-      <p className="hidden md:block font-light text-foreground/50 transition-all duration-300 group-hover:translate-x-2.5">
+      <p className="hidden md:block text-[0.775rem]  font-mono uppercase text-foreground/60 transition-all duration-300 group-hover:translate-x-2.5">
         {project.category}
       </p>
     </div>

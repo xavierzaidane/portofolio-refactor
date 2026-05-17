@@ -79,10 +79,10 @@ function Philosophy() {
         ref={headerRef}
         className="mb-16 flex items-center justify-between border-b border-foreground/10 dark:border-white/10 pb-6"
       >
-        <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+        <span className="text-sm font-mono uppercase text-foreground/60">
           Core Philosophy
         </span>
-        <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+        <span className="text-sm font-mono uppercase text-foreground/60">
           03 — Attributes
         </span>
       </div>

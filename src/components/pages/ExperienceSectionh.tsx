@@ -35,7 +35,7 @@ function Experience() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
-            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+            <span className="text-sm font-mono uppercase text-foreground/60">
               Experience
             </span>
           </div>
@@ -48,9 +48,9 @@ function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: '-100px' }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-white/60"
+              className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
             >
-              My journey has been <span className="text-foreground dark:text-white font-normal">1+</span> years in Software Development
+With over <span className="text-foreground dark:text-white font-normal">a year</span> of experience in Software Development, contributing to impactful and <span className="text-foreground dark:text-white font-normal">modern digital solutions.</span> 
             </motion.h3>
 
             {/* Grid */}

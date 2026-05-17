@@ -9,7 +9,7 @@ function WorkflowSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
-            <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest">
+            <span className="text-sm font-mono uppercase text-foreground/60">
               Workflow
             </span>
           </div>
@@ -23,7 +23,7 @@ function WorkflowSection() {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug text-foreground/60 dark:text-foreground/60">
+              <h3 className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
                 The essential software and ecosystem that powers my <span className="text-foreground dark:text-white font-normal">development</span> environment.
               </h3>
             </motion.div>

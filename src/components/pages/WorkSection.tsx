@@ -40,7 +40,7 @@ function WorkSections() {
   }));
 
   return (
-    <section id="work" className="container mx-auto px-4">
+    <section id="work" className="container mx-auto px-20">
       {/* Left Label */}
       <div className="py-12 -mb-5">
         <span className="text-sm font-mono uppercase text-foreground/60">

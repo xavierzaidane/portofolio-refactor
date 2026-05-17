@@ -73,7 +73,7 @@ function Philosophy() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="philosophy" className="container mx-auto px-4 py-24">
+    <section ref={sectionRef} id="philosophy" className="container mx-auto px-20 py-24">
       {/* Header */}
       <div
         ref={headerRef}

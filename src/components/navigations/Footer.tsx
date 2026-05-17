@@ -173,8 +173,8 @@ function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative container mx-auto px-4 py-24 border-t border-foreground/10 dark:border-white/10 bg-background xl:px-20 md:px-16 px-6 flex flex-col justify-between overflow-hidden">
-      <div className="flex w-full justify-between md:flex-row flex-col md:gap-0 gap-12">
+    <footer ref={footerRef} className="relative container mx-auto px-20 bg-background flex flex-col justify-between overflow-hidden">
+      <div className="border-t border-foreground/10 dark:border-white/10 px-4 py-24 xl:px-20 md:px-16 flex w-full justify-between md:flex-row flex-col md:gap-0 gap-12">
         {/* Left Section */}
         <div ref={leftRef} className="flex flex-col justify-between h-full md:w-[50%]">
           <div>

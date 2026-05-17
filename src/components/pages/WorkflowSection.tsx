@@ -4,8 +4,8 @@ import { PlusCircle } from "lucide-react";
 
 function WorkflowSection() {
   return (
-    <section id="workflow" className="container mx-auto px-4 py-20 border-t border-foreground/10 dark:border-foreground/10">
-      <div className="-mt-7 mb-25">
+    <section id="workflow" className="container mx-auto px-20">
+      <div className="border-t border-foreground/10 dark:border-foreground/10 py-20 -mt-7 mb-25">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">

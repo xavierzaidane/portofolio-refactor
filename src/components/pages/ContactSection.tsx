@@ -156,7 +156,7 @@ function Contact() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="container mx-auto px-4 py-24 relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="container mx-auto px-20 py-24 relative overflow-hidden">
       {/* Header */}
       <div ref={headerRef} className="mb-16 flex items-center justify-between border-b border-foreground/10 dark:border-white/10 pb-6">
         <span className="text-sm font-mono uppercase text-foreground/60">

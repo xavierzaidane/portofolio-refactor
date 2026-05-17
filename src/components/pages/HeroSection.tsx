@@ -137,7 +137,7 @@ function HeroSection() {
     <section 
   ref={sectionRef}
   id="/"
-  className="relative min-h-screen flex items-center  container mx-auto px-4 py-20  justify-center  overflow-hidden "
+  className="relative min-h-screen flex items-center  container mx-auto px-20 py-20  justify-center  overflow-hidden "
 >
   <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 

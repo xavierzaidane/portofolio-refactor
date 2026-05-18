@@ -30,7 +30,7 @@ function Experience() {
 
 
   return (
-    <section id="experience" className="container mx-auto px-20">
+    <section id="experience" className="container mx-auto px-20 -mb-25">
       <div className="border-t border-foreground/10 dark:border-white/10 py-20">
         <div className="-mt-7 mb-20">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">

@@ -50,7 +50,7 @@ function WorkSections() {
 
       {/* Projects Section - Full Width */}
       <div className="border-t border-foreground/10 dark:border-white/10 py-20">
-      <div className="flex min-h-screen items-center justify-center -mt-5">
+      <div className="flex min-h-screen items-center justify-center -mt-20 -mb-10">
         <div className="flex w-full flex-col items-center justify-center">
           {projectsWithMeta.map((projectMeta, index) => (
             <Project

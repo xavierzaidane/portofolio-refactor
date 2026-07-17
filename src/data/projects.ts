@@ -53,9 +53,45 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/xavierzaidane/anastasya-store',
     },
 
+    {
+  id: '3',
+  title: 'Visual Transcript',
+  category: 'OCR & AI Visualization',
+  year: '2026',
+  role: 'Frontend Developer',
+  image: ['/visual.png'],
+  description: 'An AI-powered application that converts videos into accurate transcripts and structured summaries.',
+
+tech: [
+  'Next.js',
+  'TypeScript',
+  'Tailwind CSS',
+  'OpenAI Whisper',
+  'OpenAI GPT',
+  'Shadcn UI'
+],
+
+fullDescription:
+  'An AI-powered transcription platform that allows users to upload video or audio files and automatically generate accurate transcripts, concise summaries, and key insights. The application streamlines content analysis for meetings, lectures, interviews, and educational materials through an intuitive web interface.',
+
+problem:
+  'Manually transcribing and summarizing long videos or recordings is time-consuming and inefficient, making it difficult for users to quickly extract important information.',
+
+solution:
+  'Built a web application that automatically transcribes uploaded media using AI speech recognition and generates structured summaries, enabling users to review and understand content much faster.',
+
+scope:
+  'Media upload, AI transcription, automatic summarization, transcript viewer, responsive user interface, file management, and modern frontend development.',
+
+development:
+  'Developed with Next.js, TypeScript, and Tailwind CSS to build a responsive and intuitive interface. Integrated AI-powered speech-to-text and summarization services, designed reusable UI components with Shadcn UI, and implemented a clean workflow for uploading files, viewing transcripts, and generating summaries.',
+  link: 'https://visual-transcripter.vercel.app/home',
+  github: 'https://github.com/xavierzaidane/visual-transcripter',
+  },
+
   // LearnIndo (legacy)
   {
-  id: '3',
+  id: '4',
   title: 'LearnIndo',
   category: 'SaaS Education Platform',
   year: '2025',
@@ -72,7 +108,7 @@ export const PROJECTS: Project[] = [
   github: 'https://github.com/xavierzaidane/learnindonesia-bamboo',
   },
   {
-    id: '4',
+    id: '5',
     title: 'Neurofit',
     category: 'Voice Agent',
     year: '2025',
@@ -90,7 +126,7 @@ export const PROJECTS: Project[] = [
   },
   // Resumy
   {
-    id: '5',
+    id: '6',
     title: 'Resumy',
     category: 'Resume Analysis',
     year: '2025',
@@ -108,7 +144,7 @@ export const PROJECTS: Project[] = [
   },
   // Chatbot Plugin
     {
-    id: '6',
+    id: '7',
     title: 'Chatbot Plugin',
     category: 'Chat Plugin',
     year: '2025',
@@ -126,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
  
   {
-    id: '7',
+    id: '8',
     title: 'Slack Clone',
     category: 'Messaging App',
     year: '2024',
@@ -144,7 +180,7 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    id: '8',
+    id: '9',
     title: 'IRIS',
     category: 'Facility Management',
     year: '2023',
@@ -161,7 +197,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/Valtern/web-sarana-perbaikan',
   },
   {
-    id: '9',
+    id: '10',
     title: 'Store Test',
     category: 'E-commerce Project',
     year: '2025',

@@ -24,10 +24,6 @@ export interface Project {
   scope?: string;
   development?: string;
   developmentDuration?: string;
-  galleryImages?: Array<{
-    src: string;
-    alt: string;
-  }>;
 }
 
 export interface Experience {

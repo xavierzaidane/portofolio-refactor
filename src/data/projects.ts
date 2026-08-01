@@ -1,9 +1,37 @@
 import { Project } from "./types";
 
-
 export const PROJECTS: Project[] = [
-   {
+  {
     id: '1',
+    title: 'TokenGecko',
+    category: 'Prompt Inspection & Token Analytics',
+    year: '2026',
+    role: 'Full Stack Developer',
+    image: ['/tokengecko.png'],
+    description: 'A developer-first IDE workbench to inspect, tokenize, benchmark, and optimize LLM prompt payloads across multiple model providers in real time.',
+    tech: [
+      'Next.js 15',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS 3.4',
+      'Monaco Editor',
+      'InsForge SDK',
+      'TanStack Table',
+      'Recharts',
+      'js-tiktoken',
+      'shadcn/ui',
+      'lucide-react'
+    ],
+    fullDescription: 'TokenGecko is a high-performance prompt inspection, cost optimization, and token analytics workbench for prompt engineers and AI developers. Features a Monaco-powered IDE prompt editor with custom syntax highlighting, exact token calculation using js-tiktoken, multi-provider model benchmarking across OpenAI, Anthropic, Gemini, DeepSeek, Meta Llama, Mistral, and Qwen, automated prompt health linting, visual section distribution analytics, and an Inspection Vault with public sharing backed by InsForge.',
+    problem: 'Prompt engineers and AI developers lack real-time visibility into prompt token counts, multi-provider API cost estimations, and context window utilization, resulting in bloated context payloads and unexpected LLM API expenses.',
+    solution: 'Built TokenGecko—a modern IDE workbench featuring a Monaco prompt editor, real-time tiktoken calculation, multi-model cost comparison matrix, automated prompt health linting with 1-click optimization recommendations, and persistent inspection history with shareable links.',
+    scope: 'Monaco prompt editor with custom syntax highlighting, real-time token telemetry & character counts, multi-provider model catalog & live cost estimation, TanStack comparison matrix, Recharts visual section analytics, automated prompt health linting engine, InsForge database vault & public share links, BYOK API key management.',
+    development: 'Built with Next.js 15 (App Router), React 19, and TypeScript. Integrated @monaco-editor/react for the prompt IDE environment, js-tiktoken for accurate tokenization, and recharts / @tanstack/react-table for multi-model benchmark analytics. Utilized InsForge SDK (@insforge/sdk) for BaaS data persistence and public share tokens, with Tailwind CSS 3.4 and shadcn/ui for styling.',
+    link: 'https://4p7bs82r.insforge.site/',
+    github: 'https://github.com/xavierzaidane/tokengecko',
+  },
+   {
+    id: '11',
     title: 'Neurofit2.0',
     category: 'AI Fitness Planner',
     year: '2026',

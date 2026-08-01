@@ -97,7 +97,7 @@ export default function AnimatedTextCycle({
           <motion.span
             key={currentIndex}
             className={`inline-block font-bold ${className}`}
-            variants={containerVariants}
+            variants={containerVariants as any}
             initial="hidden"
             animate="visible"
             exit="exit"

@@ -128,6 +128,7 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
           </div>
         </motion.div>
       )}
+
     </div>
   );
 };

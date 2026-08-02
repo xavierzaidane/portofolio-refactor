@@ -6,6 +6,11 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
+    company: 'Bamboo Tech',
+    role: 'Software Engineer Intern',
+    year: 'Jun 2026 — Jul 2026',
+  },
+  {
     company: 'Purple Box AI',
     role: 'Frontend Developer Internship',
     year: 'Nov 2025 — Jan 2026',
@@ -16,14 +21,9 @@ export const experienceData: Experience[] = [
     year: 'Feb 2024 - Jul 2025',
   },
     {
-    company: 'SAU',
+    company: 'Polinema | SAU',
     role: 'CompSci Student',
-    year: 'Aug 2025 - Now',
-  },
-  {
-    company: 'Polinema',
-    role: 'CompSci Student',
-    year: 'Mar 2023 - Now',
+    year: 'Aug 2023 - Now',
   },
    
 ];

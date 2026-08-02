@@ -51,7 +51,7 @@ function Experience() {
               viewport={{ once: true, margin: '-100px' }}
               className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
             >
-With over <span className="text-foreground dark:text-white font-normal">a year</span> of experience in Software Development, contributing to impactful and <span className="text-foreground dark:text-white font-normal">modern digital solutions.</span> 
+With over <span className="text-foreground dark:text-white font-normal">a year</span> of experience in Fullstack Development, contributing to impactful and <span className="text-foreground dark:text-white font-normal">modern digital solutions.</span> 
             </motion.h3>
 
             {/* Grid */}

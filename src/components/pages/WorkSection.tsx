@@ -44,27 +44,27 @@ function WorkSections() {
       {/* Left Label */}
       <div className="py-12 -mb-5">
         <span className="text-sm font-mono uppercase text-foreground/60">
-            Selected Work
+          Selected Work
         </span>
       </div>
 
       {/* Projects Section - Full Width */}
       <div className="border-t border-foreground/10 dark:border-white/10 py-20">
-      <div className="flex min-h-screen items-center justify-center -mt-20 -mb-10">
-        <div className="flex w-full flex-col items-center justify-center">
-          {projectsWithMeta.map((projectMeta, index) => (
-            <Project
-              key={projectMeta.id}
-              index={index}
-              setModal={setModal}
-              title={projectMeta.title}
-              project={projectMeta.project}
-              onProjectClick={handleProjectClick}
-            />
-          ))}
+        <div className="flex min-h-screen items-center justify-center -mt-20 -mb-10">
+          <div className="flex w-full flex-col items-center justify-center">
+            {projectsWithMeta.map((projectMeta, index) => (
+              <Project
+                key={projectMeta.id}
+                index={index}
+                setModal={setModal}
+                title={projectMeta.title}
+                project={projectMeta.project}
+                onProjectClick={handleProjectClick}
+              />
+            ))}
+          </div>
+          <Modal modal={modal} projects={projectsWithMeta} />
         </div>
-        <Modal modal={modal} projects={projectsWithMeta} />
-      </div>
       </div>
     </section>
   );

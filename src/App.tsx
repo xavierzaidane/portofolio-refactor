@@ -19,6 +19,7 @@ import ActivitySection from './components/pages/ActivitySection';
 import Footer from './components/navigations/Footer';
 import ResumeSection from './components/pages/ResumeSection';
 import ProjectPage from './components/pages/ProjectPage';
+import AboutPage from './components/pages/AboutPage';
 import { ThemeToggleButton } from './components/ui/skiper26';
 import FollowCursor from './components/ui/cursor';
 
@@ -51,6 +52,7 @@ const AppContent: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/project/:projectId" element={<ProjectPage />} />
       </Routes>
       <div className="fixed bottom-6 md:bottom-4 right-4 md:right-6 z-50 pointer-events-auto">

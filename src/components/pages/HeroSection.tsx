@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useTransform } from 'motion/react';
 import { gsap } from 'gsap';
 
@@ -75,6 +76,7 @@ const SplitText = ({ children, className }: { children: string; className?: stri
 };
 
 function HeroSection() {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -85,10 +87,6 @@ function HeroSection() {
   const helloCursorLabel = useRef<HTMLDivElement>(null);
   const titleWrapperRef = useRef<HTMLDivElement>(null);
   const [titleHovered, setTitleHovered] = useState(false);
-
-
-
-
 
   // Hello cursor effect for title
   useEffect(() => {
@@ -110,12 +108,12 @@ function HeroSection() {
     });
 
     const handleMouseMove = (e: MouseEvent) => {
-  const { clientX, clientY } = e;
-  xMoveCursor(clientX);
-  yMoveCursor(clientY);
-  xMoveCursorLabel(clientX);
-  yMoveCursorLabel(clientY);
-};
+      const { clientX, clientY } = e;
+      xMoveCursor(clientX);
+      yMoveCursor(clientY);
+      xMoveCursorLabel(clientX);
+      yMoveCursorLabel(clientY);
+    };
 
     const titleWrapper = titleWrapperRef.current;
     if (titleWrapper) {
@@ -135,32 +133,37 @@ function HeroSection() {
 
   return (
     <section 
-  ref={sectionRef}
-  id="/"
-  className="relative min-h-screen flex items-center  container mx-auto px-20 py-20  justify-center  overflow-hidden "
->
-  <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
+      ref={sectionRef}
+      id="/"
+      className="relative min-h-screen flex items-center container mx-auto px-20 py-20 justify-center overflow-hidden"
+    >
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
 
-    {/* TITLE */}
-    <div ref={titleWrapperRef} className="flex flex-col items-center cursor-pointer leading-none text-left px-4">
-      <motion.h1
-          className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl pointer-events-none"
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
-      >
-        <SplitText>Hello, I'm</SplitText>
-      </motion.h1>
+        {/* TITLE */}
+        <div 
+          ref={titleWrapperRef} 
+          onClick={() => navigate('/about')}
+          className="flex flex-col items-center cursor-pointer leading-none text-left px-4 group transition-transform duration-300 hover:scale-[1.01]"
+          title="Click to view About Me"
+        >
+          <motion.h1
+              className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl pointer-events-none group-hover:text-foreground/70 transition-colors duration-300"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
+          >
+            <SplitText>Hello, I'm</SplitText>
+          </motion.h1>
 
-      <motion.h1
-          className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2  lg:text-9xl pointer-events-none"
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
-      >
-        <SplitText>Xavier</SplitText>
-      </motion.h1>
-    </div>
+          <motion.h1
+              className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2 lg:text-9xl pointer-events-none group-hover:text-foreground transition-colors duration-300"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
+          >
+            <SplitText>Xavier</SplitText>
+          </motion.h1>
+        </div>
 
 
     {/* DESCRIPTION */}
@@ -220,7 +223,7 @@ function HeroSection() {
 
       <span className="text-sm font-mono uppercase text-foreground/60">
         <span className="text-foreground/60 text-md ">
-          1+
+          2+
         </span>{" "}
         Years of experience
       </span>
@@ -231,13 +234,13 @@ function HeroSection() {
   {/* Hello Cursor Circle */}
 <motion.div
   animate={titleHovered ? "enter" : "closed"}
-  className="pointer-events-none fixed z-50 flex h-20 w-20 items-center justify-center rounded-full bg-foreground opacity-93"
+  className="pointer-events-none fixed z-50 flex h-22 w-22 items-center justify-center rounded-full bg-foreground opacity-95 shadow-2xl p-2"
   initial="initial"
   ref={helloCursor}
   variants={scaleAnimation}
 >
-  <span className="text-sm text-center font-mono uppercase text-background">
-    你好(Hello)
+  <span className="text-[13px] text-center font-normal font-mono font-medium uppercase tracking-wider text-background leading-tight">
+    关于我<br/>(Click)
   </span>
 </motion.div>
 </section>

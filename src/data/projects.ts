@@ -81,41 +81,25 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/xavierzaidane/anastasya-store',
     },
 
+
     {
   id: '3',
-  title: 'Visual Transcript',
-  category: 'OCR & AI Visualization',
+  title: 'Bobby Automation',
+  category: 'AI WhatsApp Automation',
   year: '2026',
-  role: 'Frontend Developer',
-  image: ['/visual.png'],
-  description: 'An AI-powered application that converts videos into accurate transcripts and structured summaries.',
-
-tech: [
-  'Next.js',
-  'TypeScript',
-  'Tailwind CSS',
-  'OpenAI Whisper',
-  'OpenAI GPT',
-  'Shadcn UI'
-],
-
-fullDescription:
-  'An AI-powered transcription platform that allows users to upload video or audio files and automatically generate accurate transcripts, concise summaries, and key insights. The application streamlines content analysis for meetings, lectures, interviews, and educational materials through an intuitive web interface.',
-
-problem:
-  'Manually transcribing and summarizing long videos or recordings is time-consuming and inefficient, making it difficult for users to quickly extract important information.',
-
-solution:
-  'Built a web application that automatically transcribes uploaded media using AI speech recognition and generates structured summaries, enabling users to review and understand content much faster.',
-
-scope:
-  'Media upload, AI transcription, automatic summarization, transcript viewer, responsive user interface, file management, and modern frontend development.',
-
-development:
-  'Developed with Next.js, TypeScript, and Tailwind CSS to build a responsive and intuitive interface. Integrated AI-powered speech-to-text and summarization services, designed reusable UI components with Shadcn UI, and implemented a clean workflow for uploading files, viewing transcripts, and generating summaries.',
-  link: 'https://visual-transcripter.vercel.app/home',
-  github: 'https://github.com/xavierzaidane/visual-transcripter',
+  role: 'Full Stack / Automation Developer',
+  image: ['/workfloww.png'],
+  description: 'An AI-powered WhatsApp automation system for Jastip businesses in Indonesia, handling screenshot extraction, live RMB-to-IDR rates, Biteship shipping, and order workflows via n8n & Gemini.',
+  tech: ['n8n', 'Google Gemini AI', 'WhatsApp API', 'Supabase', 'Biteship API', 'TypeScript'],
+  fullDescription: 'An AI-powered WhatsApp automation system engineered for Indonesian Jastip (personal shopper) businesses. It completely automates customer order processing directly over WhatsApp—extracting product details & RMB prices from Taobao, 1688, and Alibaba screenshots using Gemini Vision, converting currency to IDR with live exchange rates, validating Indonesian addresses and calculating shipping via Biteship, managing conversational order state on Supabase, and alerting admins for complex or heavy shipment quotes.',
+  problem: 'Jastip businesses manually process orders via WhatsApp by manually parsing product screenshots from Chinese marketplaces, converting RMB to IDR, calculating shipping costs, validating addresses, and verifying payment receipts across thousands of chats.',
+  solution: 'Built a full end-to-end automated system powered by n8n, Gemini AI, Supabase, and Biteship API. Customers simply send product screenshots or chat naturally on WhatsApp to instantly receive accurate quotes, shipping calculations, and order management without filling out complex forms.',
+  scope: 'Customer intent recognition, vision-based product name & price extraction from Taobao/1688/Alibaba screenshots, live RMB-to-IDR currency conversion, automated Biteship shipping calculation & address validation, multi-turn order memory, automated payment receipt verification, heavy shipment detection, and admin clarification notifications.',
+  development: 'Designed around real Jastip business workflows in Indonesia. Built orchestrations with n8n, integrated Google Gemini AI for visual product extraction and NLP intent understanding, Supabase for relational conversational state storage, Biteship for logistics API calls, and live currency exchange APIs.',
+  link: 'https://drive.google.com/file/d/19FApeRaioo1X_fEaq09dBFPAEEepXqeJ/view?usp=sharing',
+  github: 'https://github.com/xavierzaidane/bobby-whatsapp-automation',
   },
+  
 
   // LearnIndo (legacy)
   {
@@ -187,25 +171,7 @@ development:
     development: 'Developed with Next.js for the core plugin. Used Shopify API, WordPress plugins API, and WooCommerce REST API for platform integration. Implemented TanStack Query for efficient data fetching. Built responsive UI with Tailwind CSS. Supported Liquid and PHP templating for platform-specific customization.',
     link: '#',
     github: 'https://github.com/xavierzaidane/chat-widget-kalibry',
-  },
- 
-  {
-    id: '8',
-    title: 'Slack Clone',
-    category: 'Messaging App',
-    year: '2024',
-    role: 'Full Stack Developer',
-    image: ['/Slack.png'],
-    description: 'Real-time messaging application with channels and direct messaging.',
-    tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'TypeScript', 'Tailwind CSS'],
-    fullDescription: 'Clone messaging platform with real-time communication, channels, and direct messaging. Built with the MERN stack for scalability and performance. Features WebSocket integration for instant message delivery, user authentication, and presence tracking.',
-    problem: 'Team collaboration platforms needed real-time messaging capabilities with organized channels and reliable delivery.',
-    solution: 'Built a fully functional Slack clone with real-time WebSocket communication, channel management, and direct messaging capabilities.',
-    scope: 'Real-time messaging with WebSocket, channel creation and management, direct messaging, user authentication, presence tracking, message history, user profiles.',
-    development: 'Built using MERN stack (MongoDB, Express, React, Node.js). Implemented WebSocket connections for real-time updates. Used TypeScript for type safety across frontend and backend. Styled with Tailwind CSS for responsive UI. Deployed on Vercel for seamless production experience.',
-    link: 'https://slack-clone-frontend-lilac.vercel.app/',
-    github: 'https://github.com/xavierzaidane/slack-clone-app',
-  },
+  }, 
 
   {
     id: '9',
@@ -223,23 +189,6 @@ development:
     development: 'Built with Laravel framework for robust backend architecture. Used Livewire for dynamic frontend components without writing JavaScript. Implemented MySQL for reliable data storage. Created RESTful APIs for service provider integration. Designed responsive UI with modern web standards.',
     link: '#',
     github: 'https://github.com/Valtern/web-sarana-perbaikan',
-  },
-  {
-    id: '10',
-    title: 'Store Test',
-    category: 'E-commerce Project',
-    year: '2025',
-    role: 'Full Stack Developer',
-    image: ['/store1.png','/store2.png','/store3.png'],
-    description: 'E-commerce prototype built with Java Quarkus framework.',
-    tech: ['Java', 'Quarkus', 'PostgreSQL','HTML','CSS','JavaScript'],
-    fullDescription: 'E-commerce platform prototype built with Java Quarkus for simple and efficient management of online stores. Demonstrates high-performance backend capabilities and modern Java web development practices.',
-    problem: 'Needed to explore building e-commerce solutions with modern Java frameworks for high performance and scalability.',
-    solution: 'Built a prototype e-commerce store using Quarkus for fast startup times and low memory consumption.',
-    scope: 'Product catalog, shopping cart, order management, user authentication, payment processing integration, inventory management, admin dashboard.',
-    development: 'Architected with Java Quarkus framework for optimal performance. Used PostgreSQL for reliable data persistence. Built responsive frontend with HTML, CSS, and JavaScript. Implemented RESTful APIs for cart and order management. Focused on achieving sub-100ms response times.',
-    link: '#',
-    github: 'https://github.com/xavierzaidane/java-quarkus-web',
   },
 
 ];

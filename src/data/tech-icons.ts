@@ -26,6 +26,10 @@ import {
   SiCanva,
   SiFigma,
   SiLangchain,
+  SiN8N,
+  SiGooglegemini,
+  SiDiscord,
+  SiFramer,
 } from 'react-icons/si';
 import { 
   TbBrandRadixUi,
@@ -45,6 +49,8 @@ interface TechIcon {
 const TECH_ICONS: { [key: string]: React.ComponentType<{ className: string }> } = {
   // Frontend Frameworks
   'Next.js': SiNextdotjs,
+  'Next.js 14': SiNextdotjs,
+  'Next.js 15': SiNextdotjs,
   'Next.js (App Router)': SiNextdotjs,
   'React': SiReact,
   'React 19': SiReact,
@@ -104,6 +110,12 @@ const TECH_ICONS: { [key: string]: React.ComponentType<{ className: string }> } 
   'Figma': SiFigma,
   'Canva': SiCanva,
   'Vapi': TbTool,
+  'n8n': SiN8N,
+  'Google Gemini AI': SiGooglegemini,
+  'Google Gemini': SiGooglegemini,
+  'Discord': SiDiscord,
+  'Framer Motion': SiFramer,
+  '@hello-pangea/dnd': TbTool,
 };
 
 export function getTechIcon(techName: string): React.ComponentType<{ className: string }> | null {

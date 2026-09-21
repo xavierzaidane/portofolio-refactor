@@ -2,6 +2,7 @@
 import gsap from "gsap";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/data/types";
@@ -13,14 +14,17 @@ const scaleAnimation = {
     transition: { duration: 0.4, ease: "easeIn" },
     x: "-50%",
     y: "-50%",
+    transition: { duration: 0.35, ease: [0.32, 0, 0.67, 0] },
   },
   enter: {
     scale: 1,
     transition: { duration: 0.4, ease: "easeOut" },
     x: "-50%",
     y: "-50%",
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
   },
   initial: { scale: 0, x: "-50%", y: "-50%" },
+  initial: { scale: 0 },
 } as const;
 
 function WorkSections() {
@@ -30,6 +34,12 @@ function WorkSections() {
   const handleProjectClick = (project: Project) => {
     navigate(`/project/${project.id}`);
   };
+  const handleProjectClick = useCallback(
+    (project: Project) => {
+      navigate(`/project/${project.id}`);
+    },
+    [navigate]
+  );
 
   // Transform PROJECTS data to match component structure
   const projectsWithMeta = PROJECTS.map((project) => ({
@@ -38,6 +48,19 @@ function WorkSections() {
     id: project.id,
     project, // Include full project data
   }));
+  // Transform PROJECTS data to match component structure with memoization
+  const projectsWithMeta = useMemo(
+    () =>
+      PROJECTS.map((project) => ({
+        src:
+          project.image[0] ||
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop",
+        title: project.title,
+        id: project.id,
+        project,
+      })),
+    []
+  );
 
   return (
     <section id="work" className="container mx-auto px-20">
@@ -54,6 +77,7 @@ function WorkSections() {
           <div className="flex w-full flex-col items-center justify-center">
             {projectsWithMeta.map((projectMeta, index) => (
               <Project
+              <ProjectItem
                 key={projectMeta.id}
                 index={index}
                 setModal={setModal}
@@ -71,6 +95,7 @@ function WorkSections() {
 }
 
 function Project({
+function ProjectItem({
   index,
   title,
   setModal,
@@ -80,25 +105,36 @@ function Project({
   index: number;
   title: string;
   setModal: (state: { active: boolean; index: number }) => void;
+  setModal: React.Dispatch<React.SetStateAction<{ active: boolean; index: number }>>;
   project: Project;
   onProjectClick: (project: Project) => void;
 }) {
   return (
     <div
       className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10  py-8 md:py-12 transition-all duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
+      className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10 py-8 md:py-12 transition-opacity duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
     >
       <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tight text-6xl transition-all duration-300  group-hover:translate-x-2.5">
         <span className="text-[0.775rem] mr-6 font-mono tracking-wide text-foreground/60">{String(index + 1).padStart(2, "0")}.</span> {title}
+      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tight text-6xl transition-transform duration-300 group-hover:translate-x-2.5">
+        <span className="text-[0.775rem] mr-6 font-mono tracking-wide text-foreground/60">
+          {String(index + 1).padStart(2, "0")}.
+        </span>{" "}
+        {title}
       </h2>
       <p className="hidden md:flex items-center gap-6 text-[0.775rem]  font-mono uppercase text-foreground/60 transition-all duration-300 group-hover:translate-x-2.5">
         {project.category}
         <div className="w-13 h-13 bg-background dark:bg-background border dark:text-black text-white rounded-full flex items-center justify-center transition-all duration-500 group-hover:rotate-45">
+      <div className="hidden md:flex items-center gap-6 text-[0.775rem] font-mono uppercase text-foreground/60 transition-transform duration-300 group-hover:translate-x-2.5">
+        <span>{project.category}</span>
+        <div className="w-13 h-13 bg-background dark:bg-background border dark:text-black text-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-45">
           <ArrowUpRight className="text-foreground/70" size={20} />
         </div>
       </p>
+      </div>
     </div>
   );
 }
@@ -117,26 +153,40 @@ function Modal({
 
   useEffect(() => {
     const xMoveContainer = gsap.quickTo(modalContainer.current, "left", {
+    if (!modalContainer.current || !cursor.current || !cursorLabel.current) return;
+
+    // Use GPU-accelerated translate with xPercent/yPercent for 50% centering
+    gsap.set([modalContainer.current, cursor.current, cursorLabel.current], {
+      xPercent: -50,
+      yPercent: -50,
+    });
+
+    const xMoveContainer = gsap.quickTo(modalContainer.current, "x", {
       duration: 0.8,
       ease: "power3",
     });
     const yMoveContainer = gsap.quickTo(modalContainer.current, "top", {
+    const yMoveContainer = gsap.quickTo(modalContainer.current, "y", {
       duration: 0.8,
       ease: "power3",
     });
     const xMoveCursor = gsap.quickTo(cursor.current, "left", {
+    const xMoveCursor = gsap.quickTo(cursor.current, "x", {
       duration: 0.5,
       ease: "power3",
     });
     const yMoveCursor = gsap.quickTo(cursor.current, "top", {
+    const yMoveCursor = gsap.quickTo(cursor.current, "y", {
       duration: 0.5,
       ease: "power3",
     });
     const xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {
+    const xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "x", {
       duration: 0.45,
       ease: "power3",
     });
     const yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {
+    const yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "y", {
       duration: 0.45,
       ease: "power3",
     });
@@ -149,8 +199,17 @@ function Modal({
       yMoveCursor(pageY);
       xMoveCursorLabel(pageX);
       yMoveCursorLabel(pageY);
+      const { clientX, clientY } = e;
+      xMoveContainer(clientX);
+      yMoveContainer(clientY);
+      xMoveCursor(clientX);
+      yMoveCursor(clientY);
+      xMoveCursorLabel(clientX);
+      yMoveCursorLabel(clientY);
     };
     window.addEventListener("mousemove", handleMouseMove);
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
@@ -160,12 +219,19 @@ function Modal({
         animate={active ? "enter" : "closed"}
         className="pointer-events-none absolute flex h-100 w-120 items-center justify-center overflow-hidden shadow-2xl"
         initial="initial"
+      <div
         ref={modalContainer}
         variants={scaleAnimation}
+        className="pointer-events-none fixed top-0 left-0 z-20 will-change-transform"
       >
         <div
           className="absolute h-full w-full transition-[top] duration-500 "
           style={{ top: `${index * -100}%` }}
+        <motion.div
+          animate={active ? "enter" : "closed"}
+          className="relative flex h-100 w-120 items-center justify-center overflow-hidden rounded-lg shadow-2xl"
+          initial="initial"
+          variants={scaleAnimation}
         >
           {projects.map((project) => (
             <div
@@ -185,6 +251,29 @@ function Modal({
         animate={active ? "enter" : "closed"}
         className="pointer-events-none absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-foreground opacity-93"
         initial="initial"
+          <div
+            className="absolute h-full w-full will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            style={{ transform: `translate3d(0, ${index * -100}%, 0)` }}
+          >
+            {projects.map((project) => (
+              <div
+                className="flex h-full w-full items-center justify-center overflow-hidden"
+                key={project.id}
+              >
+                <img
+                  alt={project.title}
+                  className="h-full w-full object-cover"
+                  src={project.src}
+                  decoding="async"
+                  loading="eager"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      <div
         ref={cursor}
         variants={scaleAnimation}
       />
@@ -192,13 +281,35 @@ function Modal({
         animate={active ? "enter" : "closed"}
         className="pointer-events-none absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-transparent font-mono text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-sm text-white dark:text-black uppercase"
         initial="initial"
+        className="pointer-events-none fixed top-0 left-0 z-30 will-change-transform"
+      >
+        <motion.div
+          animate={active ? "enter" : "closed"}
+          className="flex h-20 w-20 items-center justify-center rounded-full bg-foreground opacity-90"
+          initial="initial"
+          variants={scaleAnimation}
+        />
+      </div>
+
+      <div
         ref={cursorLabel}
         variants={scaleAnimation}
+        className="pointer-events-none fixed top-0 left-0 z-30 will-change-transform"
       >
         Visit
       </motion.div>
+        <motion.div
+          animate={active ? "enter" : "closed"}
+          className="flex h-20 w-20 items-center justify-center rounded-full bg-transparent font-mono text-sm text-white dark:text-black uppercase select-none"
+          initial="initial"
+          variants={scaleAnimation}
+        >
+          Visit
+        </motion.div>
+      </div>
     </>
   );
 }
 
 export default WorkSections
+export default WorkSections;

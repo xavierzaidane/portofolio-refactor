@@ -95,7 +95,7 @@ const AboutPage: React.FC = () => {
   const handleResumeDownload = () => {
     const link = document.createElement('a');
     link.href = '/document/CV_Xavier.pdf'; // or resume link
-    link.download = 'Xavier_Zaidane_CV.pdf';
+    link.download = 'Xavier_Zaidane_Athaya_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

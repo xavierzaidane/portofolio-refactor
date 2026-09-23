@@ -185,11 +185,11 @@ function Contact() {
             >
               Let's build
               <br />
-              something <span className="relative inline-block text-foreground/50 dark:text-white/50 transition-colors duration-300 hover:text-foreground dark:hover:text-white">
+              something <span className="relative inline-block text-foreground/50 dark:text-white/50 transition-colors duration-300 hover:text-foreground dark:hover:text-white font-instrument italic">
                 remarkable
               </span>
               <br />
-              together.
+              <span className="relative inline-block text-foreground/50 dark:text-white/50 transition-colors duration-300 hover:text-foreground dark:hover:text-white font-instrument italic">together.</span>
             </h2>
           </div>
 
@@ -197,7 +197,7 @@ function Contact() {
           <div ref={descRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div className="space-y-6 font-light text-foreground/60 dark:text-white/60 text-lg leading-relaxed">
               <p>
-                I'm always excited to explore <span className="font-normal text-foreground dark:text-white">new opportunities</span> and collaborate with talented people who share a passion for <span className="font-normal text-foreground dark:text-white">quality design and engineering</span>.
+                I'm always excited to explore <span className="font-instrument italic text-foreground dark:text-white ">new opportunities</span> and collaborate with talented people who share a passion for <span className="font-instrument italic text-foreground dark:text-white">quality design and engineering</span>.
               </p>
               <p>
                 Whether you have a project in mind, want to discuss ideas, or just want to connect — I'd love to hear from you.
@@ -205,7 +205,7 @@ function Contact() {
             </div>
             <div className="space-y-6 font-light text-foreground/60 dark:text-white/60 text-lg leading-relaxed">
               <p>
-                I respond to messages quickly and love having <span className="font-normal text-foreground dark:text-white">meaningful conversations</span> about building digital products.
+                I respond to messages quickly and love having <span className="font-instrument italic text-foreground dark:text-white">meaningful conversations</span> about building digital products.
               </p>
               <p>
                 Pick your preferred way to reach out below, and let's start a conversation.

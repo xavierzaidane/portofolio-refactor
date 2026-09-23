@@ -28,8 +28,8 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
             <p className="text-foreground/50 text-sm md:text-base font-mono">[1]</p>
           </div>
           <div className="w-full flex flex-col gap-4">
-            <p className="text-sm md:text-base text-foreground font-mono border-b border-foreground/10 pb-2">
-              PROBLEM DEFINITION
+            <p className="text-sm md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
+              Problem Definition
             </p>
             <p className="text-foreground/70 md:w-[85%] text-sm md:text-base">
               {project.problem}
@@ -51,8 +51,8 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
             <p className="text-foreground/50 text-sm md:text-base font-mono">[2]</p>
           </div>
           <div className="w-full flex flex-col gap-4">
-            <p className="text-sm md:text-base text-foreground font-mono border-b border-foreground/10 pb-2">
-              SOLUTIONS
+            <p className="text-sm md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
+              Solution
             </p>
             <p className="text-foreground/70 md:w-[85%] text-sm md:text-base">
               {project.solution}
@@ -74,8 +74,8 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
             <p className="text-foreground/50 text-sm md:text-base font-mono">[3]</p>
           </div>
           <div className="w-full flex flex-col gap-4">
-            <p className="text-sm md:text-base text-foreground font-mono border-b border-foreground/10 pb-2">
-              FEATURES & SCOPE
+            <p className="text-sm md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
+              Features & Scope
             </p>
             <p className="text-foreground/70 md:w-[85%] text-sm md:text-base">
               {project.scope}
@@ -98,8 +98,8 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
           </div>
           <div className="w-full flex flex-col gap-4">
             <div className="w-full flex justify-between border-b border-foreground/10 pb-2">
-              <p className="text-sm md:text-base text-foreground font-mono">
-                DEVELOPMENT PROCESS
+              <p className="text-sm md:text-2xl text-foreground font-instrument italic">
+                Development Process
               </p>
               <div className="md:flex hidden gap-3 opacity-60">
                 {getTechIcons().map((skill, idx) => {

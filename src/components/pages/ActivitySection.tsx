@@ -51,7 +51,7 @@ function ActivitySection() {
               viewport={{ once: true, margin: "-100px" }}
               className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
             >
-              A visual record of <span className="text-foreground font-normal">consistency </span>and commitment to <span className="text-foreground font-normal">engineering </span>excellence.
+              A visual record of <span className="text-foreground font-instrument italic">consistency </span>and commitment to <span className="text-foreground font-instrument italic">engineering </span>excellence.
             </motion.h3>
             
             {/* Contribution Graph */}

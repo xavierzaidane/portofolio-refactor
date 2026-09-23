@@ -191,8 +191,7 @@ function Footer() {
             </div>
             <p className="mt-15 text-sm leading-relaxed text-foreground/60 dark:text-white/60">
               &copy; 2026 portfolio by Xavier Zaidane Athaya
-              <br />
-              Made with React &mdash; escape from the matrix
+
             </p>
           </div>
         </div>

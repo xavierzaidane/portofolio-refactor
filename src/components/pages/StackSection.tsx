@@ -89,8 +89,8 @@ function StackSection() {
             {/* Description */}
             <div ref={headerRef}>
               <p className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
-                The tools and technologies I use to build{' '}
-                <span className="font-normal text-foreground dark:text-white">scalable</span>, modern web applications.
+                The <span className="font-instrument italic text-foreground dark:text-white">tools and technologies</span> I use to build{' '}
+                <span className="font-instrument italic text-foreground dark:text-white">scalable</span>, modern web applications.
               </p>
             </div>
 

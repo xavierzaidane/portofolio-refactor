@@ -42,7 +42,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-baskerville 3xl:text-2xl md:text-xl text-foreground/80"
+            className="font-normal 3xl:text-2xl md:text-xl text-foreground/80"
           >
             {project.fullDescription || project.description}
           </motion.p>

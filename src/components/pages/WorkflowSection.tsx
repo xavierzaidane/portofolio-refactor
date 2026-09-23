@@ -24,7 +24,7 @@ function WorkflowSection() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <h3 className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
-                The essential software and ecosystem that powers my <span className="text-foreground dark:text-white font-normal">development</span> environment.
+                The essential <span className="text-foreground dark:text-white font-instrument italic">software and ecosystem</span> that powers my <span className="text-foreground dark:text-white font-instrument italic">development</span> environment.
               </h3>
             </motion.div>
 

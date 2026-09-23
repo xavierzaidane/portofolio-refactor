@@ -97,7 +97,7 @@ function Navbar() {
         >
       <div className="logo-nav cursor-pointer z-10">
       
-        <p className="text-lg md:text-sm font-medium text-background/80 dark:text-white">
+        <p className="text-lg md:text-sm  text-background/80 dark:text-white">
           希文
         </p>
         

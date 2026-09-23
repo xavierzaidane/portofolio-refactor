@@ -155,14 +155,14 @@ function HeroSection() {
             <SplitText>Hello, I'm</SplitText>
           </motion.h1>
 
-          <motion.h1
-              className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2 lg:text-9xl pointer-events-none group-hover:text-foreground transition-colors duration-300"
+          <motion.h3
+              className="font-instrument italic text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2 lg:text-9xl pointer-events-none group-hover:text-foreground transition-colors duration-300"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
           >
             <SplitText>Xavier</SplitText>
-          </motion.h1>
+          </motion.h3>
         </div>
 
 
@@ -174,8 +174,8 @@ function HeroSection() {
       transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
     >
       <h2 className="text-[1.90rem] font-light tracking-tight">
-        <span className="font-normal">Fullstack Web Developer. </span>
-        <span className="text-foreground/60">Delivering professional experiences that </span>{""}
+        <span className="font-normal">Fullstack Developer. </span>
+        <span className="text-foreground/60">Delivering a professional experiences that </span>{""}
         <AnimatedTextCycle 
           words={[
             "solve real problems",
@@ -203,7 +203,7 @@ function HeroSection() {
       <div className="magnetic-btn">
         <FlipButton>
           <FlipButtonFront className="rounded-full border h-12 px-6 ps-6 pe-13 flex items-center justify-center">
-            <span className="text-sm font-medium uppercase ">
+            <span className="text-md font-normal ">
               Contact me
             </span>
             <div className="absolute right-1 w-10 h-10 bg-foreground/70 dark:bg-white dark:text-black text-white rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45">
@@ -221,7 +221,7 @@ function HeroSection() {
         </FlipButton>
       </div>
 
-      <span className="text-sm font-mono uppercase text-foreground/60">
+      <span className="text-lg font-instrument italic text-foreground/60">
         <span className="text-foreground/60 text-md ">
           2+
         </span>{" "}
@@ -239,7 +239,7 @@ function HeroSection() {
   ref={helloCursor}
   variants={scaleAnimation}
 >
-  <span className="text-[13px] text-center font-normal font-mono font-medium uppercase tracking-wider text-background leading-tight">
+  <span className="text-[13px] text-center font-normal font-medium  tracking-wider text-background leading-tight">
     关于我<br/>(Click)
   </span>
 </motion.div>

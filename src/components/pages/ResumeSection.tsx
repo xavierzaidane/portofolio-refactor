@@ -49,9 +49,9 @@ function ResumeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl text-left"
+              className="font-medium text-4xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl text-left"
             >
-              <span className="text-foreground/60 dark:text-white/60">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60">Software</span> Development journey.
+              <span className="text-foreground/60 dark:text-white/60 font-instrument italic text-7xl">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60 text-7xl font-instrument italic"></span> Development journey.
             </motion.h3>
 
             {/* Description */}
@@ -77,7 +77,7 @@ function ResumeSection() {
                 onMouseEnter={handleMouseEnter}
                 onClick={handleDownloadResume}
                 variant="outline"
-                className="relative overflow-hidden group flex items-center cursor-pointer justify-center gap-2 px-5 w-57 h-13 border border-foreground/20 dark:border-foreground/10 hover:border-foreground/20 rounded-full text-sm font-medium uppercase tracking-wider transition-all hover:bg-foreground/10"
+                className="relative overflow-hidden group flex items-center cursor-pointer justify-center gap-2 px-5 w-57 h-13 border border-foreground/20 dark:border-foreground/10 hover:border-foreground/20 rounded-full text-md font-medium tracking-wider transition-all hover:bg-foreground/10"
               >
                 <span
                   className={cn(

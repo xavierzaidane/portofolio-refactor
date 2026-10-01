@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 export interface iNavItem {
@@ -33,7 +33,7 @@ export interface iHeaderProps {
 
 const MENU_SLIDE_ANIMATION: Variants = {
   initial: { x: "calc(100% + 100px)" },
-  enter: { x: "0", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const } },
+  enter: { x: "0%", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const } },
   exit: {
     x: "calc(100% + 100px)",
     transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
@@ -52,7 +52,6 @@ export const NavLink: React.FC<iNavLinkProps> = ({
   heading,
   href,
   setIsActive,
-  index,
   isExternal,
   onNavigate,
 }) => {
@@ -72,7 +71,7 @@ export const NavLink: React.FC<iNavLinkProps> = ({
     <motion.div
       initial="initial"
       whileHover="whileHover"
-      className="group relative flex items-center justify-between border-b border-black/15 dark:border-white/15 py-3 md:py-5 cursor-pointer"
+      className="group relative flex items-center justify-between border-b border-black/10 dark:border-white/10 py-3 md:py-4 cursor-pointer"
     >
       <a
         href={href}
@@ -80,26 +79,26 @@ export const NavLink: React.FC<iNavLinkProps> = ({
         className="w-full flex items-center justify-between no-underline"
         {...linkProps}
       >
-        <div className="relative flex items-center">
+        <div className="relative flex items-center min-w-0">
           <div className="flex flex-row overflow-hidden">
             <motion.span
               variants={{
                 initial: { x: 0 },
-                whileHover: { x: -8 },
+                whileHover: { x: -4 },
               }}
               transition={{
                 type: "spring",
                 staggerChildren: 0.04,
                 delayChildren: 0.05,
               }}
-              className="relative z-10 block text-2xl md:text-7xl font-normal uppercase tracking-tight text-neutral-900 dark:text-white"
+              className="relative z-10 block text-2xl sm:text-3xl md:text-7xl font-normal uppercase tracking-tight text-neutral-900 dark:text-white"
             >
               {heading.split("").map((letter, i) => (
                 <motion.span
                   key={i}
                   variants={{
                     initial: { x: 0 },
-                    whileHover: { x: 8 },
+                    whileHover: { x: 6 },
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="inline-block"
@@ -113,11 +112,11 @@ export const NavLink: React.FC<iNavLinkProps> = ({
 
         <motion.span
           variants={{
-            initial: { opacity: 0, x: -10 },
+            initial: { opacity: 0, x: -6 },
             whileHover: { opacity: 1, x: 0 },
           }}
           transition={{ duration: 0.2 }}
-          className="text-xs font-normal text-neutral-400 dark:text-neutral-500 tracking-widest hidden sm:inline-block"
+          className="text-xs font-normal text-neutral-400 dark:text-neutral-500 tracking-widest hidden sm:inline-block pl-2"
         >
           Explore
         </motion.span>
@@ -141,8 +140,8 @@ export const Curve: React.FC = () => {
     () => 1000,
   );
 
-  const initialPath = `M100 0 L200 0 L200 ${height} L100 ${height} Q-100 ${height / 2} 100 0`;
-  const targetPath = `M100 0 L200 0 L200 ${height} L100 ${height} Q100 ${height / 2} 100 0`;
+  const initialPath = `M100 0 L100 ${height} Q-100 ${height / 2} 100 0 Z`;
+  const targetPath = `M100 0 L100 ${height} Q100 ${height / 2} 100 0 Z`;
 
   const curve: Variants = {
     initial: { d: initialPath },
@@ -158,7 +157,7 @@ export const Curve: React.FC = () => {
 
   return (
     <svg
-      className="absolute top-0 -left-[99px] w-[100px] stroke-none h-full pointer-events-none fill-white dark:fill-[#0b0b0b] overflow-visible"
+      className="absolute top-0 -left-[99px] w-[100px] stroke-none h-full pointer-events-none fill-white dark:fill-[#0b0b0b] overflow-visible -z-10"
     >
       <motion.path
         variants={curve}
@@ -184,11 +183,14 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps> = ({
       animate="enter"
       exit="exit"
       data-lenis-prevent
-      className="h-[100dvh] w-screen max-w-screen-sm fixed right-0 top-0 z-50 bg-white dark:bg-[#0b0b0b] shadow-2xl border-l border-black/5 dark:border-white/10"
+      className="h-[100dvh] w-full max-w-[420px] sm:max-w-[460px] md:max-w-[650px] fixed right-0 top-0 z-50 bg-white dark:bg-[#0b0b0b] shadow-2xl border-l border-black/5 dark:border-white/10"
     >
-      <div className="h-full pt-16 pb-8 flex flex-col justify-between overflow-y-auto" data-lenis-prevent>
-        <div className="flex flex-col gap-4 px-8 md:px-16">
-          <div className="text-black/50 dark:text-white/50 border-b border-black/10 dark:border-white/10 font-instrument italic text-lg tracking-tight pb-3 flex justify-between items-center">
+      <div 
+        className="relative z-10 h-full pt-16 pb-8 flex flex-col justify-between overflow-y-auto px-6 sm:px-10 md:px-12" 
+        data-lenis-prevent
+      >
+        <div className="flex flex-col gap-4">
+          <div className="text-black/50 dark:text-white/50 border-b border-black/10 dark:border-white/10 font-instrument italic text-base md:text-lg tracking-tight pb-3 flex justify-between items-center">
             <span>Navigation</span>
           </div>
           <section className="bg-transparent mt-2">
@@ -206,7 +208,7 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps> = ({
           </section>
         </div>
 
-        {footer && <div className="px-8 md:px-16 mt-6">{footer}</div>}
+        {footer && <div className="mt-6">{footer}</div>}
       </div>
       <Curve />
     </motion.div>
@@ -229,7 +231,6 @@ export const CurvedMenu: React.FC<iHeaderProps> = ({
     ? (externalSetIsActive ?? (() => {}))
     : setInternalIsActive;
 
-  // Lock body scroll while open
   useEffect(() => {
     if (isActive) {
       document.body.style.overflow = "hidden";

@@ -1,95 +1,67 @@
 import React from 'react';
+import type { IconName } from 'tech-stack-icons';
 import {
-  SiGoogleanalytics,
-  SiGithub,
   SiJetbrains,
-  SiDocker,
-  SiCloudflare,
-  SiVercel,
-  SiSupabase,
   SiGooglecloud,
-  SiFirebase,
-  SiFigma,
-  SiCanva,
-  SiNotion,
-  SiOpenai,
-  SiClaude,
-  SiPostman,
   SiLaragon,
-  SiGooglegemini,
-  SiClickup,
-  SiGithubcopilot,
   SiXampp,
-  SiGooglecolab,
-  SiCypress,
-  SiJira,
-  SiGit,
-  SiN8N,
   SiFastapi,
-  SiLangchain,
-  SiSentry,
-  SiResend,
-
+  SiReddit,
 } from 'react-icons/si';
+import { Globe, Route } from 'lucide-react';
 
-import { VscVscode } from "react-icons/vsc";
-
-import { Mail, Globe, Route } from 'lucide-react';
-
-interface WorkflowItem {
+export interface WorkflowItem {
   name: string;
-  icon: React.ComponentType<{ className: string }>;
+  stackIcon?: IconName;
+  icon?: React.ComponentType<{ className: string }>;
 }
 
-interface WorkflowData {
+export interface WorkflowData {
   [key: string]: WorkflowItem[];
 }
 
 const WORKFLOW_DATA: WorkflowData = {
   development: [
-    { name: 'VSCode', icon: VscVscode },
-    { name: 'Google Analytics', icon: SiGoogleanalytics },
-    { name: 'GitHub', icon: SiGithub },
-    { name: 'Git', icon: SiGit },
-    { name: 'Docker', icon: SiDocker },
-    { name: 'Cloudflare', icon: SiCloudflare },
-    { name: 'Vercel', icon: SiVercel },
-    { name: 'Supabase', icon: SiSupabase },
+    { name: 'VSCode', stackIcon: 'vscode' },
+        { name: 'Antigravity', stackIcon: 'antigravity' },
+    { name: 'GitHub', stackIcon: 'github' },
+    { name: 'Git', stackIcon: 'git' },
+    { name: 'Docker', stackIcon: 'docker' },
+    { name: 'Cloudflare', stackIcon: 'cloudflare' },
+    { name: 'Vercel', stackIcon: 'vercel' },
+    { name: 'Supabase', stackIcon: 'supabase' },
     { name: 'Jetbrains', icon: SiJetbrains },
-    { name: 'Google Cloud Platform', icon: SiGooglecloud },
-    { name: 'Claude Code', icon: SiClaude },
-    { name: 'Firebase', icon: SiFirebase },
-    { name: 'Resend', icon: SiResend },
-    { name: 'FastAPI', icon: SiFastapi  },
-    { name: 'LangChain', icon: SiLangchain },
+    { name: 'Google Cloud', stackIcon: 'gcloud' },
+    { name: 'ngrok', stackIcon: 'ngrok' },
+    { name: 'FastAPI', icon: SiFastapi },
+    { name: 'LangChain', stackIcon: 'langchain' },
+    { name: 'powershell', stackIcon: 'powershell' },
     { name: 'Laragon', icon: SiLaragon },
+
+    
     { name: 'XAMPP', icon: SiXampp },
-    { name: 'Github Copilot', icon: SiGithubcopilot },
-    { name: 'n8n', icon: SiN8N },
-    { name: 'Sentry', icon: SiSentry},
+    { name: 'Github Copilot', stackIcon: 'copilotgithub' },
+    { name: 'n8n', stackIcon: 'n8n' },
+    { name: 'huggingface', stackIcon: 'huggingface' },
+    { name: 'Sentry', stackIcon: 'sentry' },
   ],
   design: [
-    { name: 'Figma', icon: SiFigma },
-    { name: 'Canva', icon: SiCanva },
-    { name: 'Google AI Studio', icon: SiGooglegemini },
-    { name: 'Google Stich', icon: SiGooglecloud },
-    
-
+    { name: 'Figma', stackIcon: 'figma' },
+    { name: 'Canva', stackIcon: 'canva' },
+    { name: 'Google Stich', stackIcon: 'google' },
   ],
   productivity: [
-    { name: 'Notion', icon: SiNotion },
-    { name: 'Gemini', icon: SiGooglegemini },
-    { name: 'OpenAI', icon: SiOpenai },
-    { name: 'Claude', icon: SiClaude },
-    { name: 'ClickUp', icon: SiClickup },
-       { name: 'JIRA', icon: SiJira },
-    { name: 'Google Collab', icon: SiGooglecolab },
+    { name: 'Notion', stackIcon: 'notion' },
+    { name: 'Gemini', stackIcon: 'gemini' },
+    { name: 'ChatGPT', stackIcon: 'openai' },
+    { name: 'Claude', stackIcon: 'claude' },
+    { name: 'ClickUp', stackIcon: 'clickup' },
+    { name: 'reddit', icon: SiReddit },
   ],
   testing: [
-    { name: 'Postman', icon: SiPostman },
-    { name: 'Httpie', icon: Globe },
-    { name: 'Cypress', icon: SiCypress },
-    { name: 'OpenRouter', icon: Route },
+    { name: 'Postman', stackIcon: 'postman' },
+    { name: 'Cypress', stackIcon: 'cypress' },
+    { name: 'Playwright', stackIcon: 'playwright' },
   ],
 };
 

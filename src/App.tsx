@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="relative min-h-screen antialiased font-sans overflow-x-hidden bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+    <div className="relative min-h-screen antialiased font-sans overflow-x-clip bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
         <HeroSection/>
         <Experience />
         <WorkSections />
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
 
 const AppContent: React.FC = () => {
   return (
-    <div className="relative min-h-screen antialiased font-sans overflow-x-hidden bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+    <div className="relative min-h-screen antialiased font-sans overflow-x-clip bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
       <FollowCursor zIndex={10} size={5} lightColor="#72767a" darkColor="#e7e9ea" />
       <Navbar />
       <Routes>

@@ -175,8 +175,8 @@ function HeroSection() {
     >
       <h2 className="text-[1.90rem] font-light tracking-tight">
         <span className="font-normal">Fullstack Developer. </span>
-        <span className="text-foreground/60">Delivering a professional experiences that </span>{""}
-        <AnimatedTextCycle 
+        <span className="text-foreground/60">Building a meaningful experiences that </span>{""}
+        <AnimatedTextCycle
           words={[
             "solve real problems",
             "deliver results",
@@ -186,7 +186,7 @@ function HeroSection() {
 
           ]}
           interval={3000}
-          className="text-foreground font-normal" 
+          className="text-foreground font-normal"
         />
 
       </h2>

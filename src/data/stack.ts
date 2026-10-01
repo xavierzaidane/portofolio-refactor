@@ -11,6 +11,7 @@ import {
   SiVite,
   SiPostgresql,
   SiPrisma,
+  SiN8N,
 
 } from 'react-icons/si';
 
@@ -24,7 +25,7 @@ export const STACK_DATA: StackItem[] = [
   { name: 'React.js', icon: SiReact },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'PostgreSQL', icon: SiPostgresql },
-  { name: 'Express.js', icon: SiExpress },
+  { name: 'n8n', icon: SiN8N },
   { name: 'Typescript', icon: SiTypescript },
   { name: 'Prisma', icon: SiPrisma },
   { name: 'Vite', icon: SiVite },

@@ -19,6 +19,16 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, './src'),
         }
+      },
+      build: {
+        chunkSizeWarningLimit: 10000,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'tech-stack-icons': ['tech-stack-icons']
+            }
+          }
+        }
       }
     };
 });

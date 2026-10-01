@@ -182,7 +182,7 @@ function HeroSection() {
             "deliver results",
             "drive real impact",
             "make a difference",
-            "optimize outcomes"
+            "optimize output"
 
           ]}
           interval={3000}

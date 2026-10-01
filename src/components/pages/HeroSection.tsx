@@ -135,19 +135,19 @@ function HeroSection() {
     <section 
       ref={sectionRef}
       id="/"
-      className="relative min-h-screen flex items-center container mx-auto px-20 py-20 justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center container mx-auto px-4 sm:px-8 md:px-12 lg:px-20 py-16 md:py-20 justify-center overflow-hidden"
     >
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-10">
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center gap-8 sm:gap-10">
 
         {/* TITLE */}
         <div 
           ref={titleWrapperRef} 
           onClick={() => navigate('/about')}
-          className="flex flex-col items-center cursor-pointer leading-none text-left px-4 group transition-transform duration-300 hover:scale-[1.01]"
+          className="flex flex-col items-center cursor-pointer leading-none text-left px-2 sm:px-4 group transition-transform duration-300 hover:scale-[1.01]"
           title="Click to view About Me"
         >
           <motion.h1
-              className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl pointer-events-none group-hover:text-foreground/70 transition-colors duration-300"
+              className="font-medium text-7xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl pointer-events-none group-hover:text-foreground/70 transition-colors duration-300"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -156,7 +156,7 @@ function HeroSection() {
           </motion.h1>
 
           <motion.h3
-              className="font-instrument italic text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-2 lg:text-9xl pointer-events-none group-hover:text-foreground transition-colors duration-300"
+              className="font-instrument italic text-foreground/70 text-7xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl -mt-1 md:-mt-2 lg:text-9xl pointer-events-none group-hover:text-foreground transition-colors duration-300"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}
@@ -168,12 +168,12 @@ function HeroSection() {
 
     {/* DESCRIPTION */}
     <motion.div
-      className="max-w-2xl"
+      className="max-w-2xl px-2"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
     >
-      <h2 className="text-[1.90rem] font-light tracking-tight">
+      <h2 className="text-2xl sm:text-2xl md:text-[1.90rem] font-light tracking-tight">
         <span className="font-normal">Fullstack Developer. </span>
         <span className="text-foreground/60">Building a meaningful experiences that </span>{""}
         <AnimatedTextCycle

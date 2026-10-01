@@ -45,17 +45,17 @@ function WorkSections() {
   );
 
   return (
-    <section id="work" className="container mx-auto px-20">
+    <section id="work" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
       {/* Left Label */}
-      <div className="py-12 -mb-5">
+      <div className="py-8 md:py-12 -mb-5">
         <span className="text-sm font-mono uppercase text-foreground/60">
           Selected Work
         </span>
       </div>
 
       {/* Projects Section - Full Width */}
-      <div className="border-t border-foreground/10 dark:border-white/10 py-20">
-        <div className="flex min-h-screen items-center justify-center -mt-20 -mb-10">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-16 md:py-20">
+        <div className="flex min-h-[50vh] md:min-h-screen items-center justify-center -mt-10 md:-mt-20 -mb-10">
           <div className="flex w-full flex-col items-center justify-center">
             {projectsWithMeta.map((projectMeta, index) => (
               <ProjectItem
@@ -90,20 +90,25 @@ function ProjectItem({
 }) {
   return (
     <div
-      className="group flex w-full cursor-pointer items-center justify-between border-t border-foreground/10 py-8 md:py-12 transition-opacity duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
+      className="group flex w-full cursor-pointer items-start md:items-center justify-between border-t border-foreground/10 py-6 sm:py-8 md:py-12 transition-opacity duration-200 first:border-t-0 last:border-b-0 hover:opacity-50"
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
       onClick={() => onProjectClick(project)}
     >
-      <h2 className="m-0 font-medium text-5xl leading-[0.95] tracking-tight md:text-6xl transition-transform duration-300 group-hover:translate-x-2.5">
-        <span className="text-[0.775rem] mr-6 font-mono tracking-wide text-foreground/60">
-          {String(index + 1).padStart(2, "0")}.
-        </span>{" "}
-        {title}
-      </h2>
-      <div className="hidden md:flex items-center gap-6 text-[0.775rem] font-mono uppercase text-foreground/60 transition-transform duration-300 group-hover:translate-x-2.5">
+      <div className="flex flex-col gap-1.5 min-w-0">
+        <h2 className="m-0 font-medium text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-[1.05] md:leading-[0.95] tracking-tight transition-transform duration-300 group-hover:translate-x-2.5">
+          <span className="text-[0.775rem] mr-3 sm:mr-6 font-mono tracking-wide text-foreground/60 inline-block">
+            {String(index + 1).padStart(2, "0")}.
+          </span>{" "}
+          {title}
+        </h2>
+        <span className="text-[11px] font-mono uppercase text-foreground/50 tracking-wider md:hidden pl-7">
+          {project.category}
+        </span>
+      </div>
+      <div className="hidden md:flex items-center gap-6 text-[0.775rem] font-mono uppercase text-foreground/60 transition-transform duration-300 group-hover:translate-x-2.5 shrink-0">
         <span>{project.category}</span>
-        <div className="w-13 h-13 bg-background dark:bg-background border dark:text-black text-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-45">
+        <div className="w-11 h-11 md:w-13 md:h-13 bg-background dark:bg-background border dark:text-black text-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-45">
           <ArrowUpRight className="text-foreground/70" size={20} />
         </div>
       </div>

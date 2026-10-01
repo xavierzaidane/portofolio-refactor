@@ -129,7 +129,7 @@ export default function Navbar() {
             e.preventDefault();
             handleNavigate('/');
           }}
-          className="flex items-center gap-2 pointer-events-auto"
+          className="flex items-center gap-2 pt-10 sm:pt-0 pointer-events-auto"
         >
           <div className="logo-nav cursor-pointer z-10">
             <p className="text-lg md:text-sm text-background/80 dark:text-white">

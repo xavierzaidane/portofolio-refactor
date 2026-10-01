@@ -156,9 +156,9 @@ function Contact() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="container mx-auto px-20 py-24 relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20 py-16 md:py-24 relative overflow-hidden">
       {/* Header */}
-      <div ref={headerRef} className="mb-16 flex items-center justify-between border-b border-foreground/10 dark:border-white/10 pb-6">
+      <div ref={headerRef} className="mb-12 md:mb-16 flex items-center justify-between border-b border-foreground/10 dark:border-white/10 pb-6">
         <span className="text-sm font-mono uppercase text-foreground/60">
           Get in Touch
         </span>
@@ -167,7 +167,7 @@ function Contact() {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
         {/* Left Icon - Hidden on mobile */}
         <div ref={iconRef} className="relative hidden lg:col-span-2 lg:flex lg:items-start lg:justify-center">
           <div className="sticky top-32">
@@ -176,12 +176,12 @@ function Contact() {
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col gap-16 lg:col-span-10">
+        <div className="flex flex-col gap-10 md:gap-16 lg:col-span-10">
           {/* Heading */}
           <div>
             <h2
               ref={headingRef}
-              className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl"
+              className="font-medium text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05] md:leading-[0.95] tracking-tighter"
             >
               Let's build
               <br />
@@ -194,8 +194,8 @@ function Contact() {
           </div>
 
           {/* Description */}
-          <div ref={descRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="space-y-6 font-light text-foreground/60 dark:text-white/60 text-lg leading-relaxed">
+          <div ref={descRef} className="grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2">
+            <div className="space-y-4 md:space-y-6 font-light text-foreground/60 dark:text-white/60 text-base sm:text-lg leading-relaxed">
               <p>
                 I'm always excited to explore <span className="font-instrument italic text-foreground dark:text-white ">new opportunities</span> and collaborate with talented people who share a passion for <span className="font-instrument italic text-foreground dark:text-white">quality design and engineering</span>.
               </p>
@@ -203,7 +203,7 @@ function Contact() {
                 Whether you have a project in mind, want to discuss ideas, or just want to connect — I'd love to hear from you.
               </p>
             </div>
-            <div className="space-y-6 font-light text-foreground/60 dark:text-white/60 text-lg leading-relaxed">
+            <div className="space-y-4 md:space-y-6 font-light text-foreground/60 dark:text-white/60 text-base sm:text-lg leading-relaxed">
               <p>
                 I respond to messages quickly and love having <span className="font-instrument italic text-foreground dark:text-white">meaningful conversations</span> about building digital products.
               </p>
@@ -212,8 +212,6 @@ function Contact() {
               </p>
             </div>
           </div>
-
-         
         </div>
       </div>
     </section>

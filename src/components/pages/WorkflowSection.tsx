@@ -23,9 +23,9 @@ function WorkflowIcon({ item }: { item: WorkflowItem }) {
 
 function WorkflowSection() {
   return (
-    <section id="workflow" className="container mx-auto px-20">
-      <div className="border-t border-foreground/10 dark:border-white/10 py-20 -mt-7 mb-25">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+    <section id="workflow" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-16 md:py-20 -mt-7 mb-25">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
             <span className="text-sm font-mono uppercase text-foreground/60">
@@ -34,7 +34,7 @@ function WorkflowSection() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col gap-12 lg:col-span-9">
+          <div className="flex flex-col gap-8 md:gap-12 lg:col-span-9">
             {/* Description */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ function WorkflowSection() {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
+              <h3 className="text-xl sm:text-2xl md:text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
                 The essential <span className="text-foreground dark:text-white font-instrument italic">software and ecosystem</span> that powers my <span className="text-foreground dark:text-white font-instrument italic">development</span> environment.
               </h3>
             </motion.div>
@@ -61,7 +61,7 @@ function WorkflowSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="col-span-1 md:col-span-2 lg:col-span-8 bg-background dark:bg-background p-3 sm:p-4 md:p-6"
+                className="col-span-1 md:col-span-2 lg:col-span-8 bg-background dark:bg-background p-3.5 sm:p-4 md:p-6"
               >
                 <motion.h4 
                   initial={{ opacity: 0, y: 10 }}

@@ -13,7 +13,7 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
   };
 
   return (
-    <div className="flex flex-col py-24 md:gap-14 gap-24">
+    <div className="flex flex-col py-12 md:py-24 gap-12 sm:gap-16 md:gap-14">
 
       {/* Problem Definition */}
       {project.problem && (
@@ -22,16 +22,16 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex gap-4"
+          className="flex gap-3 sm:gap-4"
         >
-          <div className="md:w-[45%] flex gap-4 justify-end shrink-0">
+          <div className="md:w-[45%] flex gap-2 sm:gap-4 justify-end shrink-0">
             <p className="text-foreground/50 text-sm md:text-base font-mono">[1]</p>
           </div>
-          <div className="w-full flex flex-col gap-4">
-            <p className="text-sm md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
+          <div className="w-full flex flex-col gap-3 sm:gap-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
               Problem Definition
             </p>
-            <p className="text-foreground/70 md:w-[85%] text-sm md:text-base">
+            <p className="text-foreground/70 md:w-[85%] text-sm md:text-base leading-relaxed">
               {project.problem}
             </p>
           </div>
@@ -45,16 +45,16 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex gap-4"
+          className="flex gap-3 sm:gap-4"
         >
-          <div className="md:w-[45%] flex gap-4 justify-end shrink-0">
+          <div className="md:w-[45%] flex gap-2 sm:gap-4 justify-end shrink-0">
             <p className="text-foreground/50 text-sm md:text-base font-mono">[2]</p>
           </div>
-          <div className="w-full flex flex-col gap-4">
-            <p className="text-sm md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
+          <div className="w-full flex flex-col gap-3 sm:gap-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
               Solution
             </p>
-            <p className="text-foreground/70 md:w-[85%] text-sm md:text-base">
+            <p className="text-foreground/70 md:w-[85%] text-sm md:text-base leading-relaxed">
               {project.solution}
             </p>
           </div>
@@ -68,16 +68,16 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex gap-4"
+          className="flex gap-3 sm:gap-4"
         >
-          <div className="md:w-[45%] flex gap-4 justify-end shrink-0">
+          <div className="md:w-[45%] flex gap-2 sm:gap-4 justify-end shrink-0">
             <p className="text-foreground/50 text-sm md:text-base font-mono">[3]</p>
           </div>
-          <div className="w-full flex flex-col gap-4">
-            <p className="text-sm md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
+          <div className="w-full flex flex-col gap-3 sm:gap-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-foreground font-instrument italic border-b border-foreground/10 pb-2">
               Features & Scope
             </p>
-            <p className="text-foreground/70 md:w-[85%] text-sm md:text-base">
+            <p className="text-foreground/70 md:w-[85%] text-sm md:text-base leading-relaxed">
               {project.scope}
             </p>
           </div>
@@ -91,14 +91,14 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({ project }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex gap-4"
+          className="flex gap-3 sm:gap-4"
         >
-          <div className="md:w-[45%] flex gap-4 justify-end shrink-0">
+          <div className="md:w-[45%] flex gap-2 sm:gap-4 justify-end shrink-0">
             <p className="text-foreground/50 text-sm md:text-base font-mono">[4]</p>
           </div>
-          <div className="w-full flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-3 sm:gap-4">
             <div className="w-full flex justify-between border-b border-foreground/10 pb-2">
-              <p className="text-sm md:text-2xl text-foreground font-instrument italic">
+              <p className="text-lg sm:text-xl md:text-2xl text-foreground font-instrument italic">
                 Development Process
               </p>
               <div className="md:flex hidden gap-3 opacity-60">

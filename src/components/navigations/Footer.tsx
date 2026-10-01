@@ -173,23 +173,23 @@ function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative container mx-auto px-20 bg-background flex flex-col justify-between overflow-hidden">
-      <div className="border-t border-foreground/10 dark:border-white/10 px-4 py-24 xl:px-20 md:px-16 flex w-full justify-between md:flex-row flex-col md:gap-0 gap-12">
+    <footer ref={footerRef} className="relative container mx-auto px-4 sm:px-8 md:px-12 lg:px-20 bg-background flex flex-col justify-between overflow-hidden">
+      <div className="border-t border-foreground/10 dark:border-white/10 px-0 sm:px-4 py-16 md:py-24 xl:px-20 md:px-16 flex w-full justify-between md:flex-row flex-col items-center md:items-start md:gap-0 gap-12">
         {/* Left Section */}
-        <div ref={leftRef} className="flex flex-col justify-between h-full md:w-[50%]">
-          <div>
-            <p ref={titleRef} className="font-medium text-foreground/70 text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-2xl mb-1">
+        <div ref={leftRef} className="flex flex-col justify-between h-full md:w-[50%] items-center md:items-start text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start">
+            <p ref={titleRef} className="font-medium text-foreground/70 text-lg sm:text-xl md:text-xl lg:text-2xl tracking-tighter mb-1">
               Contact
             </p>
-            <p ref={headingRef} className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-5xl mb-16">
+            <p ref={headingRef} className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] md:leading-[0.95] tracking-tighter mb-8 sm:mb-12 md:mb-16">
               Let's stay connected
             </p>
             
             {/* CTA Buttons */}
-            <div ref={ctaRef} className="flex gap-4 flex-col md:flex-row">
+            <div ref={ctaRef} className="flex gap-4 flex-col md:flex-row items-center md:items-start justify-center md:justify-start">
               <ButtonWithIconDemo />
             </div>
-            <p className="mt-15 text-sm leading-relaxed text-foreground/60 dark:text-white/60">
+            <p className="mt-10 md:mt-15 text-xs sm:text-sm leading-relaxed text-foreground/60 dark:text-white/60 text-center md:text-left">
               &copy; 2026 portfolio by Xavier Zaidane Athaya
 
             </p>
@@ -197,13 +197,13 @@ function Footer() {
         </div>
 
         {/* Right Section */}
-        <div ref={rightRef} className="md:w-[45%] w-full flex gap-16 md:justify-end justify-start my-10 md:mt-0">
+        <div ref={rightRef} className="md:w-[45%] w-full flex gap-12 sm:gap-16 justify-center md:justify-end my-6 md:my-10 md:mt-0">
           {/* Navigation Links */}
-          <div ref={navRef} className="flex flex-col w-fit">
-            <p className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-xl mb-5">
+          <div ref={navRef} className="flex flex-col w-fit items-center md:items-start text-center md:text-left">
+            <p className="font-medium text-base sm:text-lg md:text-lg lg:text-xl tracking-tighter mb-3 sm:mb-4 md:mb-5">
               Navigation
             </p>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2 items-center md:items-start">
               {[
                 { name: 'Home', href: '#' },
                 { name: 'Work', href: '#work' },
@@ -222,11 +222,11 @@ function Footer() {
           </div>
 
           {/* Social Links */}
-          <div ref={socialRef} className="flex flex-col w-fit">
-            <p className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-xl mb-5">
+          <div ref={socialRef} className="flex flex-col w-fit items-center md:items-start text-center md:text-left">
+            <p className="font-medium text-base sm:text-lg md:text-lg lg:text-xl tracking-tighter mb-3 sm:mb-4 md:mb-5">
               Socials
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 items-center md:items-start">
               <a
                 href="https://github.com/xavierzaidane"
                 target="_blank"

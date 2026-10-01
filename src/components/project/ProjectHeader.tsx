@@ -25,15 +25,15 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 
 
   return (
-    <div className="w-full md:h-[85vh] flex flex-col pt-60 justify-between py-10 gap-10">
-      <div className="w-full h-full flex md:flex-row flex-col justify-between md:gap-3 gap-12">
+    <div className="w-full md:h-[85vh] flex flex-col pt-24 sm:pt-32 md:pt-44 lg:pt-60 justify-between py-6 md:py-10 gap-8 md:gap-10">
+      <div className="w-full h-full flex md:flex-row flex-col justify-between md:gap-3 gap-8 md:gap-12">
         {/* Name & Description */}
-        <div className="flex flex-col gap-8 md:w-[60%] w-full">
+        <div className="flex flex-col gap-6 md:gap-8 md:w-[60%] w-full">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-medium text-5xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl"
+            className="font-medium text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05] md:leading-[0.95] tracking-tighter"
           >
             {project.title}
           </motion.h1>
@@ -42,7 +42,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-normal 3xl:text-2xl md:text-xl text-foreground/80"
+            className="font-normal text-sm sm:text-base md:text-xl 3xl:text-2xl text-foreground/80 leading-relaxed"
           >
             {project.fullDescription || project.description}
           </motion.p>
@@ -81,7 +81,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex gap-3 md:gap-4 md:justify-start justify-end flex-wrap"
+        className="flex gap-3 md:gap-4 justify-start flex-wrap"
       >
          <Button
       ref={buttonRef}

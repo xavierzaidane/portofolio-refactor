@@ -31,9 +31,9 @@ function ResumeSection() {
       }
     };
   return (
-    <section id="resume" className="container mx-auto px-20">
-      <div className="border-t border-foreground/10 dark:border-white/10 py-20 -mt-7 mb-15">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+    <section id="resume" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-16 md:py-20 -mt-7 mb-15">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
             <span className="text-sm font-mono uppercase text-foreground/60">
@@ -42,16 +42,16 @@ function ResumeSection() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col gap-8 lg:col-span-9">
+          <div className="flex flex-col gap-6 md:gap-8 lg:col-span-9">
             {/* Heading */}
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="font-medium text-4xl leading-[0.95] tracking-tighter sm:text-6xl md:text-7xl lg:text-6xl text-left"
+              className="font-medium text-3xl sm:text-5xl md:text-6xl lg:text-6xl leading-[1.05] md:leading-[0.95] tracking-tighter text-left"
             >
-              <span className="text-foreground/60 dark:text-white/60 font-instrument italic text-7xl">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60 text-7xl font-instrument italic"></span> Development journey.
+              <span className="text-foreground/60 dark:text-white/60 font-instrument italic text-3xl sm:text-5xl md:text-6xl lg:text-6xl">Take a look at my </span> <br className="leading-2"/><span className="text-foreground/60 dark:text-white/60 font-instrument italic"></span> Development journey.
             </motion.h3>
 
             {/* Description */}

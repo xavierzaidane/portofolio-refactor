@@ -234,7 +234,7 @@ const AboutPage: React.FC = () => {
             variants={headlineContainerVariants}
             initial="hidden"
             animate="visible"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tighter leading-[1.05] text-foreground max-w-2xl flex flex-wrap gap-x-[0.28em] gap-y-[0.08em]"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tighter leading-[1.05] text-foreground max-w-2xl flex flex-wrap gap-x-[0.28em] gap-y-[0.08em]"
           >
             {headlineWords.map((item, idx) => (
               <motion.span
@@ -282,7 +282,7 @@ const AboutPage: React.FC = () => {
 
       {/* HOW I CAN HELP YOU SECTION */}
       <motion.section
-        className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-16 border-t border-foreground/15 dark:border-white/15 items-start mt-12 md:-mt-37"
+        className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-16 border-t border-foreground/15 dark:border-white/15 items-start -mt-31 md:-mt-37"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
@@ -328,14 +328,21 @@ const AboutPage: React.FC = () => {
               >
                 <button
                   onClick={() => toggleAccordion(service.id)}
-                  className="w-full flex items-center justify-between text-left group cursor-pointer py-4 gap-4"
+                  className="w-full flex items-center justify-between text-left group cursor-pointer py-4 gap-3 sm:gap-4"
                 >
-                  <h3 className="text-base sm:text-lg md:text-2xl font-instrument italic tracking-tight text-foreground/80 group-hover:text-foreground transition-colors duration-300">
-                    {service.title}
-                  </h3>
+                  <div className="flex flex-col gap-1.5 min-w-0">
+                    <h3 className="text-base sm:text-lg md:text-2xl font-instrument italic tracking-tight text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <div className="flex sm:hidden items-center gap-2 text-foreground/40 pt-0.5">
+                      {service.icons.map((Icon, idx) => (
+                        <Icon key={idx} className="w-3.5 h-3.5" />
+                      ))}
+                    </div>
+                  </div>
 
                   <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-                    <div className="flex items-center gap-2.5 sm:gap-3.5 text-foreground/50 group-hover:text-foreground/80 transition-colors duration-300">
+                    <div className="hidden sm:flex items-center gap-2.5 sm:gap-3.5 text-foreground/50 group-hover:text-foreground/80 transition-colors duration-300">
                       {service.icons.map((Icon, idx) => (
                         <Icon key={idx} className="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform duration-300 group-hover:scale-110" />
                       ))}

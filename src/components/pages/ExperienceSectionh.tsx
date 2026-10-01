@@ -30,10 +30,10 @@ function Experience() {
 
 
   return (
-    <section id="experience" className="container mx-auto px-20 -mb-25">
-      <div className="border-t border-foreground/10 dark:border-white/10 py-20">
+    <section id="experience" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20 -mb-25">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-16 md:py-20">
         <div className="-mt-7 mb-20">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
             <span className="text-sm font-mono uppercase text-foreground/60">
@@ -42,14 +42,14 @@ function Experience() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col gap-12 lg:col-span-9">
+          <div className="flex flex-col gap-8 md:gap-12 lg:col-span-9">
             {/* Description */}
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: '-100px' }}
-              className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
+              className="text-xl sm:text-2xl md:text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
             >
 With over <span className="text-foreground dark:text-white font-instrument italic">a year</span> of experience in Fullstack Development, contributing to impactful and <span className="text-foreground dark:text-white font-instrument italic">modern digital solutions.</span> 
             </motion.h3>
@@ -93,11 +93,11 @@ With over <span className="text-foreground dark:text-white font-instrument itali
                     {item.year}
                   </span>
 
-                  <span className="text-[20px] sm:text-[22px] leading-snug tracking-wide text-foreground/60 dark:text-foreground/60 group-hover:text-foreground/70 dark:group-hover:text-white mt-1 sm:mt-2 md:mt-1 transition-colors pointer-events-none text-center">
+                  <span className="text-base sm:text-lg md:text-[20px] lg:text-[22px] leading-snug tracking-wide text-foreground/60 dark:text-foreground/60 group-hover:text-foreground/70 dark:group-hover:text-white mt-1 sm:mt-2 md:mt-1 transition-colors pointer-events-none text-center">
                     {item.company}
                   </span>
 
-                  <span className="text-[14px] leading-snug tracking-wide text-foreground/40 dark:text-foreground/30 group-hover:text-foreground/70 dark:group-hover:text-white mt-3 sm:mt-4 md:mt-3 transition-colors pointer-events-none text-center">
+                  <span className="text-[12px] sm:text-[14px] leading-snug tracking-wide text-foreground/40 dark:text-foreground/30 group-hover:text-foreground/70 dark:group-hover:text-white mt-2 sm:mt-3 md:mt-3 transition-colors pointer-events-none text-center">
                     {item.role}
                   </span>
                 </motion.div>

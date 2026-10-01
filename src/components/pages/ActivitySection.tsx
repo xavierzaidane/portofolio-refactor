@@ -31,9 +31,9 @@ const data = days.map((date) => {
 
 function ActivitySection() {
   return (
-    <section id="activity" className="container mx-auto px-20">
-      <div className="border-t border-foreground/10 dark:border-white/10 py-20 -mt-7 mb-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+    <section id="activity" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-16 md:py-20 -mt-7 mb-20">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
             <span className="text-sm font-mono uppercase text-foreground/60">
@@ -42,14 +42,14 @@ function ActivitySection() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col gap-12 lg:col-span-9">
+          <div className="flex flex-col gap-8 md:gap-12 lg:col-span-9">
             {/* Description */}
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
+              className="text-xl sm:text-2xl md:text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl"
             >
               A visual record of <span className="text-foreground font-instrument italic">consistency </span>and commitment to <span className="text-foreground font-instrument italic">engineering </span>excellence.
             </motion.h3>
@@ -60,6 +60,7 @@ function ActivitySection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
+              className="w-full overflow-x-auto pb-4"
             >
               <ContributionGraph className="" data={data}>
                 <ContributionGraphCalendar className="font-mono tracking-widest text-foreground/80">

@@ -49,8 +49,8 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
               ></path>
             </svg>
             <div className="text-left">
-              <p className="text-foreground/50 text-sm">Previous Case Study</p>
-              <p className="text-xl font-baskerville italic text-foreground">
+              <p className="text-foreground/50 text-xs sm:text-sm">Previous Case Study</p>
+              <p className="text-base sm:text-lg md:text-xl font-baskerville italic text-foreground">
                 {previousProject.title}
               </p>
             </div>
@@ -65,8 +65,8 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
         >
           <div className="flex flex-col-reverse md:flex-row items-end md:items-start gap-2 justify-end cursor-pointer">
             <div className="text-right">
-              <p className="text-sm text-foreground/50">Next Case Study</p>
-              <p className="text-xl font-baskerville italic text-foreground">
+              <p className="text-xs sm:text-sm text-foreground/50">Next Case Study</p>
+              <p className="text-base sm:text-lg md:text-xl font-baskerville italic text-foreground">
                 {nextProject.title}
               </p>
             </div>

@@ -74,9 +74,9 @@ function StackSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="stack" className="container mx-auto px-20">
-      <div className="border-t border-foreground/10 dark:border-white/10 py-20 -mt-7 mb-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+    <section ref={sectionRef} id="stack" className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+      <div className="border-t border-foreground/10 dark:border-white/10 py-16 md:py-20 -mt-7 mb-20">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-12">
           {/* Left Label */}
           <div className="lg:col-span-3">
             <span className="text-sm font-mono uppercase text-foreground/60">
@@ -85,10 +85,10 @@ function StackSection() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col gap-12 lg:col-span-9">
+          <div className="flex flex-col gap-8 md:gap-12 lg:col-span-9">
             {/* Description */}
             <div ref={headerRef}>
-              <p className="text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
+              <p className="text-xl sm:text-2xl md:text-[1.90rem] font-light tracking-tight text-foreground/60 dark:text-foreground/60 max-w-3xl">
                 The <span className="font-instrument italic text-foreground dark:text-white">tools and technologies</span> I use to build{' '}
                 <span className="font-instrument italic text-foreground dark:text-white">scalable</span>, modern web applications.
               </p>
@@ -116,16 +116,16 @@ function StackSection() {
                       scale: 1.02,
                       transition: { duration: 0.3, ease: 'easeOut' }
                     }}
-                    className="group relative flex aspect-square flex-col items-center justify-center gap-4 bg-background p-6 transition-colors duration-300 hover:bg-foreground/5 dark:hover:bg-white/5"
+                    className="group relative flex aspect-square flex-col items-center justify-center gap-3 sm:gap-4 bg-background p-4 sm:p-6 transition-colors duration-300 hover:bg-foreground/5 dark:hover:bg-white/5"
                   >
                     <motion.div 
                       className="text-foreground/40 dark:text-white/40 transition-colors duration-300 group-hover:text-foreground dark:group-hover:text-white"
                       whileHover={{ scale: 1.15, rotate: 5 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                     >
-                      <Icon className="w-10 h-10" />
+                      <Icon className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10" />
                     </motion.div>
-                    <span className="font-mono text-foreground/40 dark:text-white/40 text-xs uppercase tracking-widest transition-colors duration-300 group-hover:text-foreground dark:group-hover:text-white">
+                    <span className="font-mono text-foreground/40 dark:text-white/40 text-[11px] sm:text-xs uppercase tracking-widest transition-colors duration-300 group-hover:text-foreground dark:group-hover:text-white text-center">
                       {item.name}
                     </span>
                   </motion.a>

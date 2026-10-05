@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 
-import React, { useState, useEffect } from 'react';
-import { useScroll, useTransform } from 'framer-motion';
-import ReactLenis from 'lenis/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import ReactLenis, { useLenis } from 'lenis/react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/navigations/Navbar';
 import HeroSection from './components/pages/HeroSection';
 import Experience from './components/pages/ExperienceSectionh';
@@ -23,9 +24,13 @@ import AboutPage from './components/pages/AboutPage';
 import { ThemeToggleButton } from './components/ui/skiper26';
 import FollowCursor from './components/ui/cursor';
 
-const HomePage: React.FC = () => {
-  const { scrollYProgress } = useScroll();
+gsap.registerPlugin(ScrollTrigger);
 
+const updateScrollTrigger = () => {
+  ScrollTrigger.update();
+};
+
+const HomePage: React.FC = () => {
   return (
     <div className="relative min-h-screen antialiased font-sans overflow-x-clip bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
         <HeroSection/>
@@ -37,14 +42,28 @@ const HomePage: React.FC = () => {
         <ResumeSection />
         <Philosophy />
         <Contact />
-        <div className="fixed bottom-6 md:bottom-4 right-4 md:right-6 z-50 pointer-events-auto">
-          <ThemeToggleButton className='h-8 w-8 ' variant="circle" start="bottom-right" blur={true} />
-        </div>
     </div>
   );
 };
 
 const AppContent: React.FC = () => {
+  const location = useLocation();
+  const lenis = useLenis(updateScrollTrigger);
+
+  useEffect(() => {
+    // Reset scroll position on route change
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [location.pathname, lenis]);
+
   return (
     <div className="relative min-h-screen antialiased font-sans overflow-x-clip bg-background text-foreground selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
       <FollowCursor zIndex={10} size={5} lightColor="#72767a" darkColor="#e7e9ea" />
@@ -57,7 +76,7 @@ const AppContent: React.FC = () => {
       <div className="fixed bottom-6 md:bottom-4 right-4 md:right-6 z-50 pointer-events-auto">
         <ThemeToggleButton className='h-8 w-8 ' variant="circle" start="bottom-right" blur={true} />
       </div>
-      <Footer />
+      <Footer key={location.pathname} />
     </div>
   );
 };

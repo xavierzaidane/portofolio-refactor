@@ -71,26 +71,6 @@ const services: ServiceItem[] = [
   }
 ];
 
-const headlineWords = [
-  { text: "I" },
-  { text: "am" },
-  { text: "Xavier" },
-  { text: "Zaidane" },
-  { text: "Athaya," },
-  { text: "a" },
-  { text: "Fullstack", isHighlight: true },
-  { text: "Developer", isHighlight: true },
-  { text: "and" },
-  { text: "Agentic", isHighlight: true },
-  { text: "Workflow", isHighlight: true },
-  { text: "Engineer", isHighlight: true },
-  { text: "with" },
-  { text: "a" },
-  { text: "passion" },
-  { text: "for" },
-  { text: "building." },
-];
-
 const sublineWords = [
   "—Undergrads",
   "who",
@@ -108,34 +88,6 @@ const sublineWords = [
   "in",
   "China"
 ];
-
-const headlineContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.04,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const wordVariants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-    filter: "blur(8px)",
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  },
-};
 
 const sublineContainerVariants = {
   hidden: { opacity: 0 },
@@ -231,24 +183,29 @@ const AboutPage: React.FC = () => {
           </motion.div>
 
           <motion.h1
-            variants={headlineContainerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tighter leading-[1.05] text-foreground max-w-2xl flex flex-wrap gap-x-[0.28em] gap-y-[0.08em]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tighter leading-[1.05] text-foreground max-w-2xl"
           >
-            {headlineWords.map((item, idx) => (
-              <motion.span
-                key={idx}
-                variants={wordVariants}
-                className={
-                  item.isHighlight
-                    ? "font-instrument italic text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300 inline-block"
-                    : "inline-block"
-                }
-              >
-                {item.text}
-              </motion.span>
-            ))}
+            I am{" "}
+            <span className="relative inline-block font-serif italic underline decoration-4 isolate">
+              Xavier Zaidane
+              <span className="absolute inset-0 bg-primary -z-10 rounded-lg transform -skew-x-3 scale-110 opacity-20"></span>
+            </span>{" "}
+            <span className="relative inline-block font-serif italic underline decoration-4 line px-2 isolate">
+              Athaya,
+              <span className="absolute inset-0 bg-primary -z-10 rounded-lg transform -skew-x-3 scale-110 opacity-20"></span>
+            </span>{" "}
+            a{" "}
+            <span className="font-instrument italic text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300">
+              Fullstack Developer
+            </span>{" "}
+            and{" "}
+            <span className="font-instrument italic text-foreground/60 dark:text-white/60 hover:text-foreground dark:hover:text-white transition-colors duration-300">
+              Agentic Workflow Engineer
+            </span>{" "}
+            with a passion for building.
           </motion.h1>
 
           <motion.h2

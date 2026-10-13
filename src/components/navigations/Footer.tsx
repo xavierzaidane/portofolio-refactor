@@ -1,17 +1,27 @@
-
-import { useRef, useLayoutEffect } from 'react';
-import { SiGithub, SiGmail, SiResend } from 'react-icons/si'
-import { FaInstagram, FaLinkedin } from 'react-icons/fa6'
-import { Download, Mail } from 'lucide-react'
-import { HiArrowUp } from 'react-icons/hi2';
+import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
+import { SiGithub } from 'react-icons/si';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa6';
+import { Mail } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTheme } from 'next-themes';
 import ButtonWithIconDemo from '../ui/button-witn-icon';
+import HalftoneWordmarkFooter from '../ui/halftone-wordmark-footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
+export interface FooterProps {
+  wordmark?: string;
+  height?: string;
+  crop?: number;
+}
+
+export default function Footer({
+  wordmark = 'xavier',
+  height = '980px',
+  crop = 0.25,
+}: FooterProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLParagraphElement>(null);
@@ -19,18 +29,18 @@ function Footer() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
-  const backToTopRef = useRef<HTMLButtonElement>(null);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === 'dark' : true;
 
   useLayoutEffect(() => {
-    if (!footerRef.current) return;
+    if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
       // Animate left section - title
@@ -42,10 +52,10 @@ function Footer() {
           duration: 0.8,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: footerRef.current,
+            trigger: containerRef.current,
             start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
       }
 
@@ -58,10 +68,10 @@ function Footer() {
           duration: 1,
           ease: 'power4.out',
           scrollTrigger: {
-            trigger: footerRef.current,
+            trigger: containerRef.current,
             start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
       }
 
@@ -76,10 +86,10 @@ function Footer() {
           stagger: 0.1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: footerRef.current,
+            trigger: containerRef.current,
             start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
       }
 
@@ -94,10 +104,10 @@ function Footer() {
           stagger: 0.08,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: footerRef.current,
+            trigger: containerRef.current,
             start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
       }
 
@@ -112,103 +122,83 @@ function Footer() {
           stagger: 0.08,
           ease: 'back.out(1.5)',
           scrollTrigger: {
-            trigger: footerRef.current,
+            trigger: containerRef.current,
             start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
       }
-
-      // Animate bottom section
-      if (bottomRef.current) {
-        gsap.set(bottomRef.current, { opacity: 0, y: 20 });
-        gsap.to(bottomRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          }
-        });
-      }
-
-      // Back to top button animation
-      if (backToTopRef.current) {
-        gsap.set(backToTopRef.current, { opacity: 0, y: 20 });
-        gsap.to(backToTopRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          delay: 0.2,
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          }
-        });
-      }
-
-      // Animate bottom section
-      if (bottomRef.current) {
-        gsap.set(bottomRef.current, { opacity: 0, y: 20 });
-        gsap.to(bottomRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          }
-        });
-      }
-    }, footerRef);
+    }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative container mx-auto px-4 sm:px-8 md:px-12 lg:px-20 bg-background flex flex-col justify-between overflow-hidden">
-      <div className="border-t border-foreground/10 dark:border-white/10 px-0 sm:px-4 py-16 md:py-24 xl:px-20 md:px-16 flex w-full justify-between md:flex-row flex-col items-center md:items-start md:gap-0 gap-12">
+    <HalftoneWordmarkFooter
+      wordmark={wordmark}
+      height={height}
+      crop={crop}
+      preset={isDark ? 'night' : 'paper'}
+      palette={{
+        background: isDark ? '#0b0b0b' : '#ffffff',
+      }}
+      containerClassName="container mx-auto px-4 sm:px-8 md:px-12 lg:px-2"
+    >
+      <div
+        ref={containerRef}
+        className="border-t border-foreground/10 dark:border-white/10 px-0 sm:px-4 py-16 md:py-24 xl:px-2 md:px-16 flex w-full justify-between md:flex-row flex-col items-center md:items-start md:gap-0 gap-12"
+      >
         {/* Left Section */}
-        <div ref={leftRef} className="flex flex-col justify-between h-full md:w-[50%] items-center md:items-start text-center md:text-left">
+        <div
+          ref={leftRef}
+          className="flex flex-col justify-between h-full md:w-[50%] items-center md:items-start text-center md:text-left"
+        >
           <div className="flex flex-col items-center md:items-start">
-            <p ref={titleRef} className="font-medium text-foreground/70 text-lg sm:text-xl md:text-xl lg:text-2xl tracking-tighter mb-1">
+            <p
+              ref={titleRef}
+              className="font-instrument italic text-foreground/70 text-lg sm:text-xl md:text-xl lg:text-2xl tracking-tighter mb-1"
+            >
               Contact
             </p>
-            <p ref={headingRef} className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] md:leading-[0.95] tracking-tighter mb-8 sm:mb-12 md:mb-16">
+            <p
+              ref={headingRef}
+              className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] md:leading-[0.95] tracking-tighter mb-8 sm:mb-12 md:mb-16"
+            >
               Let's stay connected
             </p>
-            
+
             {/* CTA Buttons */}
-            <div ref={ctaRef} className="flex gap-4 flex-col md:flex-row items-center md:items-start justify-center md:justify-start">
+            <div
+              ref={ctaRef}
+              className="flex gap-4 flex-col md:flex-row items-center md:items-start justify-center md:justify-start"
+            >
               <ButtonWithIconDemo />
             </div>
             <p className="mt-10 md:mt-15 text-xs sm:text-sm leading-relaxed text-foreground/60 dark:text-white/60 text-center md:text-left">
               &copy; 2026 portfolio by Xavier Zaidane Athaya
-
             </p>
           </div>
         </div>
 
         {/* Right Section */}
-        <div ref={rightRef} className="md:w-[45%] w-full flex gap-12 sm:gap-16 justify-center md:justify-end my-6 md:my-10 md:mt-0">
+        <div
+          ref={rightRef}
+          className="md:w-[45%] w-full flex gap-12 sm:gap-16 justify-center md:justify-end my-6 md:my-10 md:mt-0"
+        >
           {/* Navigation Links */}
-          <div ref={navRef} className="flex flex-col w-fit items-center md:items-start text-center md:text-left">
-            <p className="font-medium text-base sm:text-lg md:text-lg lg:text-xl tracking-tighter mb-3 sm:mb-4 md:mb-5">
+          <div
+            ref={navRef}
+            className="flex flex-col w-fit items-center md:items-start text-center md:text-left"
+          >
+            <p className="font-instrument italic text-base sm:text-lg md:text-lg lg:text-xl tracking-tighter mb-3 sm:mb-4 md:mb-5">
               Navigation
             </p>
             <nav className="flex flex-col gap-2 items-center md:items-start">
               {[
-                { name: 'Home', href: '#' },
-                { name: 'Work', href: '#work' },
-                { name: 'Experience', href: '#experience' },
-                { name: 'Stack', href: '#stack' },
+                { name: 'Home', href: '/' },
+                { name: 'Work', href: '/#work' },
+                { name: 'Experience', href: '/#experience' },
+                { name: 'Stack', href: '/#stack' },
               ].map((link) => (
                 <a
                   key={link.name}
@@ -222,8 +212,11 @@ function Footer() {
           </div>
 
           {/* Social Links */}
-          <div ref={socialRef} className="flex flex-col w-fit items-center md:items-start text-center md:text-left">
-            <p className="font-medium text-base sm:text-lg md:text-lg lg:text-xl tracking-tighter mb-3 sm:mb-4 md:mb-5">
+          <div
+            ref={socialRef}
+            className="flex flex-col w-fit items-center md:items-start text-center md:text-left"
+          >
+            <p className="font-instrument italic text-base sm:text-lg md:text-lg lg:text-xl tracking-tighter mb-3 sm:mb-4 md:mb-5">
               Socials
             </p>
             <div className="flex flex-col gap-3 items-center md:items-start">
@@ -267,11 +260,6 @@ function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Gradient Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-linear-to-b from-transparent to-background/50 pointer-events-none z-0" />
-    </footer>
+    </HalftoneWordmarkFooter>
   );
 }
-
-export default Footer;

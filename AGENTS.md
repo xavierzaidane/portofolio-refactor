@@ -1,55 +1,63 @@
-# Agent Instructions and Guidelines
+# Project Agent Guidelines: Portfolio Refactor
 
-This file defines project-level rules, workflows, and guidelines for AI agents operating in this repository (`xavier-portofolio/portofolio-refactor`).
+Project-specific guidelines, discovered build/test commands, architecture conventions, and agent delegation rules for `xavier-portofolio/portofolio-refactor`.
 
-## Workspace Guidelines
-- **Framework & Stack**: React, TypeScript, Vite, Tailwind CSS, shadcn/ui.
-- **Review & Verification**: Always verify builds and tests before marking tasks complete.
-- **Code Style**: Maintain clean component structure, modular styling, and strict TypeScript types.
+> **Rule Precedence**: The project rules below override any conflicting global directives. For universal standards not specified here, refer to the machine's global baseline rules (`~/.gemini/GEMINI.md` / `~/.agents/rules/universal-rules.md`).
 
 ---
 
-## The Core Agents
+## 1. Discovered Commands & Quality Gates
 
-The repository is configured with 5 specialized agents defined under [`.antigravity/`](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/manifest.json):
+Run commands directly via terminal; do not guess syntax:
+- **Typecheck**: `npm run typecheck` (`tsc --noEmit`)
+- **Unit & Component Tests**: `npm test` (`jest`) / `npm test -- --passWithNoTests`
+- **Production Build**: `npm run build` (`vite build`)
+- **Dev Server**: `npm run dev` (`vite`)
+
+Before marking any functional code changes complete, both `npm run typecheck` and `npm test` must pass with zero errors.
+
+---
+
+## 2. Technology Stack & Architecture Conventions
+
+- **Core Framework**: React 19 (`react`, `react-dom`), TypeScript (`~5.8.2`), Vite (`^6.2.0`).
+- **Styling & UI**: Tailwind CSS v4 (`@tailwindcss/vite`), Radix UI primitives (`@radix-ui/*`), shadcn/ui component patterns, Lucide / Tabler icons.
+- **Animations & Motion**: Framer Motion (`framer-motion`, `motion`), GSAP (`gsap` ScrollTrigger), Lenis smooth scroll (`lenis`).
+- **AI Integrations**: Google GenAI SDK (`@google/genai`).
+- **Code Style**:
+  - Maintain clean component modularity (single-responsibility components).
+  - Enforce strict TypeScript types (no unjustified `any`, strict null checks).
+  - Preserve all existing code comments and docstrings.
+  - No unapproved external dependencies (keep bundle lean).
+
+---
+
+## 3. Core Specialized Agents & Subagents
+
+Defined under [`.antigravity/manifest.json`](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/manifest.json):
 
 1. **`plan`** ([manifest](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/plan.json) | [instructions](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/plan.md))
-   - **Role**: Read-only architect.
-   - **Mode**: `sandbox` (read-only; file edit/write tools disabled).
-   - **Task**: Execute design-tree grilling, ingest `CONTEXT.md` and the existing codebase, and output `implementation_plan.md` and `PLAN.md` for explicit user approval before any code changes start.
-   - **Scope**: Forbidden from modifying source code files; limited solely to reading the codebase and writing/updating the plan files.
-
+   - **Role**: Read-only architect (`mode: sandbox`).
+   - **Task**: Executes design-tree grilling, ingests codebase and requirements, outputs implementation plans for explicit user approval before writing code.
 2. **`build`** ([manifest](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/build.json) | [instructions](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/build.md))
-   - **Role**: TDD implementer.
-   - **Mode**: `auto` (permitted to run terminal commands and project test runners).
-   - **Task**: Implement narrow vertical slices at interface seams. Enforce strict Red-Green TDD (write a failing test first, implement minimum viable code, verify it passes).
-   - **Subagent Integration**: Automatically invoke the `advisor` and `tester` subagents for validation before marking any task as complete.
-
+   - **Role**: TDD implementer (`mode: auto`).
+   - **Task**: Implements narrow vertical slices at interface seams. Enforces Red-Green TDD, invoking `advisor` and `tester` subagents before completion.
 3. **`surgical`** ([manifest](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/surgical.json) | [instructions](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/surgical.md))
-   - **Role**: Minimal-diff bug fixer.
-   - **Mode**: `sandbox` (restricted writes, controlled tool calls).
-   - **Task**: Diagnose the root cause first, then apply the fix using the smallest possible diff.
-   - **Safety Rule**: Enforce the Circuit Breaker (~10% change cap per pass). Absolutely no opportunistic refactoring, style cleanup, or modifications outside the immediate bug target.
-
+   - **Role**: Minimal-diff bug fixer (`mode: sandbox`).
+   - **Task**: Diagnoses root causes and applies fixes using the smallest possible diff under the Circuit Breaker cap (~10%). No opportunistic refactoring.
 4. **`advisor`** ([manifest](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/advisor.json) | [instructions](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/advisor.md))
-   - **Role**: Two-axis code reviewer (Standards + Spec compliance).
-   - **Mode**: `subagent-only` (sandbox / read-only).
-   - **Access Restriction**: This agent must **NOT** be selectable as a primary chat agent. It must only be invoked programmatically as a subagent (via `invoke_subagent`) by primary agents or during verification passes.
-   - **Output Format**: Deliver structured reviews categorized by severity (`P1` / `P2` / `P3`), linking exact line references (`file#L<line>`) alongside actionable fixes.
-
+   - **Role**: Two-axis code reviewer (`mode: subagent-only`, sandbox).
+   - **Task**: Reviews changes along Spec Compliance & Standards Compliance. Outputs structured severity ratings (`P1`, `P2`, `P3`) with exact line references (`file#L<line>`).
 5. **`tester`** ([manifest](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/tester.json) | [instructions](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/tester.md))
-   - **Role**: Automated test executor & regression verifier.
-   - **Mode**: `subagent-only` (sandbox / test runner execution).
-   - **Access Restriction**: Programmatically invoked by primary agents (`build`, `surgical`) or automated workflows.
-   - **Output Format**: Reports exact exit codes, stdout, and failing assertions without truncation or fabrication.
+   - **Role**: Automated test runner & regression verifier (`mode: auto`, subagent-only; `file_write: false`).
+   - **Task**: Executes test commands (`npm test`, `npm run typecheck`, `npm run build`), reporting raw exit codes and telemetry without fabrication. Forbidden from editing source code.
+6. **`hunter`** ([manifest](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/hunter.json) | [instructions](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/agents/hunter.md))
+   - **Role**: Whole-codebase static auditor (`mode: subagent-only`, sandbox).
+   - **Task**: Sweeps codebase for dead code, unhandled async errors, leaks, and anti-patterns with impact maps.
 
 ---
 
-## Global Baseline Constraints: 31 Universal Rules
+## 4. Git & Branch Safety
 
-All agents operating in this repository must strictly adhere to [The 31 Universal Rules](file:///home/xavierzaidane/projects/xavier-portofolio/portofolio-refactor/.antigravity/rules/31-universal-rules.md):
-- **Truth & Verification**: Verify before claiming; zero fabrication; no silent failures; grounded diagnostics; exact line references.
-- **Testing & TDD at Seams**: Red-Green-Refactor sequence; narrow vertical slices; test against interface seams; maintain regression gating.
-- **Safety & Circuit Breakers**: ~10% change cap per pass; no unauthorized commits or pushes; no destructive terminal commands; zero collateral modifications.
-- **Operational Hygiene**: Strict TypeScript and lint clean state; maintain existing comments; follow repository tech stack.
-- **Review & Governance**: Structured two-axis reviews; triaged severities (P1/P2/P3); human-in-the-loop sign-off before plan execution.
+- **Protected Branches**: Never commit or push directly to `main` or protected branches.
+- **Change Scope**: All changes must be made on discrete feature/fix branches with clean commit history.

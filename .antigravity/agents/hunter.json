@@ -1,0 +1,52 @@
+{
+  "name": "hunter",
+  "version": "1.0.0",
+  "role": "Whole-codebase static auditor and code smell scanner",
+  "mode": "sandbox",
+  "primary": false,
+  "subagent_only": true,
+  "description": "Subagent specialized in deep, whole-codebase static auditing, bug class detection (leaks, swallowed exceptions, unhandled promises, null dereferences), dead code discovery, and impact mapping.",
+  "system_prompt_file": "./hunter.md",
+  "capabilities": {
+    "file_read": true,
+    "file_write": false,
+    "terminal_read": true,
+    "terminal_write": false,
+    "subagents": false,
+    "mcp": true
+  },
+  "access_control": {
+    "allow_primary_chat": false,
+    "invocation_methods": [
+      "invoke_subagent"
+    ],
+    "authorized_callers": [
+      "plan",
+      "build",
+      "surgical",
+      "advisor"
+    ]
+  },
+  "output_contract": {
+    "format": "markdown",
+    "severity_levels": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "mandatory_fields": [
+      "severity",
+      "location (file#L<line>)",
+      "impact_map (callers/consumers)",
+      "risk_explanation",
+      "actionable_recommendation"
+    ]
+  },
+  "constraints": [
+    "Strictly follow the 31 Universal Rules",
+    "Must NOT be selectable as a primary chat agent (subagent-only)",
+    "Strict read-only sandbox mode; no write permissions",
+    "Zero fabrication (Rule 1 & 3): verify before claiming, cite only existing lines",
+    "Impact Map (Rule 20): identify all callers, consumers, or downstream dependencies for every finding"
+  ]
+}

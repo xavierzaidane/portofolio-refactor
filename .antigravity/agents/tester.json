@@ -2,7 +2,7 @@
   "name": "tester",
   "version": "1.0.0",
   "role": "Automated test executor and regression verifier",
-  "mode": "subagent-only",
+  "mode": "auto",
   "primary": false,
   "subagent_only": true,
   "description": "Subagent responsible for running Jest/Vitest test suites, analyzing failure outputs, assessing test coverage at seams, and ensuring regression safety.",

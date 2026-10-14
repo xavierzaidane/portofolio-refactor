@@ -75,7 +75,7 @@
       "id": "tester",
       "name": "tester",
       "role": "Automated test executor and regression verifier",
-      "mode": "subagent-only",
+      "mode": "auto",
       "primary": false,
       "subagent_only": true,
       "manifest": "./agents/tester.json",
@@ -87,6 +87,28 @@
         "file_write": false,
         "terminal_read": true,
         "terminal_write": true
+      }
+    },
+    {
+      "id": "hunter",
+      "name": "hunter",
+      "role": "Whole-codebase static auditor and code smell scanner",
+      "mode": "sandbox",
+      "primary": false,
+      "subagent_only": true,
+      "manifest": "./agents/hunter.json",
+      "prompt": "./agents/hunter.md",
+      "task": "Perform comprehensive whole-codebase sweeps to detect hidden bug classes (leaks, swallowed exceptions, TOCTOU, null dereferences, unhandled async), dead code, duplicate logic, and architectural quality risks with impact maps.",
+      "access_restriction": "Subagent-only. Must NOT be selectable as a primary chat agent. Invoked programmatically via invoke_subagent or during audit sweeps.",
+      "capabilities": {
+        "file_read": true,
+        "file_write": false,
+        "terminal_read": true,
+        "terminal_write": false
+      },
+      "output_format": {
+        "structure": "Structured table/list with severity, line references, impact map, and risk analysis",
+        "severities": ["P1", "P2", "P3"]
       }
     }
   ]

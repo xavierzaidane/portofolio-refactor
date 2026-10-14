@@ -47,25 +47,6 @@ function Philosophy() {
             toggleActions: 'play none none none'
           }
         })
-
-        // Hover animation
-        item.addEventListener('mouseenter', () => {
-          gsap.to(item, {
-            backgroundColor: 'rgba(0, 0, 0, 0.02)',
-            duration: 0.3,
-            ease: 'power2.out',
-            overwrite: 'auto'
-          })
-        })
-
-        item.addEventListener('mouseleave', () => {
-          gsap.to(item, {
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            duration: 0.3,
-            ease: 'power2.out',
-            overwrite: 'auto'
-          })
-        })
       })
     }, sectionRef)
 
@@ -95,7 +76,7 @@ function Philosophy() {
             ref={(el) => {
               itemsRef.current[idx] = el
             }}
-            className="group relative border-b border-foreground/10 dark:border-white/10 py-8 sm:py-10 md:py-12 transition-all duration-500"
+            className="group relative border-b border-foreground/10 dark:border-white/10 py-8 sm:py-10 md:py-12 transition-all duration-500 hover:bg-foreground/[0.02] dark:hover:bg-white/[0.02]"
           >
             <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12">
               {/* Left Section - Number & Title */}

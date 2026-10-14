@@ -124,13 +124,16 @@ const AboutPage: React.FC = () => {
   const [brailleText, setBrailleText] = useState(BRAILLE_ART);
 
   useEffect(() => {
-    fetch('/braile.txt')
+    const controller = new AbortController();
+    fetch('/braile.txt', { signal: controller.signal })
       .then((res) => {
         if (res.ok) return res.text();
         return BRAILLE_ART;
       })
       .then((text) => setBrailleText(text))
       .catch(() => {});
+
+    return () => controller.abort();
   }, []);
 
   useEffect(() => {

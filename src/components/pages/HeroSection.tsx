@@ -84,7 +84,6 @@ function HeroSection() {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const helloCursor = useRef<HTMLDivElement>(null);
-  const helloCursorLabel = useRef<HTMLDivElement>(null);
   const titleWrapperRef = useRef<HTMLDivElement>(null);
   const [titleHovered, setTitleHovered] = useState(false);
 
@@ -98,21 +97,11 @@ function HeroSection() {
       duration: 0.5,
       ease: "power3",
     });
-    const xMoveCursorLabel = gsap.quickTo(helloCursorLabel.current, "left", {
-      duration: 0.45,
-      ease: "power3",
-    });
-    const yMoveCursorLabel = gsap.quickTo(helloCursorLabel.current, "top", {
-      duration: 0.45,
-      ease: "power3",
-    });
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       xMoveCursor(clientX);
       yMoveCursor(clientY);
-      xMoveCursorLabel(clientX);
-      yMoveCursorLabel(clientY);
     };
 
     const titleWrapper = titleWrapperRef.current;

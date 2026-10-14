@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Github, Globe, Globe2 } from "lucide-react";
 import { motion } from "motion/react";
 import type { Project } from "@/data/types";
@@ -11,16 +11,13 @@ interface ProjectHeaderProps {
 
 const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
     const [pos, setPos] = useState({ x: 0, y: 0 });
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (buttonRef.current) {
-      const rect = buttonRef.current.getBoundingClientRect();
-      setPos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
   };
 
 
@@ -84,7 +81,6 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
         className="flex gap-3 md:gap-4 justify-start flex-wrap"
       >
          <Button
-      ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onClick={() => window.open(project.github, '_blank')}
       variant="outline"
@@ -107,7 +103,6 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
     </Button>
 
     <Button
-      ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onClick={() => window.open(project.link, '_blank')}
       variant="outline"

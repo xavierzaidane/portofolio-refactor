@@ -38,8 +38,6 @@ function Contact() {
   const iconRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useLayoutEffect(() => {
     if (!sectionRef.current) return;
@@ -106,48 +104,6 @@ function Contact() {
             start: 'top 75%',
             toggleActions: 'play none none none'
           }
-        });
-      }
-
-      // Animate contact cards with stagger and hover effect
-      if (cardsRef.current) {
-        cardRefs.current.forEach((card, index) => {
-          if (!card) return;
-          
-          gsap.set(card, { opacity: 0, y: 60 });
-          gsap.to(card, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top 70%',
-              toggleActions: 'play none none none'
-            }
-          });
-
-          // Hover animation
-          card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-              y: -8,
-              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-              duration: 0.3,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-          });
-
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-              y: 0,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-              duration: 0.3,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-          });
         });
       }
     }, sectionRef);
